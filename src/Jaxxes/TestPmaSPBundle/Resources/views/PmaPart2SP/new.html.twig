@@ -1,0 +1,148 @@
+{% extends '::candidate.html.twig' %}
+{% block id 'pmapart2sp' %}
+{% block title %}PMA - Factor E{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h1>
+                    {{ block('title') }}
+                    {% trans with {'%tiempo%': entityPmaPart2BlockSP.pmaPart2SP.pmaSP.selectionProcessCandidate.candidate.birthDate | cuenta_atras_PmaPart2 } %}
+                        <font size="5" color="#6699CC">
+                            (Tiempo corriendo, faltan: %tiempo%)
+                        </font>
+                    {% endtrans %}
+                </h1>
+                <div class="row-fluid">
+                    {{ form_start(form, { 'action': path('test_pma_part2_sp_create', { 'idpmasp': entityPmaPart2BlockSP.pmaPart2SP.pmaSP.id, 'block' : block, 'id': id }   ) } ) }}  
+                    
+                        <fieldset>
+                            <!--
+                            {{ form_widget(form.pmaPart2SP ) }}
+                            {{ form_widget(form.block ) }}
+                            -->
+                            <div class="row-fluid">
+                                <table class="record_properties">
+                                    <tbody>
+                                        <tr> 
+                                            <th class="span3">Evaluado</th>
+                                            <td class="span4">{{ entityPmaPart2BlockSP.pmaPart2SP.pmaSP }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </fieldset>
+                        <br>
+                        <fieldset>
+                            <center>
+                                <div class="row-fluid">
+                                    <table class="record_properties">
+                                        <thead>
+                                            <tr>
+                                                <td></td>
+                                                <td width="50px"></td>
+                                                <td width="110px">
+                                                    <CENTER>
+                                                        <h3>A</h3>
+                                                    </CENTER>
+                                                </td>
+                                                <td width="110px">
+                                                    <CENTER>
+                                                        <h3>B</h3>
+                                                    </CENTER>
+                                                </td>
+                                                <td width="110px">
+                                                    <CENTER>
+                                                        <h3>C</h3>
+                                                    </CENTER>
+                                                </td>
+                                                <td width="110px">
+                                                    <CENTER>
+                                                        <h3>D</h3>
+                                                    </CENTER>
+                                                </td>
+                                                <td width="110px">
+                                                    <CENTER>
+                                                        <h3>E</h3>
+                                                    </CENTER>
+                                                </td>
+                                                <td width="110px">
+                                                    <CENTER>
+                                                        <h3>F</h3>
+                                                    </CENTER>
+                                                </td>
+                                                <td width="20px"></td>
+                                                <th class="span2"></th>
+                                                <td width="20px"></td>
+                                                <td class="span1"></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% set i = 0 %}
+                                            {% for pmaPart2DetailSP in entityPmaPart2BlockSP.pmaPart2DetailSPs %}
+                                                <tr >
+                                                    <td>
+                                                        <img alt="Fotografía" style="border: 3px outset black;"  width="80px" height="70px" src="{{ asset(directorio_imagenes_pma_part2 ~ pmaPart2DetailSP.pmaPart2Detail.rutaFotoOperation) }}">
+                                                    </td>
+                                                    <td width="50px">
+                                                    </td>
+                                                    <td colspan="6">
+                                                        <img alt="Fotografía" style="border: 3px outset black;" width="660px" height="70px" src="{{ asset(directorio_imagenes_pma_part2 ~ pmaPart2DetailSP.pmaPart2Detail.rutaFotoAlternatives) }}">
+                                                    </td>
+                                                    <td width="20px">
+                                                    </td>
+                                                    
+                                                    <td width="20px">
+                                                    </td>
+                                                    <td class="span1">
+                                                        <h4>
+                                                            {{ pmaPart2DetailSP.pmaPart2Detail.number }}
+                                                        </h4>
+                                                    </td>
+                                                    
+                                                </tr>
+                                               
+                                                <tr>
+                                                <td width="80px">
+                                                    </td>
+                                                <td class="span1">
+                                                        {% for child in form.pmaPart2DetailSPs[ i].answer %}
+														<td>
+															{{form_widget(child)}}
+															{{form_label(child)}}
+														</td>
+														{% endfor %}
+                                                      <!--  {{ form_widget(form.pmaPart2DetailSPs[ i].answer) }}-->
+                                                </td> 
+                                                </tr>
+                                                
+                                                <tr {{ pmaPart2DetailSP.hiddenAux }}>
+                                                    <td height="20px" >
+                                                    </td>
+                                                </tr>
+                                                {% set i = i+1 %}
+                                            {% endfor %}
+                                        </tbody>
+                                        <TFOOT>
+                                            <tr>
+                                                <th COLSPAN=3 ALIGN=LEFT>
+                                                    {{ form_widget(form.guardar ) }}
+                                                </th>
+                                            </tr>
+                                        </TFOOT>
+                                    </table>
+                                </div>
+                                
+                            </center>
+                        </fieldset>
+                        <!--{{ form_widget(form.pmaPart2DetailSPs ) }}-->
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

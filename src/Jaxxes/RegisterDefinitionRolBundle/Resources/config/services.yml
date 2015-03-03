@@ -1,0 +1,7 @@
+parameters:
+#    register_definition_rol.example.class: Jaxxes\RegisterDefinitionRolBundle\Example
+
+services:
+#    register_definition_rol.example:
+#        class: %register_definition_rol.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

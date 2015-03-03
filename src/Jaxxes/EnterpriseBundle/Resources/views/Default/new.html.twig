@@ -1,0 +1,73 @@
+{% extends '::consultor.html.twig' %}
+{% block id 'customer' %}
+{% block title %}Definición de cliente{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h2>{{ block('title') }}</h2>
+                <br>
+                <br>
+                <div class="row-fluid">
+                    {{ form_start(form, { 'action': path('enterprise_create') }) }}  
+                        <fieldset>
+                            <div class="row-fluid">
+                                <table class="record_properties">
+                                    <tbody>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="120px">Nombre :</th>
+                                            <td width="720px">{{ form_widget(form.name ) }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th  colspan=2 height="10px"></th>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="120px">RUC :</th>
+                                            <td width="720px">{{ form_widget(form.ruc ) }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th  colspan=2 height="10px"></th>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="120px">Razón Social :</th>
+                                            <td width="720px">{{ form_widget(form.razonSocial ) }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th colspan=2 height="10px"></th>
+                                        </tr>
+                                        
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <td colspan=2 >{{ form_widget(form.guardar ) }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </fieldset>
+                    {{ form_end(form) }}
+                </div>
+                <br>
+                <ul class="record_actions">
+                    <li>
+                        <a href="{{ path('enterprise_homepage') }}">
+                            Volver al listado de clientes
+                        </a>
+                    </li>
+                </ul>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

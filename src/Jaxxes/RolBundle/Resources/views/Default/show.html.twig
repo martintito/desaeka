@@ -1,0 +1,51 @@
+{% extends '::consultor.html.twig' %}
+
+{% block id 'rol' %}
+{% block title %}Definición de Rol{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h2>{{ block('title') }}</h2>
+                <br>
+                <br>
+                <div class="row-fluid">
+                    <table class="record_properties">
+                        <tbody>
+                            <tr>
+                                <th class="span3">Nombre :</th>
+                                <td class="span4">{{ entity.name }}</td>
+                            </tr>
+                            <tr>
+                                <th class="span3">Descripción :</th>
+                                <td class="span4">{{ entity.descripcion }}</td>
+                            </tr>
+                            <tr>
+                                <th class="span3">Nivel :</th>
+                                <td class="span4">{{ entity.nivel }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <ul class="record_actions">
+                    <li>
+                        <a href="{{ path('rol_homepage') }}">
+                            Volver al listado de roles
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="{{ path('rol_edit', { 'id': entity.id }) }}">
+                            Modificar rol
+                        </a>
+                    </li>
+                </ul>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

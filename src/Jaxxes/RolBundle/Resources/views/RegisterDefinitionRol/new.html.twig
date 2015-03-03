@@ -1,0 +1,103 @@
+{% extends '::consultor.html.twig' %}
+{% block id 'registerdefinitionrol' %}
+{% block title %}Ficha de perfil de cargo{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h1>{{ block('title') }}</h1>
+                <br>
+                <div class="row-fluid">
+                    
+                    {{ form_start(form, { 'action': path('register_definition_rol_create' ) }) }}  
+                        {{ form_errors(form) }}
+                        <fieldset>
+                            <div class="row-fluid">
+                                <table class="record_properties">
+                                    <tbody>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="180px">Proceso de Selección :</th>
+                                            <td width="720px">{{ form_widget(form.selectionProcess ) }}</td>
+                                            <!--<td width="720px">{{ entity.selectionProcess  }}</td>-->
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th  colspan=2 height="10px"></th>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="180px">Rol :</th>
+                                            <td width="720px">{{ form_widget(form.rol ) }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th  colspan=2 height="10px"></th>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="180px">Nombre :</th>
+                                            <td width="720px">{{ form_widget(form.name ) }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th colspan=2 height="10px"></th>
+                                        </tr>
+                                       
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="180px">Descripción :</th>
+                                            <td width="720px">{{ form_widget(form.descRol ) }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th colspan=2 height="10px"></th>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="180px">Experiencia anterior :</th>
+                                            <td width="720px">{{ form_widget(form.expAnt ) }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th colspan=2 height="10px"></th>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="180px">Años de experiencia :</th>
+                                            <td width="720px">{{ form_widget(form.expYears ) }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th colspan=2 height="10px"></th>
+                                        </tr>
+                                        
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <td colspan=2 >{{ form_widget(form.guardar ) }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </fieldset>
+                    {{ form_end(form) }}
+                </div>
+                <br>
+                <br>
+                <!--
+                <ul class="record_actions">
+                    <li>
+                        <a href="{{ path('rol_homepage') }}">
+                            Volver al listado
+                        </a>
+                    </li>
+                </ul>
+                -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

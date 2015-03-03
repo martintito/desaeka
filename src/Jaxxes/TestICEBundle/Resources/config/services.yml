@@ -1,0 +1,7 @@
+parameters:
+#    test_ice.example.class: Jaxxes\TestICEBundle\Example
+
+services:
+#    test_ice.example:
+#        class: %test_ice.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

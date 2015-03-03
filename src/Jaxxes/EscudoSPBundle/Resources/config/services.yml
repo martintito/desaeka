@@ -1,0 +1,7 @@
+parameters:
+#    escudo_sp.example.class: Jaxxes\EscudoSPBundle\Example
+
+services:
+#    escudo_sp.example:
+#        class: %escudo_sp.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

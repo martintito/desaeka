@@ -1,0 +1,82 @@
+{% extends '::candidate.html.twig' %}
+
+{% block id 'pmasp' %}
+{% block title %}TEST PMA {% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <div class="row-fluid">
+                    <table class="record_properties">
+                        <tbody>
+                            <tr>
+                                <th class="span3">Candidato</th>
+                                <td class="span4">{{ entity.selectionProcessCandidate }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <center>
+                    <h1>{{ block('title') }}</h1>
+                    <br>
+                    <h2>Introduccion</h2>
+                </center>
+                <br>
+                <br>
+                <div class="row-fluid">
+                    <div class="span2">
+                    </div>
+                    <div class="span9" STYLE="font-family: Arial; font-size: 18px; color: black">
+                        A continuación va usted a responder a una serie de cinco pruebas. El objetivo de estas pruebas es ver como resuelve diferentes
+                        problemas. Cada una de las cinco clases de problemas es importante.
+                    </div>
+                </div>
+                <br>
+                <div class="row-fluid">
+                    <div class="span2">
+                    </div>
+                    <div class="span9" STYLE="font-family: Arial; font-size: 18px; color: black">
+                        Acaso unos ejercicios sean más interesantes o más fáciles que otros. Unas personas resuelven mejor unos ejericicios; otras otros.
+                        Usted procure hacerlo lo mejor posible.
+                    </div>
+                </div>
+                <br>
+                <div class="row-fluid">
+                    <div class="span2">
+                    </div>
+                    <div class="span9" STYLE="font-family: Arial; font-size: 18px; color: black">
+                        Lea cuidadosamente las instrucciones de cada prueba y cumpla exactamente lo que dicen. Asegúrese de que entiende bien los ejercicios
+                        preparatorios antes que el examinador dé la señal de hacer los problemas de la prueba. Escuche atentamente las instrucciones del examinador.
+                    </div>
+                </div>
+                <br>
+                <div class="row-fluid">
+                    <div class="span2">
+                    </div>
+                    <div class="span9" STYLE="font-family: Arial; font-size: 18px; color: black">
+                        A continuación pase a revisar el primer subtest, lea primero los ejercicios preparatorios.
+                    </div>
+                </div>
+                <br>
+                <div class="row-fluid">
+                    <div class="span2">
+                    </div>
+                    <div class="span9">
+                        <ul class="record_actions">
+                            <li>
+                                <a href="{{ path('test_pma_part1_sp_new', { 'idpmasp': entity.id }) }}">
+                                    Iniciar Pruebas PMA
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

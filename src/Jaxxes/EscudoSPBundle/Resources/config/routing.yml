@@ -1,0 +1,16 @@
+#escudo_sp_homepage:
+#    path:     /hello/{name}
+#    defaults: { _controller: EscudoSPBundle:Default:index }
+    
+test_escudo_new:
+    pattern:  /new
+    defaults: { _controller: EscudoSPBundle:EscudoSP:new }    
+
+test_escudo_create:
+    pattern:  /create
+    defaults: { _controller: EscudoSPBundle:EscudoSP:create }
+    requirements: { _method: post }
+
+test_escudo_show:
+    pattern:  /{idspc}/show
+    defaults: { _controller: EscudoSPBundle:EscudoSP:show }

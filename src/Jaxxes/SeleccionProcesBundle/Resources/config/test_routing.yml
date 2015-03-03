@@ -1,0 +1,20 @@
+#Routing de candidatos a proceso de seleccion
+sp_candidato_test_index:
+    pattern:  /
+    defaults: { _controller: SeleccionProcesBundle:SelectionProcessCandidateTest:index }
+
+sp_candidato_test_show:
+    pattern:  /{idspcandidate}/show
+    defaults: { _controller: SeleccionProcesBundle:SelectionProcessCandidateTest:show }
+
+sp_candidato_test_make:
+    pattern:  /make
+    defaults: { _controller: SeleccionProcesBundle:SelectionProcessCandidateTest:make }
+
+sp_candidato_test_next:
+    pattern:  /{codetest}/next
+    defaults: { _controller: SeleccionProcesBundle:SelectionProcessCandidateTest:next }
+
+sp_candidato_test_end:
+    pattern:  /end
+    defaults: { _controller: SeleccionProcesBundle:SelectionProcessCandidateTest:end }

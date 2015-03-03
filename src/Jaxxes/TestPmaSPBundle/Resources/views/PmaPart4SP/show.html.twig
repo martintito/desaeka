@@ -1,0 +1,116 @@
+{% extends '::candidate.html.twig' %}
+
+{% block id 'pmapart4sp' %}
+{% block title %}Prueba PMA {% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <!--<h2>{{ block('title') }}</h2>-->
+                <div class="row-fluid">
+                    <table class="record_properties">
+                        <tbody>
+                            <tr>
+                                <th class="span3">Evaluado : </th>
+                                <td class="span4">{{ entity.pmaSP }}.</td>
+                            </tr>
+                            <tr>
+                                <th class="span3">Test Finalizado : </th>
+                                <td class="span4">{{ entity.pmaPart4 }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                
+                <div class="row-fluid">
+                    <center>
+                    
+                        <h1>FACTOR F</h1>
+                    </center>
+                    <br>
+                    <div class="row-fluid">
+                        <div class="span2">
+                        </div>
+                        <div class="span9" STYLE="font-family: Arial; font-size: 18px; color: black">
+                            Observe la lista de palabras que sigue. Cada una de ellas empieza por d.
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row-fluid">
+                        <div class="span2">
+                        </div>
+                        <div class="span9" STYLE="font-family: Arial; font-size: 18px; color: black">
+                            <table class="record_properties">
+                                <tbody>
+                                    <tr>
+                                        <th class="span5"></th>
+                                        <td class="span4">
+                                            1. diente.<br>
+                                            2. dado.<br>
+                                            3. decir.<br>
+                                            4. Danubio.<br>
+                                            5. dinamita.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <br>
+                    <br>                   
+                    <div class="row-fluid">
+                        <div class="span2">
+                        </div>
+                        <div class="span9" STYLE="font-family: Arial; font-size: 18px; color: black">
+                            Asegúrese de que entiende lo que tiene que hacer. Cuando se dé la señal, se le indicará otra letra. Escribirá usted todas las palabras que se le ocurran empezando por esa letra.
+							<br>
+                            Si alguna palabra no sabe como se escribe, escríbala lo mejor que sepa, y siga sin pararse.
+                            <br>
+                            Escriba las palabras lo más rápido que pueda.
+                            <br>
+                            <br>
+                            Tendrá CINCO MINUTOS para toda la prueba.
+                            <br>
+                            Escribirá una palabra en cada renglón, por orden de numeración.
+                            <br>
+                            No pare de escribir, hasta que acabe el tiempo.
+                        </div>
+                    </div>
+                    <br>
+                    <br>                   
+                    <div class="row-fluid">
+                        <div class="span2">
+                        </div>
+                        <div class="span9">
+                            <ul class="record_actions">
+                                <li>
+                                    <a href="{{ path('test_pma_part5_sp_new', { 'idpmasp': entity.pmaSP.id }) }}">
+                                        Empezar Prueba Factor F
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

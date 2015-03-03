@@ -1,0 +1,25 @@
+#Routing de resultados por proceso de seleccion de candidato
+sp_candidato_result_index:
+    pattern:  /{id_spc}/index
+    defaults: { _controller: SeleccionProcesBundle:ResultSPC:index }
+
+sp_candidato_result_new:
+    pattern:  /{id_spc}/new
+    defaults: { _controller: SeleccionProcesBundle:ResultSPC:new }
+
+sp_candidato_result_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: SeleccionProcesBundle:ResultSPC:edit }
+    
+sp_candidato_result_create:
+    pattern:  /{id_spc}/create
+    defaults: { _controller: SeleccionProcesBundle:ResultSPC:create }
+    requirements: { _method: post }
+
+sp_candidato_result_show:
+    pattern:  /{id}/show
+    defaults: { _controller: SeleccionProcesBundle:ResultSPC:show }
+    
+sp_candidato_result_print:
+    pattern:  /{id}/print
+    defaults: { _controller: SeleccionProcesBundle:ResultSPC:print }

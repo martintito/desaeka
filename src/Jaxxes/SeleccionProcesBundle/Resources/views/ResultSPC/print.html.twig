@@ -1,0 +1,2439 @@
+{% extends '::basePrint.html.twig' %}
+{% block title %}Impresión{% endblock %}
+
+{% block article %}
+
+<table >
+    <tbody>
+        <tr>
+            <td width="40px" ></td>
+            <td colspan=2 align="center">
+                <div class="span11">
+                    <strong>
+                        <font size="3">
+                        INFORME PSICOLABORAL
+                        </font>
+                    </strong>
+                </div>
+            </td>
+        </tr>
+        <tr> 
+            <td width="40px" ></td>
+            <td colspan=2 align="right">
+                <font size="1">
+                    <strong>
+                        CONFIDENCIAL
+                        <br>
+                        {% if  (validarDatosPersonales)  %}
+                            ( {{ entityRegisterDefinitionRol.rol.name}} )
+                        {% else %}
+                            No se registró perfil de cargo.
+                        {% endif %}
+                        <br>
+                        DATOS PERSONALES
+                    </strong>
+                </font>
+            </td>
+        </tr>
+        <tr>
+            <td width="40px" ></td>
+            <td colspan=2 >
+                <div class="span11">
+                    {% if  (validarDatosPersonales)  %}
+                        <table border="1">
+                            <tr>
+                                <td align="right" width="200px">
+                                    <div class="span11" align="right">
+                                        <font size="1">
+                                            <strong>Apellidos y Nombres </strong>
+                                        </font>
+                                    </div>
+                                </td>
+                                <td width="350px">
+                                    <div class="span1"></div>
+                                    <div class="span10">
+                                        <font size="1">
+                                            {{ DGnombreApellido }}
+                                        </font>
+                                    </div>
+                                </td>
+                                <td align="right" width="200px">
+                                    <div class="span11" align="right">
+                                        <font size="1">
+                                            <strong>DNI </strong>
+                                        </font>
+                                    </div>
+                                </td>
+                                <td width="350px">
+                                    <div class="span1"></div>
+                                    <div class="span10">
+                                        <font size="1">
+                                            {{ DGdni }}
+                                        </font>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" >
+                                    <div class="span11" align="right">
+                                        <font size="1">
+                                            <strong>Edad </strong>
+                                        </font>
+                                    </div>
+                                </td>
+                                <td >
+                                    <div class="span1"></div>
+                                    <div class="span10">
+                                        <font size="1">
+                                            <!--{{ DGFecNac }}-->
+                                            {% set dateList = DGFecNac|split('/') %}
+                                            {% set cDGFecNac = dateList [1] ~ '/' ~ dateList [0] ~ '/' ~ dateList [2] %}
+                                            {% set dFecNac = date(cDGFecNac) %}
+                                            {% if dFecNac|age <= 0 %}
+                                                No se ingresó correctamente la fecha de nacimiento.
+                                            {% else %}
+                                                {{ dFecNac|age }} años
+                                            {% endif %}
+                                        </font>
+                                    </div>
+                                </td>
+                                <td align="right" >
+                                    <div class="span11" align="right">
+                                        <font size="1">
+                                            <strong>Estado Civil </strong>
+                                        </font>
+                                    </div>
+                                </td>
+                                <td >
+                                    <div class="span1"></div>
+                                    <div class="span10">
+                                        <font size="1">
+                                            {{ DGEstCiv }}
+                                        </font>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            {% if  (validarED_Mae)  %}
+                            
+                                <tr>
+                                    <td align="right" >
+                                        <div class="span11" align="right">
+                                            <font size="1">
+                                                <strong>Grado de Instrucción </strong>
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="span1"></div>
+                                        <div class="span10">
+                                            <font size="1">
+                                                Maestria   
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td align="right" >
+                                        <div class="span11" align="right">
+                                            <font size="1">
+                                                <strong>Centro de Estudios </strong>
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td >
+                                        <div class="span1"></div>
+                                        <div class="span10">
+                                            <font size="1">
+                                                {{ ED_Mae_CentroEstudio }}
+                                            </font>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" >
+                                        <div class="span11" align="right">
+                                            <font size="1">
+                                                <strong>Especialidad </strong>
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td colspan=3>
+                                        <div class="span1"></div>
+                                        <div class="span10">
+                                            <font size="1">
+                                                {{ ED_Mae_Especialidad }}
+                                            </font>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                            
+                            {% if  (validarED_Mae2)  %}
+                            
+                                <tr>
+                                    <td align="right" >
+                                        <div class="span11" align="right">
+                                            <font size="1">
+                                                <strong>Grado de Instrucción </strong>
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="span1"></div>
+                                        <div class="span10">
+                                            <font size="1">
+                                                Maestria   
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td align="right" >
+                                        <div class="span11" align="right">
+                                            <font size="1">
+                                                <strong>Centro de Estudios </strong>
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td >
+                                        <div class="span1"></div>
+                                        <div class="span10">
+                                            <font size="1">
+                                                {{ ED_Mae_CentroEstudio2 }}
+                                            </font>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" >
+                                        <div class="span11" align="right">
+                                            <font size="1">
+                                                <strong>Especialidad </strong>
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td colspan=3>
+                                        <div class="span1"></div>
+                                        <div class="span10">
+                                            <font size="1">
+                                                {{ ED_Mae_Especialidad2 }}
+                                            </font>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                            
+                            {% if  (validarED_Unv)  %}
+                            
+                                <tr>
+                                    <td align="right" >
+                                        <div class="span11" align="right">
+                                            <font size="1">
+                                                <strong>Grado de Instrucción </strong>
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="span1"></div>
+                                        <div class="span10">
+                                            <font size="1">
+                                                Universidad
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td align="right" >
+                                        <div class="span11" align="right">
+                                            <font size="1">
+                                                <strong>Centro de Estudios </strong>
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td >
+                                        <div class="span1"></div>
+                                        <div class="span10">
+                                            <font size="1">
+                                                {{ ED_Unv_CentroEstudio }}
+                                            </font>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" >
+                                        <div class="span11" align="right">
+                                            <font size="1">
+                                                <strong>Especialidad </strong>
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td colspan=3>
+                                        <div class="span1"></div>
+                                        <div class="span10">
+                                            <font size="1">
+                                                {{ ED_Unv_Especialidad }}
+                                            </font>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                            
+                            {% if  (validarED_Unv2)  %}
+                            
+                                <tr>
+                                    <td align="right" >
+                                        <div class="span11" align="right">
+                                            <font size="1">
+                                                <strong>Grado de Instrucción </strong>
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="span1"></div>
+                                        <div class="span10">
+                                            <font size="1">
+                                                Universidad
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td align="right" >
+                                        <div class="span11" align="right">
+                                            <font size="1">
+                                                <strong>Centro de Estudios </strong>
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td >
+                                        <div class="span1"></div>
+                                        <div class="span10">
+                                            <font size="1">
+                                                {{ ED_Unv_CentroEstudio2 }}
+                                            </font>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" >
+                                        <div class="span11" align="right">
+                                            <font size="1">
+                                                <strong>Especialidad </strong>
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td colspan=3>
+                                        <div class="span1"></div>
+                                        <div class="span10">
+                                            <font size="1">
+                                                {{ ED_Unv_Especialidad2 }}
+                                            </font>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                            
+                            {% if  (validarED_Tec)  %}
+                            
+                                <tr>
+                                    <td align="right" >
+                                        <div class="span11" align="right">
+                                            <font size="1">
+                                                <strong>Grado de Instrucción </strong>
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="span1"></div>
+                                        <div class="span10">
+                                            <font size="1">
+                                                Técnico
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td align="right" >
+                                        <div class="span11" align="right">
+                                            <font size="1">
+                                                <strong>Centro de Estudios </strong>
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td >
+                                        <div class="span1"></div>
+                                        <div class="span10">
+                                            <font size="1">
+                                                {{ ED_Tec_CentroEstudio }}
+                                            </font>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" >
+                                        <div class="span11" align="right">
+                                            <font size="1">
+                                                <strong>Especialidad </strong>
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td colspan=3>
+                                        <div class="span1"></div>
+                                        <div class="span10">
+                                            <font size="1">
+                                                {{ ED_Tec_Especialidad }}
+                                            </font>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                            
+                            {% if  (validarED_Otr)  %}
+                            
+                                <tr>
+                                    <td align="right" >
+                                        <div class="span11" align="right">
+                                            <font size="1">
+                                                <strong>Grado de Instrucción </strong>
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="span1"></div>
+                                        <div class="span10">
+                                            <font size="1">
+                                                Otros Estudios
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td align="right" >
+                                        <div class="span11" align="right">
+                                            <font size="1">
+                                                <strong>Centro de Estudios </strong>
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td >
+                                        <div class="span1"></div>
+                                        <div class="span10">
+                                            <font size="1">
+                                                {{ ED_Otr_CentroEstudio }}
+                                            </font>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" >
+                                        <div class="span11" align="right">
+                                            <font size="1">
+                                                <strong>Especialidad </strong>
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td colspan=3>
+                                        <div class="span1"></div>
+                                        <div class="span10">
+                                            <font size="1">
+                                                {{ ED_Otr_Especialidad }}
+                                            </font>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                            
+                            {% if  (validarED_Esc)  %}
+                            
+                                <tr>
+                                    <td align="right" >
+                                        <div class="span11" align="right">
+                                            <font size="1">
+                                                <strong>Grado de Instrucción </strong>
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="span1"></div>
+                                        <div class="span10">
+                                            <font size="1">
+                                                Escolar
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td align="right" >
+                                        <div class="span11" align="right">
+                                            <font size="1">
+                                                <strong>Centro de Estudios </strong>
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td >
+                                        <div class="span1"></div>
+                                        <div class="span10">
+                                            <font size="1">
+                                                {{ ED_Esc_CentroEstudio }}
+                                            </font>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" >
+                                        <div class="span11" align="right">
+                                            <font size="1">
+                                                <strong>Especialidad </strong>
+                                            </font>
+                                        </div>
+                                    </td>
+                                    <td colspan=3>
+                                        <div class="span1"></div>
+                                        <div class="span10">
+                                            <font size="1">
+                                                {{ ED_Esc_Especialidad }}
+                                            </font>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                            
+                        </table>
+                    {% else %}
+                        <h5>
+                            {% if  (entity.selectionProcessCandidate.candidate.gender == 'm')  %}
+                                El candidato 
+                            {% else %}
+                                La candidata 
+                            {% endif %}
+                            {{ entity.selectionProcessCandidate.candidate.firstName }} {{ entity.selectionProcessCandidate.candidate.lastName }} no registró su perfil de candidato.
+                        </h5>
+                    {% endif %}
+                </div>
+            </td>
+        </tr>
+        <tr> 
+            <td width="40px" ></td>
+            <td colspan=2 align="right">
+                <div class="span11">
+                    <strong>
+                        <font size="1">
+                            <br>
+                            EXPERIENCIA LABORAL
+                        </font>
+                    </strong>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="40px" ></td>
+            <td colspan=2 >
+                <div class="span11">
+                    
+                    <table class="record_properties" border="1">
+                        {% if  (validarIL_UlTra)  %}
+                            <tr>
+                                <td align="left" width="400px">
+                                    <div class="span1"></div>
+                                    <font size="1">
+                                        <strong>Nombre de la Empresa </strong>
+                                    </font>
+                                </td>
+                                <td width="700px">
+                                    <div class="span1"></div>
+                                    <font size="1">
+                                        {{ IL_UlTra_Nombre }}
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" width="400px">
+                                    <div class="span1"></div>
+                                    <font size="1">
+                                        <strong>Cargo </strong>
+                                    </font>
+                                </td>
+                                <td width="700px">
+                                    <div class="span1"></div>
+                                    <font size="1">
+                                        {{ IL_UlTra_CarDes }}
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" width="400px">
+                                    <div class="span1"></div>
+                                    <font size="1">
+                                        <strong>Motivo de Cese </strong>
+                                    </font>
+                                </td>
+                                <td width="700px">
+                                    <div class="span1"></div>
+                                    <font size="1">
+                                        {{ IL_UlTra_Motivo }}
+                                    </font>
+                                </td>
+                            </tr>
+                        {% endif %}
+                        
+                        {% if  (validarIL_UlTra2)  %}
+                            <tr>
+                                <td align="left" width="400px">
+                                    <div class="span1"></div>
+                                    <font size="1">
+                                        <strong>Nombre de la Empresa </strong>
+                                    </font>
+                                </td>
+                                <td width="700px">
+                                    <div class="span1"></div>
+                                    <font size="1">
+                                        {{ IL_UlTra2_Nombre }}
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" width="400px">
+                                    <div class="span1"></div>
+                                    <font size="1">
+                                        <strong>Cargo </strong>
+                                    </font>
+                                </td>
+                                <td width="700px">
+                                    <div class="span1"></div>
+                                    <font size="1">
+                                        {{ IL_UlTra2_CarDes }}
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" width="400px">
+                                    <div class="span1"></div>
+                                    <font size="1">
+                                        <strong>Motivo de Cese </strong>
+                                    </font>
+                                </td>
+                                <td width="700px">
+                                    <div class="span1"></div>
+                                    <font size="1">
+                                        {{ IL_UlTra2_Motivo }}
+                                    </font>
+                                </td>
+                            </tr>
+                        {% endif %}
+                        
+                        {% if  (validarIL_UlTra3)  %}
+                            <tr>
+                                <td align="left" width="400px">
+                                    <div class="span1"></div>
+                                    <font size="1">
+                                        <strong>Nombre de la Empresa </strong>
+                                    </font>
+                                </td>
+                                <td width="700px">
+                                    <div class="span1"></div>
+                                    <font size="1">
+                                        {{ IL_UlTra3_Nombre }}
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" width="400px">
+                                    <div class="span1"></div>
+                                    <font size="1">
+                                        <strong>Cargo </strong>
+                                    </font>
+                                </td>
+                                <td width="700px">
+                                    <div class="span1"></div>
+                                    <font size="1">
+                                        {{ IL_UlTra3_CarDes }}
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" width="400px">
+                                    <div class="span1"></div>
+                                    <font size="1">
+                                        <strong>Motivo de Cese </strong>
+                                    </font>
+                                </td>
+                                <td width="700px">
+                                    <div class="span1"></div>
+                                    <font size="1">
+                                        {{ IL_UlTra3_Motivo }}
+                                    </font>
+                                </td>
+                            </tr>
+                        {% endif %}
+                        
+                    </table>
+                </div>
+            </td>
+        </tr>
+        <tr> 
+            <td width="40px" ></td>
+            <td colspan=2 align="right">
+                <div class="span11">
+                    <strong>
+                        <font size="1">
+                            <br>
+                            EVALUACIÓN PSICOLABORAL CONDUCTUAL
+                        </font>
+                    </strong>
+                </div>
+            </td>
+        </tr>
+        
+        {% if validarGatbSP %}
+            <tr>
+                <td width="40px" ></td>
+                <td colspan=2 >
+                    <div class="span11">
+                        <legend>
+                            <font size="1">Aptitudes</font>
+                        </legend>
+                        <table class="record_properties" border="1">
+                            <tr>
+                                <td align="left" bgcolor="#6699CC" width="1100px">
+                                    <font size="1">
+                                        <strong>1.- General</strong>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="span1">
+                                    </div>
+                                    <div class="span11">
+                                        <font size="1">
+                                            {% set general = entityGatbSP.valorG3 + entityGatbSP.valorG4 + entityGatbSP.valorG5 + 6 %}
+                                            {% if  (general >= 0) and  (general < 81) %}
+                                                Inferior ( {{general}} puntos)
+                                            {% elseif (general > 80) and  (general < 95) %}
+                                                Normal Inferior ( {{general}} puntos)
+                                            {% elseif (general > 94) and  (general < 106) %}
+                                                Normal ( {{general}} puntos)
+                                            {% elseif (general > 105) and  (general < 121) %}
+                                                Normal Superior ( {{general}} puntos)
+                                            {% elseif (general > 120) and  (general < 135) %}
+                                                Superior ( {{general}} puntos)
+                                            {% else %}
+                                                Muy Superior ( {{general}} puntos)
+                                            {% endif %}
+                                        </font>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" bgcolor="#6699CC">
+                                    <font size="1">
+                                        <strong>2.- Verbal</strong>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="span1">
+                                    </div>
+                                    <div class="span8">
+                                        <font size="1">
+                                            {% set general = entityGatbSP.valorV + 6 %}
+                                            {% if  (general >= 0) and  (general < 81) %}
+                                                Inferior ( {{general}} puntos)
+                                            {% elseif (general > 80) and  (general < 95) %}
+                                                Normal Inferior ( {{general}} puntos)
+                                            {% elseif (general > 94) and  (general < 106) %}
+                                                Normal ( {{general}} puntos)
+                                            {% elseif (general > 105) and  (general < 121) %}
+                                                Normal Superior ( {{general}} puntos)
+                                            {% elseif (general > 120) and  (general < 135) %}
+                                                Superior ( {{general}} puntos)
+                                            {% else %}
+                                                Muy Superior ( {{general}} puntos)
+                                            {% endif %}
+                                        </font>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" bgcolor="#6699CC">
+                                    <font size="1">
+                                        <strong>3.- Numérica</strong>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="span1">
+                                    </div>
+                                    <div class="span8">
+                                        <font size="1">
+                                            {% set general = entityGatbSP.valorN2 + entityGatbSP.valorN5 + 6 %}
+                                            {% if  (general >= 0) and  (general < 81) %}
+                                                Inferior ( {{general}} puntos)
+                                            {% elseif (general > 80) and  (general < 95) %}
+                                                Normal Inferior ( {{general}} puntos)
+                                            {% elseif (general > 94) and  (general < 106) %}
+                                                Normal ( {{general}} puntos)
+                                            {% elseif (general > 105) and  (general < 121) %}
+                                                Normal Superior ( {{general}} puntos)
+                                            {% elseif (general > 120) and  (general < 135) %}
+                                                Superior ( {{general}} puntos)
+                                            {% else %}
+                                                Muy Superior ( {{general}} puntos)
+                                            {% endif %}
+                                        </font>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" bgcolor="#6699CC">
+                                    <font size="1">
+                                        <strong>4.- Espacial</strong>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="span1">
+                                    </div>
+                                    <div class="span8">
+                                        <font size="1">
+                                            {% set general = entityGatbSP.valorS  + 8 %}
+                                            {% if  (general >= 0) and  (general < 81) %}
+                                                Inferior ( {{general}} puntos)
+                                            {% elseif (general > 80) and  (general < 95) %}
+                                                Normal Inferior ( {{general}} puntos)
+                                            {% elseif (general > 94) and  (general < 106) %}
+                                                Normal ( {{general}} puntos)
+                                            {% elseif (general > 105) and  (general < 121) %}
+                                                Normal Superior ( {{general}} puntos)
+                                            {% elseif (general > 120) and  (general < 135) %}
+                                                Superior ( {{general}} puntos)
+                                            {% else %}
+                                                Muy Superior ( {{general}} puntos)
+                                            {% endif %}
+                                        </font>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" bgcolor="#6699CC">
+                                    <font size="1">
+                                        <strong>5.- De Oficina</strong>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="span1">
+                                    </div>
+                                    <div class="span8">
+                                        <font size="1">
+                                            {% set general = entityGatbSP.valorQ  + 9 %}
+                                            {% if  (general >= 0) and  (general < 81) %}
+                                                Inferior ( {{general}} puntos)
+                                            {% elseif (general > 80) and  (general < 95) %}
+                                                Normal Inferior ( {{general}} puntos)
+                                            {% elseif (general > 94) and  (general < 106) %}
+                                                Normal ( {{general}} puntos)
+                                            {% elseif (general > 105) and  (general < 121) %}
+                                                Normal Superior ( {{general}} puntos)
+                                            {% elseif (general > 120) and  (general < 135) %}
+                                                Superior ( {{general}} puntos)
+                                            {% else %}
+                                                Muy Superior ( {{general}} puntos)
+                                            {% endif %}
+                                        </font>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                    </div>
+                </td>
+            </tr>
+            <!--
+            <tr> 
+                <td width="40px" ></td>
+                <td colspan=2 >
+                    <strong>
+                        <font size="1">
+                            Comentario adicional
+                        </font>
+                    </strong>
+                </td>
+            </tr>
+            <tr> 
+                <td width="40px" ></td>
+                <td colspan=2 >
+                    <font size="1">{{ entity.commentGTB }}</font>
+                </td>
+            </tr>
+            -->
+        {% endif %}
+        {% if validarPmaSP %}
+            <tr>
+                <td width="40px" ></td>
+                <td colspan=2 >
+                    <div class="span11">
+                        <legend>
+                            <font size="1">Características de lenguaje y comunicación, se carga los datos del Pma</font>
+                        </legend>
+                        <table class="record_properties" border="1">
+                            <tr>
+                                <td align="left" bgcolor="#6699CC" width="1100px">
+                                    <font size="1">
+                                        <strong>1.- Comprensión verbal</strong>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="span1">
+                                    </div>
+                                    <div class="span11">
+                                        <font size="1">
+                                            {% set general = entityPmaSP.valorV %}
+                                            {% if  (general >= 1) and  (general <= 3) %}
+                                                Nivel 1 ( {{general}} puntos)
+                                            {% elseif (general >= 4 ) and  (general <= 6 ) %}
+                                                Nivel 2 ( {{general}} puntos)
+                                            {% elseif (general >= 7 ) and  (general <= 9 ) %}
+                                                Nivel 3 ( {{general}} puntos)
+                                            {% elseif (general >= 10) and  (general <= 15) %}
+                                                Nivel 4 ( {{general}} puntos)
+                                            {% elseif (general >= 16) and  (general <= 21) %}
+                                                Nivel 5 ( {{general}} puntos)
+                                            {% elseif (general >= 22) and  (general <= 27) %}
+                                                Nivel 6 ( {{general}} puntos)
+                                            {% elseif (general >= 28) and  (general <= 33) %}
+                                                Nivel 7 ( {{general}} puntos)
+                                            {% elseif (general >= 34) and  (general <= 45) %}
+                                                Nivel 8 ( {{general}} puntos)
+                                            {% elseif (general >= 45) and  (general <= 49) %}
+                                                Nivel 9 ( {{general}} puntos)
+                                            {% else %}
+                                                Nivel 0 ( {{general}} puntos)
+                                            {% endif %}
+                                        </font>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" bgcolor="#6699CC">
+                                    <font size="1">
+                                        <strong>2.- Concepción espacial</strong>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="span1">
+                                    </div>
+                                    <div class="span8">
+                                        <font size="1">
+                                            {% set general = entityPmaSP.valorE %}
+                                            {% if  (general >= 0) and  (general <= 6) %}
+                                                Nivel 1 ( {{general}} puntos)
+                                            {% elseif (general >= 7 ) and  (general <= 12 ) %}
+                                                Nivel 2 ( {{general}} puntos)
+                                            {% elseif (general >= 13 ) and  (general <= 18 ) %}
+                                                Nivel 3 ( {{general}} puntos)
+                                            {% elseif (general >= 19) and  (general <= 23) %}
+                                                Nivel 4 ( {{general}} puntos)
+                                            {% elseif (general >= 24) and  (general <= 28) %}
+                                                Nivel 5 ( {{general}} puntos)
+                                            {% elseif (general >= 29) and  (general <= 33) %}
+                                                Nivel 6 ( {{general}} puntos)
+                                            {% elseif (general >= 34) and  (general <= 42) %}
+                                                Nivel 7 ( {{general}} puntos)
+                                            {% elseif (general >= 43) and  (general <= 48) %}
+                                                Nivel 8 ( {{general}} puntos)
+                                            {% elseif (general >= 49) and  (general <= 54) %}
+                                                Nivel 9 ( {{general}} puntos)
+                                            {% else %}
+                                                Nivel -
+                                            {% endif %}
+                                        </font>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" bgcolor="#6699CC">
+                                    <font size="1">
+                                        <strong>3.- Razonamiento</strong>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="span1">
+                                    </div>
+                                    <div class="span8">
+                                        <font size="1">
+                                            {% set general = entityPmaSP.valorR %}
+                                            {% if  (general >= 0) and  (general <= 3) %}
+                                                Nivel 1 ( {{general}} puntos)
+                                            {% elseif (general >= 4 ) and  (general <= 8 ) %}
+                                                Nivel 2 ( {{general}} puntos)
+                                            {% elseif (general >= 9 ) and  (general <= 12 ) %}
+                                                Nivel 3 ( {{general}} puntos)
+                                            {% elseif (general >= 13) and  (general <= 14) %}
+                                                Nivel 4 ( {{general}} puntos)
+                                            {% elseif (general >= 15) and  (general <= 16) %}
+                                                Nivel 5 ( {{general}} puntos)
+                                            {% elseif (general >= 18) and  (general <= 17) %}
+                                                Nivel 6 ( {{general}} puntos)
+                                            {% elseif (general >= 19) and  (general <= 21) %}
+                                                Nivel 7 ( {{general}} puntos)
+                                            {% elseif (general >= 22) and  (general <= 24) %}
+                                                Nivel 8 ( {{general}} puntos)
+                                            {% elseif (general >= 25) and  (general <= 30) %}
+                                                Nivel 9 ( {{general}} puntos)
+                                            {% else %}
+                                                Nivel -
+                                            {% endif %}
+                                        </font>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" bgcolor="#6699CC">
+                                    <font size="1">
+                                        <strong>4.- Cálculo numérico</strong>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="span1">
+                                    </div>
+                                    <div class="span8">
+                                        <font size="1">
+                                            {% set general = entityPmaSP.valorN %}
+                                            {% if  (general >= 1) and  (general <= 7) %}
+                                                Nivel 1 ( {{general}} puntos)
+                                            {% elseif (general >= 8 ) and  (general <= 12 ) %}
+                                                Nivel 2 ( {{general}} puntos)
+                                            {% elseif (general >= 13 ) and  (general <= 16) %}
+                                                Nivel 3 ( {{general}} puntos)
+                                            {% elseif (general >= 17) and  (general <= 21) %}
+                                                Nivel 4 ( {{general}} puntos)
+                                            {% elseif (general >= 22) and  (general <= 26) %}
+                                                Nivel 5 ( {{general}} puntos)
+                                            {% elseif (general >= 27) and  (general <= 31) %}
+                                                Nivel 6 ( {{general}} puntos)
+                                            {% elseif (general >= 32) and  (general <= 37) %}
+                                                Nivel 7 ( {{general}} puntos)
+                                            {% elseif (general >= 38) and  (general <= 49) %}
+                                                Nivel 8 ( {{general}} puntos)
+                                            {% elseif (general >= 50) and  (general <= 70) %}
+                                                Nivel 9 ( {{general}} puntos)
+                                            {% else %}
+                                                Nivel 0
+                                            {% endif %}
+                                        </font>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" bgcolor="#6699CC">
+                                    <font size="1">
+                                        <strong>5.- Fluidez verbal</strong>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="span1">
+                                    </div>
+                                    <div class="span8">
+                                        <font size="1">
+                                            {% set general = entityPmaSP.valorF %}
+                                            {% if  (general >= 1) and  (general <= 25) %}
+                                                Nivel 1 ( {{general}} puntos)
+                                            {% elseif (general >= 26 ) and  (general <= 28 ) %}
+                                                Nivel 2 ( {{general}} puntos)
+                                            {% elseif (general >= 29 ) and  (general <= 30) %}
+                                                Nivel 3 ( {{general}} puntos)
+                                            {% elseif (general >= 31) and  (general <= 37) %}
+                                                Nivel 4 ( {{general}} puntos)
+                                            {% elseif (general >= 38) and  (general <= 43) %}
+                                                Nivel 5 ( {{general}} puntos)
+                                            {% elseif (general >= 44) and  (general <= 52) %}
+                                                Nivel 6 ( {{general}} puntos)
+                                            {% elseif (general >= 53) and  (general <= 58) %}
+                                                Nivel 7 ( {{general}} puntos)
+                                            {% elseif (general >= 59) and  (general <= 64) %}
+                                                Nivel 8 ( {{general}} puntos)
+                                            {% elseif (general >= 65) and  (general <= 70) %}
+                                                Nivel 9 ( {{general}} puntos)
+                                            {% else %}
+                                                Nivel 0
+                                            {% endif %}
+                                        </font>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <br>
+                        <table class="record_properties" border="1">
+                            <tr>
+                                <td align="left" bgcolor="#6699CC" width="1100px">
+                                    <font size="1">
+                                        <strong>Total</strong>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="span1">
+                                    </div>
+                                    <div class="span11">
+                                        <font size="1">
+                                            {% set general = 1.5*(entityPmaSP.valorV) + entityPmaSP.valorE + 2*(entityPmaSP.valorR) + entityPmaSP.valorN + entityPmaSP.valorF %}
+                                            {% if  (general >= 0) and  (general < 83) %}
+                                                DEFICIENTE ( {{general}} puntos)
+                                            {% elseif (general >= 83 ) and  (general < 127 ) %}
+                                                INFERIOR ( {{general}} puntos)
+                                            {% elseif (general > 127 ) and  (general <= 171 ) %}
+                                                NORMAL ( {{general}} puntos)
+                                            {% elseif (general > 171) and  (general <= 215) %}
+                                                NORMAL BRILLANTE ( {{general}} puntos)
+                                            {% elseif (general > 215) and  (general <= 259) %}
+                                                SUPERIOR ( {{general}} puntos)
+                                            {% elseif (general > 259) %}
+                                                MUY SUPERIOR ( {{general}} puntos)
+                                            {% else %}
+                                               - ( {{general}} puntos)
+                                            {% endif %}
+                                        </font>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <!--
+            <tr> 
+                <td width="40px" ></td>
+                <td colspan=2 >
+                    <strong>
+                        <font size="1">
+                            Comentario adicional
+                        </font>
+                    </strong>
+                </td>
+            </tr>
+            <tr> 
+                <td width="40px" ></td>
+                <td colspan=2 >
+                    <font size="1">{{ entity.commentPMA }}</font>
+                </td>
+            </tr>
+            -->
+        {% endif %}
+        
+        {% if validarICESP %}
+            <tr>
+                <td width="40px" ></td>
+                <td colspan=2 >
+                    <div class="span11">
+                        <legend>
+                            <font size="1">Competencias laborales</font>
+                        </legend>
+                        <table class="record_properties" border="1">
+                            <tr>
+                                <td align="left" bgcolor="#6699CC" width="1100px">
+                                    <font size="1">
+                                        <strong>1.- Intrapersonales</strong>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="span1">
+                                    </div>
+                                    <div class="span11">
+                                        <font size="1">
+                                            <strong>
+                                                Valor obtenido de la escala:
+                                            </strong>
+                                            {{ entityICESP.ce_Intrapersonal }}
+                                        </font>
+                                        <table>
+                                            <tr>
+                                                <td width="100px">
+                                                    <font size="1">
+                                                        <strong>
+                                                            Subescalas:
+                                                        </strong>
+                                                    </font>
+                                                </td>
+                                                <td width="200px">
+                                                    <font size="1">
+                                                        Conocimiento emocional de sí mismo
+                                                    </font>
+                                                </td>
+                                                <td width="220px">
+                                                    <font size="1">
+                                                        <strong>
+                                                            Valor obtenido de subescala:
+                                                        </strong>
+                                                    </font>
+                                                </td>
+                                                <td >
+                                                    <font size="2">
+                                                        <font size="1">
+                                                            {{ entityICESP.ce_sub_CM }}
+                                                        </font>
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        Seguridad
+                                                    </font>
+                                                </td>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        {{ entityICESP.ce_sub_SE }}
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        Autoestima
+                                                    </font>
+                                                </td>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        {{ entityICESP.ce_sub_AE }}
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        Autorrealización
+                                                    </font>
+                                                </td>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        {{ entityICESP.ce_sub_AR }}
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        Independencia
+                                                    </font>
+                                                </td>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        {{ entityICESP.ce_sub_IN }}
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    
+                                                </td>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" bgcolor="#6699CC">
+                                    <font size="1">
+                                        <strong>2.- Interpersonales</strong>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="span1">
+                                    </div>
+                                    <div class="span11">
+                                        <font size="1">
+                                            <strong>
+                                                Valor obtenido de la escala:
+                                            </strong>
+                                            {{ entityICESP.ce_Interpersonal }}
+                                        </font>
+                                        <table>
+                                            
+                                            <tr>
+                                                <td width="100px">
+                                                    <font size="1">
+                                                        <strong>
+                                                            Subescalas:
+                                                        </strong>
+                                                </td>
+                                                <td width="200px">
+                                                    <font size="1">
+                                                        Relaciones Interpersonales
+                                                </td>
+                                                <td width="220px">
+                                                    <font size="1">
+                                                        <strong>
+                                                            Valor obtenido de subescala:
+                                                        </strong>
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        {{ entityICESP.ce_sub_RI }}
+                                                    </font>
+                                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        Responsabilidad Social
+                                                </td>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        {{ entityICESP.ce_sub_RS }}
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        Empatía
+                                                </td>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        {{ entityICESP.ce_sub_EM }}
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    
+                                                </td>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" bgcolor="#6699CC">
+                                    <font size="1">
+                                        <strong>3.- Adaptabilidad</strong>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="span1">
+                                    </div>
+                                    <div class="span11">
+                                        <font size="1">
+                                            <strong>
+                                                Valor obtenido de la escala:
+                                            </strong>
+                                            {{ entityICESP.ce_Adaptabilidad }}
+                                        </font>
+                                        <table>
+                                            <tr>
+                                                <td width="100px">
+                                                    <font size="1">
+                                                        <strong>
+                                                            Subescalas:
+                                                        </strong>
+                                                    </font>
+                                                </td>
+                                                <td width="200px">
+                                                    <font size="1">
+                                                        Solución de Problemas
+                                                    </font>
+                                                </td>
+                                                <td width="220px">
+                                                    <font size="1">
+                                                        <strong>
+                                                            Valor obtenido de subescala:
+                                                        </strong>
+                                                    </font>
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        {{ entityICESP.ce_sub_SP }}
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        Prueba de la Realidad
+                                                    </font>
+                                                </td>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        {{ entityICESP.ce_sub_PR }}
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        Flexibilidad
+                                                    </font>
+                                                </td>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        {{ entityICESP.ce_sub_FL }}
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    
+                                                </td>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" bgcolor="#6699CC">
+                                    <font size="1">
+                                        <strong>4.- Manejo de las tensiones y estrés</strong>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="span1">
+                                    </div>
+                                    <div class="span11">
+                                        <font size="1">
+                                            <strong>
+                                                Valor obtenido de la escala:
+                                            </strong>
+                                            {{ entityICESP.ce_Tension }}
+                                        </font>
+                                        <table>
+                                            <tr>
+                                                <td width="100px">
+                                                    <font size="1">
+                                                        <strong>
+                                                            Subescalas:
+                                                        </strong>
+                                                    </font>
+                                                </td>
+                                                <td width="200px">
+                                                    <font size="1">
+                                                        Tolerancia a la Tensión
+                                                    </font>
+                                                </td>
+                                                <td width="220px">
+                                                    <font size="1">
+                                                        <strong>
+                                                            Valor obtenido de subescala:
+                                                        </strong>
+                                                    </font>
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        {{ entityICESP.ce_sub_TT }}
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        Control de los impulsos
+                                                    </font>
+                                                </td>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        {{ entityICESP.ce_sub_CI }}
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    
+                                                </td>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" bgcolor="#6699CC">
+                                    <font size="1">
+                                        <strong>5.- Ánimo general</strong>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="span1">
+                                    </div>
+                                    <div class="span11">
+                                        <font size="1">
+                                            <strong>
+                                                Valor obtenido de la escala:
+                                            </strong>
+                                            {{ entityICESP.ce_Animo }}
+                                        </font>
+                                        <table>
+                                            
+                                            <tr>
+                                                <td width="100px">
+                                                    <font size="1">
+                                                        <strong>
+                                                            Subescalas:
+                                                        </strong>
+                                                    </font>
+                                                </td>
+                                                <td width="200px">
+                                                    <font size="1">
+                                                        Felicidad
+                                                    </font>
+                                                </td>
+                                                <td width="220px">
+                                                    <font size="1">
+                                                        <strong>
+                                                            Valor obtenido de subescala:
+                                                        </strong>
+                                                    </font>
+                                                </td>
+                                                
+                                                <td >
+                                                    <font size="1">
+                                                        {{ entityICESP.ce_sub_FE }}
+                                                    </font>
+                                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        Optimismo
+                                                    </font>
+                                                </td>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    <font size="1">
+                                                        {{ entityICESP.ce_sub_OP }}
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                    
+                                                </td>
+                                                <td >
+                                                </td>
+                                                <td >
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <br>
+                        <table class="record_properties" border="1">
+                            <tr>
+                                <td align="left" bgcolor="#6699CC" width="1100px">
+                                    <font size="1">
+                                        <strong>CE Total</strong>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="span1">
+                                    </div>
+                                    <div class="span11">
+                                        <font size="1">
+                                            <strong>
+                                                Valor obtenido de la escala total:
+                                            </strong>
+                                            {{ entityICESP.ce_Total }}
+                                        </font>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                </td>
+            <tr>
+            <!--
+            <tr> 
+                <td width="40px" ></td>
+                <td colspan=2 >
+                    <font size="1">
+                        <strong>
+                            Comentario adicional
+                        </strong>
+                    </font>
+                </td>
+            </tr>
+            <tr> 
+                <td width="40px" ></td>
+                <td colspan=2 >
+                    <font size="1">{{ entity.commentICE }}</font>
+                </td>
+            </tr>
+            -->
+       {% endif %}
+
+        {% if validarEscudoSP %}
+            <tr>
+                <td width="40px" ></td>
+                <td colspan=2 >
+                    <div class="span11">
+                        <legend>
+                            <font size="1">Resultado de la prueba del escudo</font>
+                        </legend>
+                        <table class="record_properties" border="2"  bordercolor="#C2C2C2">
+                            <tr>
+                                <td width="550px" align="center">
+                                    <br>
+                                    <table class="record_properties">
+                                        <tr >
+                                            <td width="500px" align="center">
+                                                <table class="record_properties" border="2" cellpadding="6"  cellspacing="0">
+                                                    <tr >
+                                                        <td width="480px" >
+                                                            <font size="1">
+                                                                <strong>
+                                                                    {{ entityEscudoSP.escudospdetails[ (0) ].escudodetail.question }}
+                                                                </strong>
+                                                            </font>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <br>
+                                                <font size="1">
+                                                    {{ entityEscudoSP.escudospdetails[ (0) ].answer }}
+                                                </font>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br>
+                                </td>
+                                <td width="550px" align="center">
+                                    <br>
+                                    <table class="record_properties">
+                                        <tr >
+                                            <td width="500px" align="center">
+                                                <table class="record_properties" border="2"  cellpadding="6"  cellspacing="0">
+                                                    <tr >
+                                                        <td width="480px" >
+                                                            <font size="1">
+                                                                <strong>
+                                                                    {{ entityEscudoSP.escudospdetails[ (1) ].escudodetail.question }}
+                                                                </strong>
+                                                            </font>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <br>
+                                                <font size="1">
+                                                    {{ entityEscudoSP.escudospdetails[ (1) ].answer }}
+                                                </font>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <br>
+                                    <table class="record_properties">
+                                        <tr >
+                                            <td width="500px" align="center">
+                                                <table class="record_properties" border="2"  cellpadding="6"  cellspacing="0">
+                                                    <tr >
+                                                        <td width="480px" >
+                                                            <font size="1">
+                                                                <strong>
+                                                                    {{ entityEscudoSP.escudospdetails[ (2) ].escudodetail.question }}
+                                                                </strong>
+                                                            </font>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <br>
+                                                <font size="1">
+                                                    {{ entityEscudoSP.escudospdetails[ (2) ].answer }}
+                                                </font>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br>
+                                </td>
+                                <td align="center">
+                                    <br>
+                                    <table class="record_properties">
+                                        <tr >
+                                            <td width="500px" align="center">
+                                                <table class="record_properties" border="2"  cellpadding="6"  cellspacing="0">
+                                                    <tr >
+                                                        <td width="480px" >
+                                                            <font size="1">
+                                                                <strong>
+                                                                    {{ entityEscudoSP.escudospdetails[ (3) ].escudodetail.question }}
+                                                                </strong>
+                                                            </font>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <br>
+                                                <font size="1">
+                                                    {{ entityEscudoSP.escudospdetails[ (3) ].answer }}
+                                                </font>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <br>
+                                    <table class="record_properties">
+                                        <tr >
+                                            <td width="500px" align="center">
+                                                <table class="record_properties" border="2" cellpadding="6"  cellspacing="0">
+                                                    <tr >
+                                                        <td width="480px" >
+                                                            <font size="1">
+                                                                <strong>
+                                                                    {{ entityEscudoSP.escudospdetails[ (4) ].escudodetail.question }}
+                                                                </strong>
+                                                            </font>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <br>
+                                                <font size="1">
+                                                    {{ entityEscudoSP.escudospdetails[ (4) ].answer }}
+                                                </font>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br>
+                                </td>
+                                <td align="center">
+                                    <br>
+                                    <table class="record_properties">
+                                        <tr >
+                                            <td width="500px" align="center">
+                                                <table class="record_properties" border="2" cellpadding="6"  cellspacing="0">
+                                                    <tr >
+                                                        <td width="480px" >
+                                                            <font size="1">
+                                                                <strong>
+                                                                    {{ entityEscudoSP.escudospdetails[ (5) ].escudodetail.question }}
+                                                                </strong>
+                                                            </font>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <br>
+                                                <font size="1">
+                                                    {{ entityEscudoSP.escudospdetails[ (5) ].answer }}
+                                                </font>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <br>
+                                    <table class="record_properties">
+                                        <tr >
+                                            <td width="500px" align="center">
+                                                <table class="record_properties" border="2" cellpadding="6"  cellspacing="0">
+                                                    <tr >
+                                                        <td width="480px" >
+                                                            <font size="1">
+                                                                <strong>
+                                                                    {{ entityEscudoSP.escudospdetails[ (6) ].escudodetail.question }}
+                                                                </strong>
+                                                            </font>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <br>
+                                                <font size="1">
+                                                    {{ entityEscudoSP.escudospdetails[ (6) ].answer }}
+                                                </font>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br>
+                                </td>
+                                <td align="center">
+                                    <br>
+                                    <table class="record_properties">
+                                        <tr >
+                                            <td width="500px" align="center">
+                                                <table class="record_properties" border="2" cellpadding="6"  cellspacing="0">
+                                                    <tr >
+                                                        <td width="480px" >
+                                                            <font size="1">
+                                                                <strong>
+                                                                    {{ entityEscudoSP.escudospdetails[ (7) ].escudodetail.question }}
+                                                                </strong>
+                                                            </font>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <br>
+                                                <font size="1">
+                                                    {{ entityEscudoSP.escudospdetails[ (7) ].answer }}
+                                                </font>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan=2 align="center">
+                                    <br>
+                                    <table class="record_properties">
+                                        <tr >
+                                            <td width="1000px" align="center">
+                                                <table class="record_properties" border="2" cellpadding="6"  cellspacing="0">
+                                                    <tr >
+                                                        <td width="960px" >
+                                                            <font size="1">
+                                                                <strong>
+                                                                    {{ entityEscudoSP.escudospdetails[ (8) ].escudodetail.question }}
+                                                                </strong>
+                                                            </font>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <br>
+                                                <font size="1">
+                                                    {{ entityEscudoSP.escudospdetails[ (8) ].answer }}
+                                                </font>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan=2 align="center">
+                                    <br>
+                                    <table class="record_properties">
+                                        <tr >
+                                            <td width="1000px" align="center">
+                                                <table class="record_properties" border="2" cellpadding="6"  cellspacing="0">
+                                                    <tr >
+                                                        <td width="960px" >
+                                                            <font size="1">
+                                                                <strong>
+                                                                    {{ entityEscudoSP.escudospdetails[ (9) ].escudodetail.question }}
+                                                                </strong>
+                                                            </font>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <br>
+                                                <font size="1">
+                                                    {{ entityEscudoSP.escudospdetails[ (9) ].answer }}
+                                                </font>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan=2 align="center">
+                                    <br>
+                                    <table class="record_properties">
+                                        <tr >
+                                            <td width="1000px" align="center">
+                                                <table class="record_properties" border="2" cellpadding="6"  cellspacing="0">
+                                                    <tr >
+                                                        <td width="960px" >
+                                                            <font size="1">
+                                                                <strong>
+                                                                    {{ entityEscudoSP.escudospdetails[ (10) ].escudodetail.question }}
+                                                                </strong>
+                                                            </font>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <br>
+                                                <font size="1">
+                                                    {{ entityEscudoSP.escudospdetails[ (10) ].answer }}
+                                                </font>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <br>
+                                    <table class="record_properties">
+                                        <tr >
+                                            <td width="500px" align="center">
+                                                <table class="record_properties" border="2" cellpadding="6"  cellspacing="0">
+                                                    <tr >
+                                                        <td width="480px" >
+                                                            <font size="1">
+                                                                <strong>
+                                                                    {{ entityEscudoSP.escudospdetails[ (11) ].escudodetail.question }}
+                                                                </strong>
+                                                            </font>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <br>
+                                                <font size="1">
+                                                    {{ entityEscudoSP.escudospdetails[ (11) ].answer }}
+                                                </font>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br>
+                                </td>
+                                <td align="center">
+                                    <br>
+                                    <table class="record_properties">
+                                        <tr >
+                                            <td width="500px" align="center">
+                                                <table class="record_properties" border="2" cellpadding="6"  cellspacing="0">
+                                                    <tr >
+                                                        <td width="480px" >
+                                                            <font size="1">
+                                                                <strong>
+                                                                    {{ entityEscudoSP.escudospdetails[ (12) ].escudodetail.question }}
+                                                                </strong>
+                                                            </font>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <br>
+                                                <font size="1">
+                                                    {{ entityEscudoSP.escudospdetails[ (12) ].answer }}
+                                                </font>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <br>
+                                    <table class="record_properties">
+                                        <tr >
+                                            <td width="500px" align="center">
+                                                <table class="record_properties" border="2" cellpadding="6"  cellspacing="0">
+                                                    <tr >
+                                                        <td width="480px" >
+                                                            <font size="1">
+                                                                <strong>
+                                                                    {{ entityEscudoSP.escudospdetails[ (13) ].escudodetail.question }}
+                                                                </strong>
+                                                            </font>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <br>
+                                                <font size="1">
+                                                    {{ entityEscudoSP.escudospdetails[ (13) ].answer }}
+                                                </font>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br>
+                                </td>
+                                <td align="center">
+                                    <br>
+                                    <table class="record_properties">
+                                        <tr >
+                                            <td width="500px" align="center">
+                                                <table class="record_properties" border="2" cellpadding="6"  cellspacing="0">
+                                                    <tr >
+                                                        <td width="480px" >
+                                                            <font size="1">
+                                                                <strong>
+                                                                    {{ entityEscudoSP.escudospdetails[ (14) ].escudodetail.question }}
+                                                                </strong>
+                                                            </font>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <br>
+                                                <font size="1">
+                                                    {{ entityEscudoSP.escudospdetails[ (14) ].answer }}
+                                                </font>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <!--
+            <tr> 
+                <td width="40px" ></td>
+                <td colspan=2 >
+                    <strong>
+                        <font size="1">
+                            Comentario adicional
+                        </font>
+                    </strong>
+                </td>
+            </tr>
+            <tr> 
+                <td width="40px" ></td>
+                <td colspan=2 >
+                    <font size="1">
+                        {{ entity.commentESC  }}
+                    </font>
+                </td>
+            </tr>
+            -->
+        {% endif %}
+        
+        {% if validarRavenSP %}
+            <tr> 
+                <td width="40px" ></td>
+                <th colspan=2 height="20px"></th>
+            </tr>
+        
+            <tr>
+                <td width="40px" ></td>
+                <td colspan=2 >
+                    <div class="span11">
+                        <legend>
+                            <font size="1">Resultado de la prueba Raven</font>
+                        </legend>
+                        <table class="record_properties" border="0"  bordercolor="#C2C2C2">
+                            <tr>
+                                <td>
+                                    <font size="1">
+                                        <strong>Resultado :</strong>
+
+                                        rango: {{ entityRavenSP.rango }} - {{ entityRavenSP.descRango }}
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        {% endif %}
+        <tr> 
+            <td width="40px" ></td>
+            <td colspan=2 >
+                <div class="span11">
+                    <legend>Cuestionario</legend>
+                    <table class="table table-striped" border=1>
+                        <!--
+                        <thead>
+                            <tr>
+                                <th width="500px">
+                                    <font size="1">
+                                        Preguntas
+                                    </font>
+                                </th>
+                                
+                                <th >
+                                    <font size="1">
+                                        Comentarios
+                                    </font>
+                                </th>
+                               
+                            </tr>
+                        </thead>
+                         -->
+                        <tbody>
+                            {% for VirtualInterSPC in listaVirtualInterSPC %}
+                                <tr>
+                                    <td >
+                                        <font size="1">
+                                            <strong>
+                                                {{ VirtualInterSPC.VirtualInterviewQuestion.question }}
+                                            </strong>
+                                        </font>
+                                    </td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td >
+                                        <font size="1">
+                                            {% if  (VirtualInterSPC.answer != '')  %}
+                                                {{ VirtualInterSPC.answer }}
+                                            {% else %}
+                                               -
+                                            {% endif %}
+                
+                                            
+                                        </font>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+        </tr>
+        <tr> 
+            <td width="40px" ></td>
+            <td colspan=2 align="right">
+                <div class="span11">
+                    <strong>
+                        <font size="1">
+                            DATOS COMPLEMENTARIOS
+                        </font>
+                    </strong>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="40px" ></td>
+            <td colspan=2 >
+                <div class="span11">
+                    
+                    <table class="record_properties" border="0">
+                        <tr>
+                            <td align="left" width="1100px" height="50px">
+                                <font size="1">
+                                    <strong>Estructura Salarial Reciente :</strong>
+                                </font>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td align="left" width="1100px">
+                                <div class="span1"></div>
+                                <font size="1">
+                                    <strong>Última o actual remuneración mensual bruta : </strong>
+                                    {{ IL_ER_UltRem }}
+                                </font>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td align="left" >
+                                <div class="span1"></div>
+                                <font size="1">
+                                    <strong>Número de sueldos recibidos al año : </strong>
+                                    {{ IL_ER_NumSuel }}
+                                </font>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <div class="span1"></div>
+                                <font size="1">
+                                    <strong>Bono : </strong>
+                                    {{ IL_ER_Bono }}
+                                </font>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td align="left" >
+                                <div class="span1"></div>
+                                <font size="1">
+                                    <strong>Utilidades : </strong>
+                                    {{ IL_ER_Utilida }}
+                                </font>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td align="left" >
+                                <div class="span1"></div>
+                                <font size="1">
+                                    <strong>Variable : </strong>
+                                    {{ IL_ER_Variable }}
+                                </font>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" width="1100px">
+                                <br>
+                                <font size="1">
+                                    <strong>Expectativas Salariales : </strong>
+                                    {{ IL_ER_Expectativa }}
+                                </font>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+        <tr> 
+            <td width="40px" ></td>
+            <td colspan=2 align="right">
+                <div class="span11">
+                    <strong>
+                        <font size="1">
+                            CONCLUSIONES
+                        </font>
+                    </strong>
+                </div>
+            </td>
+        </tr>
+        <!--
+        <tr> 
+            <td width="40px" ></td>
+            <td colspan=2 >
+                <font size="1">
+                    <strong>
+                    FORTALEZAS:
+                    </strong>
+                </font>
+            </td>
+        </tr>
+        <tr> 
+            <td width="40px" ></td>
+            <td colspan=2 >
+                <font size="1">
+                    {{ entity.strengths }}
+                </font>
+            </td>
+        </tr>
+        <tr> 
+            <td width="40px" ></td>
+            <td colspan=2 >
+                <font size="1">
+                    <strong>
+                    OPORTUNIDADES DE MEJORA:
+                    </strong>
+                </font>
+            </td>
+        </tr>
+        <tr> 
+            <td width="40px" ></td>
+            <td colspan=2 >
+                <font size="1">
+                    {{ entity.improvementOpportunities }}
+                </font>
+            </td>
+        </tr>
+        -->
+        <tr> 
+            <td width="40px" ></td>
+            <td colspan=2 >
+                <font size="1">
+                    <strong>
+                    Observaciones:
+                    </strong>
+                </font>
+            </td>
+        </tr>
+        <tr> 
+            <td width="40px" ></td>
+            <td colspan=2 >
+                <font size="1">
+                    {{ entity.recommendation }}
+                </font>
+            </td>
+        </tr>
+        <tr> 
+            <td width="40px" ></td>
+            <td width="180px">
+                <font size="1">
+                    <strong>
+                        Resultado final:
+                    </strong>
+                </font>
+            </td>
+            <td width="920px">
+                <font size="1">
+                    {% if  (entity.finalResult == 1)  %}
+                        Recomendable 
+                    {% elseif (entity.finalResult == 2) %}
+                        Recomendable con observaciones 
+                    {% elseif (entity.finalResult == 3) %}
+                        No recomendable 
+                    {% else %}
+                       -
+                    {% endif %}
+                </font>
+            </td>
+        </tr>
+        <tr> 
+            <td width="40px" ></td>
+            <td colspan=2 >
+                <div class="span1"></div>
+                <div class="span9">
+                    <table class="record_properties" border="1">
+                        <tr>
+                            <td>
+                                <font size="1">
+                                    <strong>Recomendable. </strong>
+                                    Cumple la mayor parte de las características requeridas por el cliente para el cargo. Esto puede anticipar un desenvolvimiento adecuado en las funciones y tareas que deberá asumir.
+                                </font>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <font size="1">
+                                    <strong>Recomendable con observaciones. </strong>
+                                    Posee buena parte de las características para el cargo y las demás pueden ser desarrolladas en el puesto de trabajo; se visualiza potencial para superar las oportunidades de mejora.
+                                </font>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <font size="1">
+                                    <strong>No recomendable. </strong>
+                                    El postulante no presenta el perfil concordante con los requisitos del cargo y de la organización. Puede presentar indicadores que dificulten su adaptación y/o desempeño a la organización y al cargo.
+                                </font>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="span3"></div>
+            </td>
+        </tr>
+        <tr> 
+            <td width="40px" ></td>
+            <th colspan=2 height="10px"></th>
+        </tr>
+        
+    </tbody>
+</table>
+
+{% endblock %}

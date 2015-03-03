@@ -1,0 +1,7 @@
+parameters:
+#    candidate.example.class: Jaxxes\CandidateBundle\Example
+
+services:
+#    candidate.example:
+#        class: %candidate.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

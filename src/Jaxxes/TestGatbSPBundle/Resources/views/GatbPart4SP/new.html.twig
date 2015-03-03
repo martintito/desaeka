@@ -1,0 +1,89 @@
+{% extends '::candidate.html.twig' %}
+{% block id 'gatbpart4sp' %}
+{% block title %}GATB - Parte 4{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h1>
+                    {{ block('title') }}
+                    {% trans with {'%tiempo%': entity.gatbSP.selectionProcessCandidate.candidate.birthDate | cuenta_atras_GatbPart4 } %}
+                        <font size="5" color="#6699CC">
+                            (Tiempo corriendo, faltan: %tiempo%)
+                        </font>
+                    {% endtrans %}
+                </h1>
+                <div class="row-fluid">
+                    {{ form_start(form, { 'action': path('test_gatb_part4_sp_create', { 'idgatbsp': entity.gatbSP.id }   ) } ) }}  
+                    
+                        <fieldset>
+                            <!--
+                            {{ form_widget(form.gatbPart4 ) }}
+                            {{ form_widget(form.gatbSP ) }}
+                            -->
+                            <div class="row-fluid">
+                                <table class="record_properties">
+                                    <tbody>
+                                        <tr> 
+                                            <th class="span3">Evaluado :</th>
+                                            <td class="span4">{{ entity.gatbSP }}.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </fieldset>
+                        <br>
+                        <fieldset>
+                            <br>
+                            <center>
+                                <div class="row-fluid">
+                                    <table class="record_properties">
+                                        <tbody>
+                                            {% for gatbPart4DetailSP in entity.gatbPart4DetailSPs %}
+                                                <tr>
+                                                    <th class="span1">
+                                                        <strong>{{ gatbPart4DetailSP.gatbPart4Detail.number }}.</strong>
+                                                    </th>
+                                                    <td class="span2">
+                                                        <strong>a) </strong> {{ gatbPart4DetailSP.gatbPart4Detail.fieldA }}
+                                                    </td>
+                                                    <td class="span2">
+                                                        <strong>b) </strong> {{ gatbPart4DetailSP.gatbPart4Detail.fieldB }}
+                                                    </td>
+                                                    <td class="span2">
+                                                        <strong>c) </strong> {{ gatbPart4DetailSP.gatbPart4Detail.fieldC }}
+                                                    </td>
+                                                    <td class="span2">
+                                                        <strong>d) </strong> {{ gatbPart4DetailSP.gatbPart4Detail.fieldD }}
+                                                    </td>
+                                                    <td class="span2">
+                                                        {{ form_widget(form.gatbPart4DetailSPs[ (gatbPart4DetailSP.gatbPart4Detail.number -1 )].answer) }}
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                        <TFOOT>
+                                            <tr>
+                                                <th></th>
+                                                <th COLSPAN=3 ALIGN=LEFT>
+                                                    {{ form_widget(form.guardar ) }}
+                                                </th>
+                                                
+                                            </tr>
+                                        </TFOOT>
+                                    </table>
+                                </div>
+                                
+                            </center>
+                        </fieldset>
+                        <!--{{ form_widget(form.gatbPart4DetailSPs ) }}-->
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

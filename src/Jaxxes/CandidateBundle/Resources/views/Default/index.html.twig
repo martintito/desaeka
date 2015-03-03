@@ -1,0 +1,58 @@
+{% extends '::consultor.html.twig' %}
+
+{% block id 'candidate' %}
+{% block title %}Listado de candidatos{% endblock %}
+
+{% block article %}
+<!--<h1>{{ block('title') }}</h1>-->
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="span12 content">
+            <div class="row-fluid">
+                <div class="span5">
+                    <h2>{{ block('title') }}</h2>
+                </div>
+                <div class="span7">
+                    <a href="{{ path('candidate_new') }}" class="btn btn-primary add"  title="Agregar" >
+                        <i class="icon-plus icon-large"></i>
+                    </a>
+                </div>	
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Género</th>
+                        <th>Fecha Nacimiento</th>
+                        <th>Correo Electrónico</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        <td>{{ entity.firstName }}</td>
+                        <td>{{ entity.lastName }}</td>
+                        <td>
+                            {% if entity.gender == 'm' %}
+                                Masculino
+                            {% else %}
+                                Femenino
+                            {% endif %}
+                        </td>
+                        <td>{{ entity.birthDate|date('d / m / Y') }}</td>
+                        <td>{{ entity.email }}</td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="{{ path('candidate_edit', { 'id': entity.id }) }}" class="edit btn btn-warning" title="Editar"><i class="icon-large icon-edit"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

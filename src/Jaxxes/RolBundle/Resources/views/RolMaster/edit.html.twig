@@ -1,0 +1,38 @@
+{% extends '::consultor.html.twig' %}
+
+{% block id 'rolmaster' %}
+{% block title %}Modificar maestría para el perfil{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h2>{{ block('title') }}</h2>
+                <br>
+                <br>
+                <div class="row-fluid">
+                    {{ form(edit_form, { 'action': path('rol_master_update', { 'id': entity.id }) }) }}
+                </div>
+                <ul class="record_actions">
+                    <li>
+                        <a href="{{ path('register_definition_rol_show', { 'id': entity.registerDefinitionRol.id } ) }}">
+                            Cancelar
+                        </a>
+                    </li>
+                    <!--
+                    <li>
+                        <form action="{{ path('rol_delete', { 'id': entity.id }) }}" method="post">
+                            {{ form_widget(delete_form) }}
+                            <button type="submit">Borrar rol</button>
+                        </form>
+                    </li>
+                    -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

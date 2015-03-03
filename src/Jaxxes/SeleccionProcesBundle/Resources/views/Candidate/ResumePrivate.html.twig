@@ -1,0 +1,578 @@
+{% extends '::candidate.html.twig' %}
+
+{% block title %} Ficha del candidato {% endblock %}
+
+{% block article %}
+
+<!--<h1>{{ block('title') }}</h1>-->
+<div id="wrap">
+    <div class="container-fluid" class="align-center">
+        <div class="row-fluid">
+            <div class="span12 content">
+                
+                    <div class="table table-striped">
+                        {{ form_start(form,{ 'action': path('resume_create', { 'spc': entity.candidate.id  } ) } ) }}
+                        <h1>{{ block('title') }}</h1>
+                        <fieldset>
+                            <div class="row-fluid">
+                                <table class="record_properties">
+                                    <tbody>
+                                        <tr> 
+                                            <td class="span9"></td>
+                                            <td class="span5">
+                                                <strong>Candidato:</strong> {{entity.candidate.firstName}} {{entity.candidate.lastName}} 
+                                                <br>
+                                                <br>
+                                                <strong>Cargo al que Postula: </strong> {{ entityRegisterDefinitionRol.rol.name}}
+                                                <br>
+                                                <br>
+                                                <strong>Razón Social del Cliente: </strong> {{entity.selectionProcess.customer.razonSocial}}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </fieldset>
+                        
+                        <fieldset>
+                            {% set i = 0 %}
+                            <!-- Datos Generales -->
+                            <legend><h3>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.name }}</h3></legend>
+                                <table class="record_properties"   class="span12">
+                                    {% for i in range(0, 15) %}
+                                        <tr>
+                                            <td class="span8"><label for="jaxxes_FC_question_{{i}}">{{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:</td>
+                                            <td class="span4">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                        </tr>	
+                                    {% endfor %}
+                                </table>	
+                        </fieldset>
+                        <fieldset>
+                            {% set i = 16 %}
+                            <legend><h3>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.sectionSelectedByResume.name }}</h3></legend>
+                            <fieldset>
+                                <legend>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.name }}</legend>
+                                    <!-- Estudios de Post Grado o Maestria -->
+                                    <table class="record_properties" class="span12">
+                                        {% for i in range(16, 21) %}
+                                            <tr>
+                                                <td class="span8"><label for="jaxxes_FC_question_{{i}}">{{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:</td>
+                                                <td class="span4">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            </tr>	
+                                        {% endfor %}
+                                    </table>						
+                            </fieldset>
+                            {% set i = 22 %}
+                            <fieldset>
+                                <legend>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.name }}</legend>
+                                    <!-- Estudios de Post Grado o Maestria -->
+                                    <table class="record_properties" class="span12">
+                                        {% for i in range(22, 27) %}
+                                            <tr>
+                                                <td class="span8"><label for="jaxxes_FC_question_{{i}}">{{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:</td>
+                                                <td class="span4">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            </tr>	
+                                        {% endfor %}
+                                    </table>						
+                            </fieldset>
+                            <fieldset>
+                                {% set i = 28 %}
+                                <legend>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.name }}</legend>
+                                    <!-- Estudios Universitarios -->
+                                    <table class="record_properties" class="span12" >
+                                        {% for i in range(28, 33) %}
+                                            <tr>
+                                                <td class="span8"><label for="jaxxes_FC_question_{{i}}">{{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:</td>
+                                                <td class="span4">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            </tr>	
+                                        {% endfor %}
+                                    </table>						
+                            </fieldset>						
+                            <fieldset>
+                                {% set i = 34 %}
+                                <legend>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.name }}</legend>
+                                    <!-- Estudios Universitarios -->
+                                    <table class="record_properties" class="span12" >
+                                        {% for i in range(34, 39) %}
+                                            <tr>
+                                                <td class="span8"><label for="jaxxes_FC_question_{{i}}">{{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:</td>
+                                                <td class="span4">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            </tr>	
+                                        {% endfor %}
+                                    </table>						
+                            </fieldset>			
+                            <fieldset>
+                                {% set i = 40 %}
+                                <legend>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.name }}</legend>
+                                    <!-- Estudios Técnicos -->
+                                    <table class="record_properties" class="span12" >
+                                        {% for i in range(40, 45) %}
+                                            <tr>
+                                                <td class="span8"><label for="jaxxes_FC_question_{{i}}">{{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:</td>
+                                                <td class="span4">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            </tr>	
+                                        {% endfor %}
+                                    </table>						
+                            </fieldset>
+                            
+                            <fieldset>
+                                {% set i = 46 %}
+                                <legend>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.name }}</legend>
+                                    <!-- otros estudios -->
+                                    <table class="record_properties" class="span12" >
+                                        {% for i in range(46, 50) %} <!-- solo hasta 50 ya que no va rango academico-->
+                                            <tr>
+                                                <td class="span8"><label for="jaxxes_FC_question_{{i}}">{{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:</td>
+                                                <td class="span4">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            </tr>	
+                                        {% endfor %}
+                                    </table>						
+                            </fieldset>										
+                            
+                            <fieldset>
+                                {% set i = 52 %}
+                                <legend>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.name }}</legend>
+                                    <!-- Estudios Escolar -->
+                                    <table class="record_properties" class="span12" >
+                                        {% for i in range(52, 56) %} <!-- solo hasta 56 ya que no va rango academico-->
+                                            <tr>
+                                                <td class="span8"><label for="jaxxes_FC_question_{{i}}">{{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:</td>
+                                                <td class="span4">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            </tr>	
+                                        {% endfor %}
+                                    </table>						
+                            </fieldset>
+                            
+                            <fieldset>
+                                {% set i = 58 %}
+                                <legend>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.name }}</legend>
+                                    <!-- idiomas -->
+                                    <table class="record_properties" class="span12" >
+                                        <tr>
+                                            {% for i in range(58, 62) %}										
+                                                <td class="span2"><label for="jaxxes_FC_question_{{i}}">{{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:</td>										
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = 58 %}
+                                        <tr>
+                                            {% for i in range(58, 62) %}																					
+                                                <td class="span2">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = 63 %}
+                                        <tr>
+                                            {% for i in range(63, 67) %}																					
+                                                <td class="span2">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = 68 %}
+                                        <tr>
+                                            {% for i in range(68, 72) %}																					
+                                                <td class="span2">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>																		
+                                    </table>						
+                            </fieldset>							
+                            <fieldset>
+                                {% set i = 73 %}
+                                <legend>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.name }}</legend>
+                                    <!-- herramientas -->
+                                    <table class="record_properties" class="span12" >
+                                        <tr> 
+                                            {% for i in range(73, 77) %}										
+                                                <td class="span2"><label for="jaxxes_FC_question_{{i}}">{{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:</td>											
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = 73 %}
+                                        <tr>
+                                            {% for i in range(73, 77) %}																					
+                                                <td class="span2">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = i+1 %}
+                                        <tr>
+                                            {% for i in range(78, 82) %}																					
+                                                <td class="span2">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = i+1 %}
+                                        <tr>
+                                            {% for i in range(83, 87) %}																					
+                                                <td class="span2">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = i+1 %}																											{% set i = 76 %}
+                                        <tr>
+                                            {% for i in range(88, 92) %}																					
+                                                <td class="span2">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>
+                                    </table>						
+                            </fieldset>		
+                        </fieldset>
+                    <fieldset>
+                            {% set i = 93 %}
+                            <legend><h3>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.sectionSelectedByResume.name }}</h3></legend>                    
+                            <fieldset>
+                                <!-- Trabajo actual -->
+                                <legend>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.name }}</legend>
+                                    <table class="record_properties" class="span12" >
+                                        {% for i in range(93, 112) %}
+                                            {% if  (i != '104')  %}
+                                                {% if  (i == '103')  %}
+                                                    <tr>
+                                                        <td>
+                                                            {{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:
+                                                        </td>
+                                                        <td>
+                                                            {{ form_widget(form.answersResumePrivate[i])}}
+                                                        </td>
+                                                        <td>
+                                                            {{ entity.answersResumePrivate[i+1].questionbyProcessSelection.questionbySection.description }}:
+                                                        </td>
+                                                        <td>
+                                                            {{ form_widget(form.answersResumePrivate[i+1])}}
+                                                        </td>
+                                                    </tr>
+                                                {% else %}
+                                                    <tr>
+                                                        <td class="span8" colspan=3 ><label for="jaxxes_FC_question_{{i}}" >
+                                                            {{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:
+                                                        </td>
+                                                        <td >{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                                    </tr>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </table>						
+                            </fieldset>
+                            <fieldset>
+                                {% set i = 113 %}
+                                <legend>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.name }}</legend>
+                                    <!-- anterior trabajo -->
+                                    <table class="record_properties" class="span12" >
+                                        {% for i in range(113, 132) %}
+                                            {% if  (i != '124')  %}
+                                                {% if  (i == '123')  %}
+                                                    <tr>
+                                                        <td>
+                                                            {{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:
+                                                        </td>
+                                                        <td>
+                                                            {{ form_widget(form.answersResumePrivate[i])}}
+                                                        </td>
+                                                        <td>
+                                                            {{ entity.answersResumePrivate[i+1].questionbyProcessSelection.questionbySection.description }}:
+                                                        </td>
+                                                        <td>
+                                                            {{ form_widget(form.answersResumePrivate[i+1])}}
+                                                        </td>
+                                                    </tr>
+                                                {% else %}
+                                                    <tr>
+                                                        <td class="span8" colspan=3 ><label for="jaxxes_FC_question_{{i}}" >
+                                                            {{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:
+                                                        </td>
+                                                        <td >{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                                    </tr>
+                                                {% endif %}
+                                            {% endif %}
+                                            
+                                            
+                                        {% endfor %}
+                                    </table>						
+                            </fieldset>
+                            <fieldset>
+                                {% set i = 133 %}
+                                <legend>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.name }}</legend>
+                                    <!-- anterior trabajo -->
+                                    <table class="record_properties" class="span12" >
+                                        {% for i in range(133, 152) %}
+                                            {% if  (i != '144')  %}
+                                                {% if  (i == '143')  %}
+                                                    <tr>
+                                                        <td>
+                                                            {{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:
+                                                        </td>
+                                                        <td>
+                                                            {{ form_widget(form.answersResumePrivate[i])}}
+                                                        </td>
+                                                        <td>
+                                                            {{ entity.answersResumePrivate[i+1].questionbyProcessSelection.questionbySection.description }}:
+                                                        </td>
+                                                        <td>
+                                                            {{ form_widget(form.answersResumePrivate[i+1])}}
+                                                        </td>
+                                                    </tr>
+                                                {% else %}
+                                                    <tr>
+                                                        <td class="span8" colspan=3 ><label for="jaxxes_FC_question_{{i}}" >
+                                                            {{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:
+                                                        </td>
+                                                        <td >{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                                    </tr>
+                                                {% endif %}
+                                            {% endif %}
+                                            
+                                        {% endfor %}
+                                    </table>
+                            </fieldset>
+                            <fieldset>
+                                {% set i = 153 %}
+                                <legend>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.name }}</legend>
+                                    <!-- metas profesionales -->
+                                    <table class="record_properties" class="span12" >
+                                        {% for i in range(153, 155) %}
+                                            <tr>
+                                                <td class="span8" ><label for="jaxxes_FC_question_{{i}}">{{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:</td>
+                                                <td class="span4" >{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>				
+                            </fieldset>
+                            <fieldset>
+                                {% set i = 156 %}
+                                <legend>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.name }}</legend>
+                                    <!-- Expectativas remunerativas -->
+                                    <table class="record_properties" class="span12" >
+                                        {% for i in range(156, 161) %}
+                                            <tr>
+                                                <td class="span8"  ><label for="jaxxes_FC_question_{{i}}">{{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:</td>
+                                                <td class="span4" >{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>				
+                            </fieldset>
+                            <fieldset>
+                                {% set i = 162 %}
+                                <legend>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.name }}</legend>
+                                    <!-- Referencias Laborales -->
+                                    <table class="record_properties" class="span12" >									
+                                        <tr> 
+                                            {% for i in range(162, 165) %}										
+                                                <td class="span3" ><label for="jaxxes_FC_question_{{i}}">{{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:</td>											
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = 162 %}
+                                        <tr>
+                                            {% for i in range (162, 165) %}																					
+                                                <td class="span3" > {{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = 166 %}
+                                        <tr>
+                                            {% for i in range (166, 169) %}																					
+                                                <td class="span3" >{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = 170 %}
+                                        <tr>
+                                            {% for i in range (170, 173) %}																					
+                                                <td class="span3" >{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = 174 %}
+                                        <tr>
+                                            {% for i in range (174, 177) %}																					
+                                                <td class="span3" >{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>																									
+                                    </table>
+                            </fieldset>						
+                    </fieldset>
+                    <fieldset>
+                            {% set i = 178 %}
+                            <legend><h3>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.sectionSelectedByResume.name }}</h3></legend>
+                            <!-- Entorno Familiar -->
+                            <fieldset>
+                                {% set i = 178 %}
+                                <legend>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.name }}</legend>
+                                    <table class="record_properties" class="span12" >
+                                        <tr> 
+                                            {% for i in range(178, 182) %}										
+                                                <td class="span2"><label for="jaxxes_FC_question_{{i}}">{{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:</td>											
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = 195 %}
+                                        <tr>
+                                            {% for i in range (178, 182) %}																					
+                                                <td class="span2">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = 188 %}
+                                        <tr>
+                                            {% for i in range (183, 187) %}																					
+                                                <td class="span2">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = 193 %}
+                                        <tr>
+                                            {% for i in range (188, 192) %}																					
+                                                <td class="span2">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = 198 %}
+                                        <tr>
+                                            {% for i in range (193, 197) %}																					
+                                                <td class="span2">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>
+                                    </table>				
+                            </fieldset>					
+                            <fieldset>
+                                {% set i = 198 %}
+                                <legend>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.name }}</legend>
+                                    <!-- referencia personales -->
+                                    <table class="record_properties" class="span12" >
+                                        <tr> 
+                                            {% for i in range(198, 202) %}										
+                                                <td class="span3"><label for="jaxxes_FC_question_{{i}}">{{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:</td>											
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = 198 %}
+                                        <tr>
+                                            {% for i in range(198, 202) %}																					
+                                                <td class="span3">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = 203 %}
+                                        <tr>
+                                            {% for i in range(203, 207) %}																					
+                                                <td class="span3"> {{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = 208 %}
+                                        <tr>
+                                            {% for i in range(208, 212) %}																					
+                                                <td class="span3">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        <!--
+                                        {% set i = 213 %}
+                                        <tr>
+                                            {% for i in range(213, 217) %}																					
+                                                <td>{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = 218 %}
+                                        <tr>
+                                            {% for i in range(218, 222) %}																					
+                                                <td>{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>	
+                                        {% set i = 223 %}
+                                        <tr>
+                                            {% for i in range(223, 227) %}																					
+                                                <td>{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>																		
+                                        -->																											
+                                    </table>				
+                            </fieldset>	
+                            <fieldset>
+                                {% set i = 228 %}
+                                <legend>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.name }}</legend>
+                                    <!-- Asociaciones -->
+                                    <table class="record_properties" class="span12" >
+                                        <tr> 
+                                            {% for i in range(228, 231) %}										
+                                                <td class="span3" ><label for="jaxxes_FC_question_{{i}}">{{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:</td>											
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = 228 %}
+                                        <tr>
+                                            {% for i in range(228, 231) %}																					
+                                                <td class="span3">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = 232 %}
+                                        <tr>
+                                            {% for i in range(232, 235) %}																					
+                                                <td class="span3">{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>
+                                                                        
+                                    </table>				
+                            </fieldset>
+                            <fieldset>
+                                {% set i = 236 %}
+                                <legend>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.name }}</legend>
+                                    <!-- Propiedad -->
+                                    <table class="record_properties" class="span12" >
+                                        <tr> 
+                                            {% for i in range(236, 238) %}										
+                                                <td class="span4" ><label for="jaxxes_FC_question_{{i}}">{{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:</td>											
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = 236 %}
+                                        <tr>
+                                            {% for i in range(236, 238) %}																					
+                                                <td class="span4" > {{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        {% set i = 239 %}
+                                        <tr>
+                                            {% for i in range(239, 241) %}																					
+                                                <td class="span4" >{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            {% endfor %}
+                                        </tr>									
+                                    </table>				
+                            </fieldset>							
+                            <fieldset>
+                                {% set i = 242 %}
+                                <legend>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.name }}</legend>
+                                    <!-- Estado de Salud Fisica -->
+                                    <table class="record_properties" class="span12" >
+                                        {% for i in range(242, 246) %}
+                                            <tr>
+                                                <td class="span8" ><label for="jaxxes_FC_question_{{i}}">{{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:</td>
+                                                <td class="span4" >{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>				
+                            </fieldset>	
+                            <fieldset>
+                                {% set i = 247 %}
+                                <legend>{{entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.nivelSelectedbyResume.name }}</legend>
+                                    <!-- Disponibilidad -->
+                                    <table class="record_properties" class="span12" >
+                                        {% for i in range(247, 251) %}
+                                            <tr>
+                                                <td class="span8" ><label for="jaxxes_FC_question_{{i}}">{{ entity.answersResumePrivate[i].questionbyProcessSelection.questionbySection.description }}:</td>
+                                                <td class="span4" >{{ form_widget(form.answersResumePrivate[i])}}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>				
+                            </fieldset>
+                    </fieldset>
+                    <br>
+                    <fieldset>
+                            <div class="row-fluid">
+                                <table class="record_properties">
+                                    <tbody>
+                                        <tr> 
+                                            <td class="span7"></td>
+                                                <strong><u>DECLARACIÓN JURADA:</u></strong> Considérese el presente documento como declaración jurada del postulante en mención quien acepta que los 
+                                                 <br>
+                                                 datos presentados son ciertos y comprobables, el candidato se somete ante las pautas de conducta y normas internas de la empresa, ante 
+                                                 <br>
+                                                 cualquier falsedad.
+                                            <td class="span2">
+                                                
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </fieldset>
+                        <br>
+                        {{ form_widget(form.Guardar ) }}
+                        <!--{{ form_widget(form.answersResumePrivate ) }}-->
+                        {{ form_end(form) }}
+                    </div>            
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

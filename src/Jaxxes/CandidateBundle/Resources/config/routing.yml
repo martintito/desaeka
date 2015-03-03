@@ -1,0 +1,40 @@
+candidate_bienvenida:
+    path: sp/welcome
+    defaults: { _controller: CandidateBundle:Default:welcome }
+           
+pagina_ayuda:
+    path: /help
+    defaults: { _controller: CandidateBundle:Default:help }
+
+#Ruting del mantenimiento candidato
+candidate_homepage:
+    path:     /
+    defaults: { _controller: CandidateBundle:Default:index }
+
+# Portada de la parte de administración
+candidate_new:
+    pattern:  /new
+    defaults: { _controller: CandidateBundle:Default:new }
+
+candidate_create:
+    pattern:  /create
+    defaults: { _controller: CandidateBundle:Default:create }
+    requirements: { _method: post }
+
+candidate_show:
+    pattern:  /{id}/show
+    defaults: { _controller: CandidateBundle:Default:show }
+
+candidate_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: CandidateBundle:Default:edit }
+
+candidate_update:
+    pattern:  /{id}/update
+    defaults: { _controller: CandidateBundle:Default:update }
+    requirements: { _method: post }
+
+candidate_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: CandidateBundle:Default:delete }
+    requirements: { _method: post }

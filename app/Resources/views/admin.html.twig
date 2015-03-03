@@ -1,0 +1,27 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<header>
+    <div class="row-fluid">
+        <div class="span12 nav-m" >
+            <div class="row-fluid">
+                <div class="span3 logo">
+                    <img alt="Fotografía Jaxxes" src="{{ asset(directorio_imagenes_jaxxes ~ 'logojaxxes.png') }}">
+                    <!--<h2>JAXXES</h2>-->
+                </div>
+                <div class="span9">
+                    <ul class="menu">
+                        <li ><a href="{{ path('candidate_bienvenida') }}">Candidatos</a></li>
+                    </ul>
+                </div>	
+            </div>
+        </div>
+    </div>
+</header>
+<article>
+    {% block article %}{% endblock %}
+</article>
+<aside>
+    {% block aside %}{% endblock %}
+</aside>
+{% endblock %}

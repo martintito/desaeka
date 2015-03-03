@@ -1,0 +1,40 @@
+{% extends '::candidate.html.twig' %}
+
+{% block title %}Prueba Final {% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h2>{{ block('title') }}</h2>
+                <br>
+                <br>
+                <div class="row-fluid">
+                    <table class="record_properties">
+                        <tbody>
+                            <tr>
+                                <th class="span3">Gracias por Responder</th>
+                                <td class="span4">Gracias por completar la entrevista</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <br>
+                <div class="row-fluid">
+                    <ul class="record_actions">
+                        <li>
+                            <a href="{{ path('sp_candidato_test_next', { 'codetest': 'ICE' }) }}">
+                                Siguiente prueba
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

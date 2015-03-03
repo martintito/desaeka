@@ -1,0 +1,3 @@
+test_ice_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: TestICEBundle:Default:index }

@@ -1,0 +1,97 @@
+{% extends '::consultor.html.twig' %}
+
+{% block id 'selectionprocesscandidate' %}
+{% block title %}Modificar Candidato{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h1>{{ block('title') }}</h1>
+                <br>
+                <br>
+                <div class="row-fluid">
+                    {{ form_start(edit_form, { 'action': path('sp_candidato_update' , { 'id': entity.id }) }) }}  
+                        {{ form_errors(edit_form) }}
+                        
+                        <fieldset>
+                            <div class="row-fluid">
+                                <table class="record_properties">
+                                    <tbody>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="180px">Proceso de Selección :</th>
+                                            
+                                            <td width="720px">{{ entity.selectionProcess  }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th  colspan=2 height="10px"></th>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="180px">Candidato :</th>
+                                            <td width="720px">{{ form_widget(edit_form.candidate ) }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th  colspan=2 height="10px"></th>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="180px">Usuario :</th>
+                                            <td width="720px">{{ form_widget(edit_form.userCandidate ) }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th colspan=2 height="10px"></th>
+                                        </tr>
+                                       
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th colspan=2 height="10px"></th>
+                                        </tr>
+
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="180px">Activo :</th>
+                                            <td width="720px">{{ form_widget(edit_form.active ) }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th colspan=2 height="10px"></th>
+                                        </tr>
+                                        
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <td colspan=2 >{{ form_widget(edit_form.guardar ) }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </fieldset>
+                    {{ form_end(edit_form) }}
+                </div>
+                <ul class="record_actions">
+                    <li>
+                        <a href="{{ path('consultor_show', { 'id': entity.selectionProcess.id } ) }}">
+                            Cancelar
+                        </a>
+                    </li>
+                    <!--
+                    <li>
+                        <form action="{{ path('rol_delete', { 'id': entity.id }) }}" method="post">
+                            {{ form_widget(delete_form) }}
+                            <button type="submit">Borrar rol</button>
+                        </form>
+                    </li>
+                    -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}JAXXES!{% endblock %}</title>
+        
+        <link href="{{ asset('css/font-awesome-ie7.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/estilos.css') }}" rel="stylesheet" type="text/css" />
+        
+        <link href="{{ asset('bootstrap/css/bootstrap-responsive.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('bootstrap/css/bootstrap-select.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('bootstrap/css/bootstrap-responsive.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('bootstrap/css/bootstrap-select.min.css') }}" rel="stylesheet" type="text/css" />
+        
+        <link href="{{ asset('plugins/custom-scrollbar-plugin/jquery.mCustomScrollbar.css') }}" rel="stylesheet" type="text/css" />
+        
+        <script src="{{ asset('bootstrap/js/bootstrap-select.js') }}"></script>
+        <script src="{{ asset('bootstrap/js/bootstrap-select.min.js') }}"></script>
+        <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
+        
+        <script src="{{ asset('uploads/js/jquery.js') }}"></script>
+        <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('uploads/js/jquery-ui-1.10.3.custom.min.js') }}"></script>
+        
+        <script src="{{ asset('plugins/custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+        
+        <script src="{{ asset('uploads/js/jaxxes.js') }}"></script>
+        
+        {% block stylesheets %}
+        {% stylesheets %}
+        
+        {% endstylesheets %}
+        {% endblock %}
+        
+        
+        {% block javascripts %}
+        {% javascripts %}
+        
+        {% endjavascripts %}  
+        {% endblock %}
+    </head>
+    <body id="{% block id '' %}">
+        <div id="contenedor">
+            
+            {% block body %}{% endblock %}
+    </body>
+    <footer>
+        <div id="footer">
+            <div class="row-fluid">
+                <div class="span12 c-footer" >
+                    <!--
+                    {{ 'now' | date('Y') }} -&copy; Copyright JAXXES by 
+                    <span><a href="http://www.cleverclouds.im/" target="blank" style="color:#ffffff;font-weight:bold">Clever Clouds</a></span>
+                    -->
+                </div>
+            </div>	
+        </div>
+    </footer>
+</html>

@@ -1,0 +1,66 @@
+{% extends '::consultor.html.twig' %}
+
+{% block id 'candidate' %}
+{% block title %}Definición de candidato{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h2>{{ block('title') }}</h2>
+                <br>
+                <br>
+                <div class="row-fluid">
+                    <table class="record_properties">
+                        <tbody>
+                            <tr>
+                                <th class="span3">Nombre :</th>
+                                <td class="span4">{{ entity.firstName }}</td>
+                            </tr>
+                            <tr>
+                                <th class="span3">Apellido :</th>
+                                <td class="span4">{{ entity.lastName }}</td>
+                            </tr>
+                            <tr>
+                                <th class="span3">Genero :</th>
+                                <td class="span4">
+                                    {% if entity.gender == 'm' %}
+                                        Masculino
+                                    {% else %}
+                                        Femenino
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="span3">Fecha Nacimiento :</th>
+                                <td class="span4">{{ entity.birthDate|date('d / m / Y') }}  </td>
+                            </tr>
+                            <tr>
+                                <th class="span3">Correo Electrónico :</th>
+                                <td class="span4">{{ entity.email }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <ul class="record_actions">
+                    <li>
+                        <a href="{{ path('candidate_homepage') }}">
+                            Volver al listado de candidatos
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="{{ path('candidate_edit', { 'id': entity.id }) }}">
+                            Modificar candidato
+                        </a>
+                    </li>
+                </ul>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

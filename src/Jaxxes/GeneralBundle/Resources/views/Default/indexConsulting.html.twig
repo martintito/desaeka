@@ -1,0 +1,48 @@
+{% extends '::admin.html.twig' %}
+
+{% block id 'seleccionProcess' %}
+{% block title %}Lista de consultores{% endblock %}
+
+{% block article %}
+<!--<h1>{{ block('title') }}</h1>-->
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="span12 content">
+            <div class="row-fluid">
+                <div class="span5">
+                    <h2>{{ block('title') }}</h2>
+                </div>
+                <div class="span7">
+                    <a href="{{ path('backend_consultores_new') }}" class="btn btn-primary add"  title="Agregar" >
+                        <i class="icon-plus icon-large"></i>
+                    </a>
+                </div>	
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre Completo</th>
+                        <th>login</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        <td>{{ entity.nombre }}</td>
+                        <td>{{ entity.login }}</td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="{{ path('consultant_edit', { 'id': entity.id }) }}" class="edit btn btn-warning" title="Editar"><i class="icon-large icon-edit"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

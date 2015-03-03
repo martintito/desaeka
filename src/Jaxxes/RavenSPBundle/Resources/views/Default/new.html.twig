@@ -1,0 +1,43 @@
+{% extends '::candidate.html.twig' %}
+
+{% block title %} Test Raven {% endblock %}
+
+{% block article %}
+<!--<h1>{{ block('title') }}</h1>-->
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="span12 content">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Pregunta</th>
+                    </tr>
+                    <!--
+					{% if app.user %}
+					{{ app.user.username }} 
+					{% endif %}
+					-->
+                </thead>
+                <tbody>
+					
+                    
+					{{ form_start(form, { 'action': path('rv_next', { 'idQuestion': entity.id, 'orden' : orden }   ) } ) }}  
+					<table>
+					<td>
+						
+						<tr><img alt="Fotografia" width="500" height="250" src="{{ asset(directorio_imagenes_raven ~ entity.ravendetail.rutaFotoSerie) }}"></tr>
+					</td>
+					<td>
+						<tr><img alt="Fotografia" width="500" height="250" src="{{ asset(directorio_imagenes_raven ~ entity.ravendetail.rutaFotoAlternatives) }}"></tr>						
+					</td>
+					<tr>{{form_row(form.answer)}} </tr>										
+					</table>
+					{{ form_end(form) }}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,53 @@
+{% extends '::consultor.html.twig' %}
+
+{% block id 'seleccionProcess' %}
+{% block title %}Listado de Proceso de Selección{% endblock %}
+
+{% block article %}
+<!--<h1>{{ block('title') }}</h1>-->
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="span12 content">
+            <br>
+            <br>
+            <div class="row-fluid">
+                <div class="span9">
+                    <h2>{{ block('title') }}</h2>
+                </div>
+                <div class="span1">
+                </div>
+                <div class="span1">
+                    <a href="{{ path('consultor_new') }}" class="btn btn-primary add"  title="Agregar" >
+                        <i class="icon-plus icon-large"></i>
+                    </a>
+                </div>	
+            </div>
+            <br>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Cliente</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        <td class="span7">{{ entity.name }}</td>
+                        <td class="span7">{{ entity.customer }}</td>
+                        <td class="span2">
+                            <div class="btn-group">
+                                <a href="{{ path('consultor_edit', { 'id': entity.id }) }}" class="edit btn btn-warning" title="Editar"><i class="icon-large icon-edit"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

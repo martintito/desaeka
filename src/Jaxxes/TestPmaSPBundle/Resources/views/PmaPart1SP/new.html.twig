@@ -1,0 +1,93 @@
+{% extends '::candidate.html.twig' %}
+{% block id 'pmapart1sp' %}
+{% block title %}PMA - PARTE 1{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h1>{{ block('title') }}
+                    {% trans with {'%tiempo%': entity.pmaSP.selectionProcessCandidate.candidate.birthDate | cuenta_atras_PmaPart1 } %}
+                        <font size="5" color="#6699CC">
+                            (Tiempo corriendo, faltan: %tiempo%)
+                        </font>
+                    {% endtrans %}
+                </h1>
+                <div class="row-fluid">
+                    {{ form_start(form, { 'action': path('test_pma_part1_sp_create', { 'idpmasp': entity.pmaSP.id }   ) } ) }}  
+                    
+                        <fieldset>
+                            <!--
+                            {{ form_widget(form.pmaPart1 ) }}
+                            {{ form_widget(form.pmaSP ) }}
+                            -->
+                            <div class="row-fluid">
+                                <table class="record_properties">
+                                    <tbody>
+                                        <tr> 
+                                            <th class="span3">Evaluado</th>
+                                            <td class="span4">{{ entity.pmaSP }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </fieldset>
+                        <br>
+                        <fieldset>
+                            <br>
+                            <br>
+                            <center>
+                                <div class="row-fluid">
+                                    <table class="record_properties">
+                                        <tbody>
+                                            {% for pmaPart1DetailSP in entity.pmaPart1DetailSPs %}
+                                                <tr>
+                                                    <td class="span1" >
+                                                        <strong>{{ pmaPart1DetailSP.pmaPart1Detail.number }}.</strong>
+                                                    </td>
+                                                    <td class="span3">
+                                                        <strong>{{ pmaPart1DetailSP.pmaPart1Detail.word }}</strong>
+                                                    </td>
+                                                    <td class="span2">
+                                                        A. {{ pmaPart1DetailSP.pmaPart1Detail.fieldA }}
+                                                    </td>
+                                                    <td class="span2">
+                                                        B. {{ pmaPart1DetailSP.pmaPart1Detail.fieldB }}
+                                                    </td>
+                                                    <td class="span2">
+                                                        C. {{ pmaPart1DetailSP.pmaPart1Detail.fieldC }}
+                                                    </td>
+                                                    <td class="span2">
+                                                        D. {{ pmaPart1DetailSP.pmaPart1Detail.fieldD }}
+                                                    </td>
+                                                    <td class="span3">
+                                                        {{ form_widget(form.pmaPart1DetailSPs[ (pmaPart1DetailSP.pmaPart1Detail.number -1 )].answer) }}
+                                                    </td>
+                                                </tr>
+                                                
+                                            {% endfor %}
+                                        </tbody>
+                                        <TFOOT>
+                                            <tr>
+                                                
+                                                <th COLSPAN=3 ALIGN=LEFT>
+                                                    {{ form_widget(form.guardar ) }}
+                                                </th>
+                                                
+                                            </tr>
+                                        </TFOOT>
+                                    </table>
+                                </div>
+                                
+                            </center>
+                        </fieldset>
+                        <!--{{ form_widget(form.pmaPart1DetailSPs ) }}-->
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

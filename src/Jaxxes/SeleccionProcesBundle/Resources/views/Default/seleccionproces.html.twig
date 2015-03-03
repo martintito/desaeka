@@ -1,0 +1,101 @@
+{% extends '::consultor.html.twig' %}
+
+{% block title %} Titulo Seleccion Process  -- {% endblock %}
+{% block id 'seleccionproces' %}
+
+{% block article %}
+<div id="wrap">
+    <div class="container-fluid">	
+        <div class="row-fluid">
+            <div class="span12">
+                    <div class="row-fluid">
+                        <div class="span12 content">
+
+                            <div class="row-fluid">
+                                <div class="span5">
+                                    <h2>LISTA DE PROCESOS DE SELECCION</h2>
+                                </div>
+                                <div class="span7">
+                                    <a href="#" class="btn btn-primary add"  title="Agregar" >
+                                        <i class="icon-plus icon-large"></i>
+                                    </a>
+                                </div>	
+                            </div>
+
+                            <hr/>
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    <table class="table table-striped" id="pseleccion">
+                                        <thead>
+                                            <tr>			
+                                                <th style="display: none;">
+                                                    <!--<a href="root/company/list" data-params="" class="onload" root="data" ></a>-->
+                                                </th>											
+                                                <th >Empresa</th>														
+                                                <th>Cargo</th>
+                                                <th>Nivel de Cargo</th>
+                                                <th >Fecha</th>	
+                                                <th>Participantes</th>
+                                                <th>Completados</th>													
+                                                <th width="50px">Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot></tfoot>
+                                        <tbody>
+
+                                            <tr class="model"  data-pk="idPseleccion">													
+                                                <td class="empresa"></td>													
+                                                <td class="cargo"></td>
+                                                <td class="nivelCargo"></td>
+                                                <td class="fecha"></td>
+                                                <td class="participantes"></td>
+                                                <td class="completados"></td>													
+                                                <td class="actions">		
+                                                    <div class="btn-group">
+                                                        <a href="#" class="edit btn btn-warning" title="Editar"><i class="icon-large icon-edit"></i></a>
+                                                        <a href="#" class="delete btn btn-danger" title="Eliminar" style="color:white"><i class="icon-large icon-trash"></i></a>
+                                                    </div>	
+                                                </td>
+                                            </tr>											
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>	
+            </div>		
+        </div>			
+    </div>
+    <div id="push"></div>
+</div>
+
+<table class="records_list estrecha">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Cliente</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td>{{ entity.name }}</td>
+            <!--<td>{{ entity.customer }}</td>-->
+            <td>prueba</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a class="boton" >
+            Añadir una nuevo proceso de seleccion
+        </a>
+    </li>
+</ul>
+
+{% endblock %}
+
+{% block aside %} Aside Seleccion Process -- {% endblock %}

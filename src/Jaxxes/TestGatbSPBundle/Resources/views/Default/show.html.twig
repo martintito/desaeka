@@ -1,0 +1,120 @@
+{% extends '::candidate.html.twig' %}
+
+{% block id 'gatbsp' %}
+{% block title %}GATB {% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <center>
+                    <h1>{{ block('title') }}</h1>
+                    <br>
+                    <h2>INVENTARIO GENERAL DE APTITUDES</h2>
+                </center>
+                <br>
+                <br>
+                <div class="row-fluid">
+                    <table class="record_properties">
+                        <tbody>
+                            <tr>
+                                <th class="span3">Evaluado :</th>
+                                <td class="span4">{{ entity.selectionProcessCandidate }}.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="row-fluid">
+                    <center>
+                        <h2>PARTE 1</h2>
+                        <h3>INSTRUCCIONES</h3>
+                    </center>
+                    <table class="record_properties">
+                        <tbody>
+                            <tr>
+                                <td class="span2"></td>
+                                <td class="span4">
+                                    En esta página hay algunos ejercicios de comparación de nombres y razones sociales.
+                                </td>
+                                <td class="span2"></td>
+                            </tr>
+                            <tr>
+                                <td class="span2"></td>
+                                <td class="span4">
+                                    Observe el ejercicio 1
+                                    <br>
+                                    <br>
+                                </td>
+                                <td class="span2"></td>
+                            </tr>
+                            <tr>
+                                <td class="span2"></td>
+                                <td class="span4">
+                                    <center>
+                                        1. Manuel G. Franco - Manuel G. Franco
+                                        <br>
+                                        <br>
+                                    </center>
+                                </td>
+                                <td class="span2"></td>
+                            </tr>
+                            <tr>
+                                <td class="span2"></td>
+                                <td class="span4">
+                                    Los dos nombres son exactamente iguales. La letra <strong>I</strong> ha sido marcada.
+                                    <br>
+                                    <br>
+                                </td>
+                                <td class="span2"></td>
+                            </tr>
+                            <tr>
+                                <td class="span2"></td>
+                                <td class="span4">
+                                    <center>
+                                        2. Jaen Leopoldo N - Jean Leopoldo N.
+                                    </center>
+                                    <br>
+                                    <br>
+                                </td>
+                                <td class="span2"></td>
+                            </tr>
+                            <tr>
+                                <td class="span2"></td>
+                                <td class="span4">
+                                    Los dos nombres son diferentes, por esto el espacio bajo la letra <strong>D</strong>, ha sido marcada en la fila
+                                    <br>
+                                    ejercicio de práctica 2.
+                                </td>
+                                <td class="span2"></td>
+                            </tr>
+                            <tr>
+                                <td class="span2"></td>
+                                <td class="span4">
+                                    <br>
+                                    <ul class="record_actions">
+                                        <li>
+                                            <a href="{{ path('test_gatb_part1_sp_new', { 'idgatbsp': entity.id }) }}">
+                                                Iniciar Prueba 1
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td class="span2">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                
+                
+                
+               
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,3 @@
+test_pma_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: TestPmaBundle:Default:index }

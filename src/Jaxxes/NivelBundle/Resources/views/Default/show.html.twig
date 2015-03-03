@@ -1,0 +1,51 @@
+{% extends '::consultor.html.twig' %}
+
+{% block id 'nivel' %}
+{% block title %}Definición Nivel {% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h2>{{ block('title') }}</h2>
+                <br>
+                <br>
+                <div class="row-fluid">
+                    <table class="record_properties">
+                        <tbody>
+                            <tr>
+                                <th class="span3">Nombre : </th>
+                                <td class="span4">{{ entity.name }}</td>
+                            </tr>
+                            <tr>
+                                <th class="span3">Descripción : </th>
+                                <td class="span4">{{ entity.descr }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <br>
+                <ul class="record_actions">
+                    <li>
+                        <a href="{{ path('nivel_homepage') }}">
+                            Volver al listado
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="{{ path('nivel_edit', { 'id': entity.id }) }}">
+                            Modificar nivel
+                        </a>
+                    </li>
+                </ul>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,99 @@
+raven_sp:
+    resource: "@RavenSPBundle/Resources/config/routing.yml"
+    prefix:   /rvsp
+
+raven:
+    resource: "@RavenBundle/Resources/config/routing.yml"
+    prefix:   /rs
+
+test_pma_sp:
+    resource: "@TestPmaSPBundle/Resources/config/routing.yml"
+    prefix:   /pma_sp
+
+test_icesp:
+    resource: "@TestICESPBundle/Resources/config/routing.yml"
+    prefix:   /ice_sp
+
+test_ice:
+    resource: "@TestICEBundle/Resources/config/routing.yml"
+    prefix:   /ice
+
+escudo:
+    resource: "@EscudoBundle/Resources/config/routing.yml"
+    prefix:   /escudo
+
+escudo_sp:
+    resource: "@EscudoSPBundle/Resources/config/routing.yml"
+    prefix:   /escudo_sp
+
+test_gatb_sp:
+    resource: "@TestGatbSPBundle/Resources/config/routing.yml"
+    prefix:   /gatb_sp
+
+test_gatb:
+    resource: "@TestGatbBundle/Resources/config/routing.yml"
+    prefix:   /gatb
+
+definition_test:
+    resource: "@DefinitionTestBundle/Resources/config/routing.yml"
+    prefix:   /
+
+general:
+    resource: "@GeneralBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+#enterprise:
+#    resource: "@EnterpriseBundle/Resources/config/routing.yml"
+#    prefix:   /
+    
+enterprise:
+    resource: "@EnterpriseBundle/Resources/config/routing.yml"
+    prefix:   /enterprise
+
+candidate:
+    resource: "@CandidateBundle/Resources/config/routing.yml"
+    prefix:   /candidate
+
+register_definition_rol:
+    resource: "@RegisterDefinitionRolBundle/Resources/config/routing.yml"
+    prefix:   /
+
+#seleccion_proces:
+#    resource: "@SeleccionProcesBundle/Resources/config/routing.yml"
+#    prefix:   /
+    
+seleccion_proces:
+    resource: "@SeleccionProcesBundle/Resources/config/routing.yml"
+    prefix:   /proceso
+
+virtual_interview:
+    resource: "@VirtualInterviewBundle/Resources/config/routing.yml"
+    prefix:   /interview
+
+resume:
+    resource: "@ResumeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+rol:
+    resource: "@RolBundle/Resources/config/routing.yml"
+    prefix:   /rol
+
+nivel:
+    resource: "@NivelBundle/Resources/config/routing.yml"
+    prefix:   /nivel
+
+#candidate_login:
+#    pattern:   login
+#    defaults:  { _controller: SeleccionProcesBundle:AccessCandidate:login }
+
+#candidate_login_check:
+#    pattern:   login_check
+#    defaults: { _controller: CandidateBundle:Default:welcome }
+
+
+#candidate_logout:
+#    pattern:   logout
+
+Home:
+    path:    /
+    defaults:  { _controller: SeleccionProcesBundle:AccessCandidate:login }

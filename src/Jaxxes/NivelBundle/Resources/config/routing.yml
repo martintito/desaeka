@@ -1,0 +1,33 @@
+nivel_homepage:
+    path:     /
+    defaults: { _controller: NivelBundle:Default:index }
+
+# Portada de la parte de administración
+nivel_new:
+    pattern:  /new
+    defaults: { _controller: NivelBundle:Default:new }
+
+nivel_create:
+    pattern:  /create
+    defaults: { _controller: NivelBundle:Default:create }
+    requirements: { _method: post }
+
+nivel_show:
+    pattern:  /{id}/show
+    defaults: { _controller: NivelBundle:Default:show }
+
+nivel_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: NivelBundle:Default:edit }
+
+nivel_update:
+    pattern:  /{id}/update
+    defaults: { _controller: NivelBundle:Default:update }
+    requirements: { _method: post }
+
+nivel_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: NivelBundle:Default:delete }
+    requirements: { _method: post }
+
+

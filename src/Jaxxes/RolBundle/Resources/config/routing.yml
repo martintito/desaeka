@@ -1,0 +1,200 @@
+rol_homepage:
+    path:     /
+    defaults: { _controller: RolBundle:Default:index }
+
+# Portada de la parte de administración
+rol_new:
+    pattern:  /new
+    defaults: { _controller: RolBundle:Default:new }
+
+rol_create:
+    pattern:  /create
+    defaults: { _controller: RolBundle:Default:create }
+    requirements: { _method: post }
+
+rol_show:
+    pattern:  /{id}/show
+    defaults: { _controller: RolBundle:Default:show }
+
+rol_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: RolBundle:Default:edit }
+
+rol_update:
+    pattern:  /{id}/update
+    defaults: { _controller: RolBundle:Default:update }
+    requirements: { _method: post }
+
+rol_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: RolBundle:Default:delete }
+    requirements: { _method: post }
+
+#routing de Register Definition Rol
+register_definition_rol_new:
+    pattern:  /registerdefinitionrol/{idseleccionprocess}/new
+    defaults: { _controller: RolBundle:RegisterDefinitionRol:new }
+    
+register_definition_rol_create:
+    pattern:  /registerdefinitionrol/create
+    defaults: { _controller: RolBundle:RegisterDefinitionRol:create }
+    requirements: { _method: post }
+
+register_definition_rol_show:
+    pattern:  /registerdefinitionrol/{id}/show
+    defaults: { _controller: RolBundle:RegisterDefinitionRol:show }
+    
+register_definition_rol_since_select_edit:
+    pattern:  /registerdefinitionrol/{idseleccionprocess}/since_select_edit
+    defaults: { _controller: RolBundle:RegisterDefinitionRol:since_select_edit }
+    
+register_definition_rol_edit:
+    pattern:  /registerdefinitionrol/{id}/edit
+    defaults: { _controller: RolBundle:RegisterDefinitionRol:edit }
+
+register_definition_rol_update:
+    pattern:  /registerdefinitionrol/{id}/update
+    defaults: { _controller: RolBundle:RegisterDefinitionRol:update }
+    requirements: { _method: post }
+
+register_definition_rol_perfilcargopostulante:
+    pattern:  candidate/perfil
+    defaults: { _controller: RolBundle:RegisterDefinitionRol:perfilcargopostulante }
+
+#routing de Rol Language
+rol_language_new:
+    pattern:  /rol_language/{idregisterdefinitionrol}/new
+    defaults: { _controller: RolBundle:RolLanguage:new }
+    
+rol_language_create:
+    pattern:  /rol_language/create
+    defaults: { _controller: RolBundle:RolLanguage:create }
+    requirements: { _method: post }
+
+rol_language_show:
+    pattern:  /rol_language/{id}/show
+    defaults: { _controller: RolBundle:RolLanguage:show }
+    
+rol_language_edit:
+    pattern:  /rol_language/{id}/edit
+    defaults: { _controller: RolBundle:RolLanguage:edit }
+
+rol_language_update:
+    pattern:  /rol_language/{id}/update
+    defaults: { _controller: RolBundle:RolLanguage:update }
+    requirements: { _method: post }
+
+#routing de Rol Study Level
+rol_study_level_new:
+    pattern:  /rol_study_level/{idregisterdefinitionrol}/new
+    defaults: { _controller: RolBundle:RolStudyLevel:new }
+    
+rol_study_level_create:
+    pattern:  /rol_study_level/create
+    defaults: { _controller: RolBundle:RolStudyLevel:create }
+    requirements: { _method: post }
+
+rol_study_level_show:
+    pattern:  /rol_study_level/{id}/show
+    defaults: { _controller: RolBundle:RolStudyLevel:show }
+    
+rol_study_level_edit:
+    pattern:  /rol_study_level/{id}/edit
+    defaults: { _controller: RolBundle:RolStudyLevel:edit }
+
+rol_study_level_update:
+    pattern:  /rol_study_level/{id}/update
+    defaults: { _controller: RolBundle:RolStudyLevel:update }
+    requirements: { _method: post }
+
+#routing de Rol Master
+rol_master_new:
+    pattern:  /rol_master/{idregisterdefinitionrol}/new
+    defaults: { _controller: RolBundle:RolMaster:new }
+    
+rol_master_create:
+    pattern:  /rol_master/create
+    defaults: { _controller: RolBundle:RolMaster:create }
+    requirements: { _method: post }
+
+rol_master_show:
+    pattern:  /rol_master/{id}/show
+    defaults: { _controller: RolBundle:RolMaster:show }
+    
+rol_master_edit:
+    pattern:  /rol_master/{id}/edit
+    defaults: { _controller: RolBundle:RolMaster:edit }
+
+rol_master_update:
+    pattern:  /rol_master/{id}/update
+    defaults: { _controller: RolBundle:RolMaster:update }
+    requirements: { _method: post }
+
+#routing de Rol Personality
+rol_personality_new:
+    pattern:  /rol_personality/{idregisterdefinitionrol}/new
+    defaults: { _controller: RolBundle:RolPersonality:new }
+    
+rol_personality_create:
+    pattern:  /rol_personality/create
+    defaults: { _controller: RolBundle:RolPersonality:create }
+    requirements: { _method: post }
+
+rol_personality_show:
+    pattern:  /rol_personality/{id}/show
+    defaults: { _controller: RolBundle:RolPersonality:show }
+    
+rol_personality_edit:
+    pattern:  /rol_personality/{id}/edit
+    defaults: { _controller: RolBundle:RolPersonality:edit }
+
+rol_personality_update:
+    pattern:  /rol_personality/{id}/update
+    defaults: { _controller: RolBundle:RolPersonality:update }
+    requirements: { _method: post }
+
+#routing de Rol Function
+rol_function_new:
+    pattern:  /rol_function/{idregisterdefinitionrol}/new
+    defaults: { _controller: RolBundle:RolFunction:new }
+    
+rol_function_create:
+    pattern:  /rol_function/create
+    defaults: { _controller: RolBundle:RolFunction:create }
+    requirements: { _method: post }
+
+rol_function_show:
+    pattern:  /rol_function/{id}/show
+    defaults: { _controller: RolBundle:RolFunction:show }
+    
+rol_function_edit:
+    pattern:  /rol_function/{id}/edit
+    defaults: { _controller: RolBundle:RolFunction:edit }
+
+rol_function_update:
+    pattern:  /rol_function/{id}/update
+    defaults: { _controller: RolBundle:RolFunction:update }
+    requirements: { _method: post }
+
+#routing de Rol Detail
+rol_detail_new:
+    pattern:  /rol_detail/{idregisterdefinitionrol}/new
+    defaults: { _controller: RolBundle:RolDetail:new }
+    
+rol_detail_create:
+    pattern:  /rol_detail/create
+    defaults: { _controller: RolBundle:RolDetail:create }
+    requirements: { _method: post }
+
+rol_detail_show:
+    pattern:  /rol_detail/{id}/show
+    defaults: { _controller: RolBundle:RolDetail:show }
+    
+rol_detail_edit:
+    pattern:  /rol_detail/{id}/edit
+    defaults: { _controller: RolBundle:RolDetail:edit }
+
+rol_detail_update:
+    pattern:  /rol_detail/{id}/update
+    defaults: { _controller: RolBundle:RolDetail:update }
+    requirements: { _method: post }

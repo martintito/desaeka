@@ -1,0 +1,146 @@
+{% extends '::candidate.html.twig' %}
+{% block id 'pmapart4sp' %}
+{% block title %}PMA - PARTE 4{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h1>
+                    {{ block('title') }}
+                    {% trans with {'%tiempo%': entity.pmaSP.selectionProcessCandidate.candidate.birthDate | cuenta_atras_PmaPart4 } %}
+                        <font size="5" color="#6699CC">
+                            (Tiempo corriendo, faltan: %tiempo%)
+                        </font>
+                    {% endtrans %}
+                </h1>
+                <div class="row-fluid">
+                    {{ form_start(form, { 'action': path('test_pma_part4_sp_create', { 'idpmasp': entity.pmaSP.id }   ) } ) }}  
+                    
+                        <fieldset>
+                            <!--
+                            {{ form_widget(form.pmaPart4 ) }}
+                            {{ form_widget(form.pmaSP ) }}
+                            -->
+                            <div class="row-fluid">
+                                <table class="record_properties">
+                                    <tbody>
+                                        <tr> 
+                                            <th class="span3">Evaluado</th>
+                                            <td class="span4">{{ entity.pmaSP }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </fieldset>
+                        <br>
+                        <fieldset>
+                            <br>
+                            <br>
+                            <center>
+                                <div class="row-fluid">
+                                    <table class="record_properties">
+                                        <tbody>
+                                            {% for pmaPart4Group in entity.pmaPart4.pmaPart4Groups %}
+                                                <tr>
+                                                    
+                                                    {% for pmaPart4Detail in pmaPart4Group.pmaPart4Details %}
+                                                    <td width="120px" >
+                                                        <CENTER>
+                                                            <strong>({{ pmaPart4Detail.letter }})</strong>
+                                                            <br>
+                                                            ___
+                                                            <br>
+                                                            {{ pmaPart4Detail.valor1 }}
+                                                            <br>
+                                                            {{ pmaPart4Detail.valor2 }}
+                                                            <br>
+                                                            {{ pmaPart4Detail.valor3 }}
+                                                            <br>
+                                                            {{ pmaPart4Detail.valor4 }}
+                                                            <br>
+                                                            ____
+                                                            <br>
+                                                            {{ pmaPart4Detail.result }}
+                                                        </CENTER>
+                                                    </td>
+                                                    {% endfor %}
+                                                    <td width="70px"></td>
+                                                    <td width="210px">
+                                                        <table class="record_properties">
+                                                            <tbody>
+                                                                {% for pmaPart4Detail in pmaPart4Group.pmaPart4Details %}
+                                                                    <tr>
+                                                                        <td width="50px" ALIGN=LEFT>
+                                                                            <strong>({{ pmaPart4Detail.letter }})</strong>
+                                                                        </td>
+                                                                        <td ALIGN=CENTER>
+                                                                            <div id="jaxxes_testpmaspbundle_pmapart4sp_pmaPart4DetailSPs_0_answer" class="span12">
+                                                                                <table class="record_properties">
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td width="20px">
+                                                                                                <input type="radio" id="jaxxes_testpmaspbundle_pmapart4sp_pmaPart4DetailSPs_{{ (pmaPart4Detail.number -1 ) }}_answer_1" name="jaxxes_testpmaspbundle_pmapart4sp[pmaPart4DetailSPs][{{ (pmaPart4Detail.number -1 ) }}][answer]" value="B" />
+                                                                                            </td>
+                                                                                            <td width="20px">
+                                                                                                <label for="jaxxes_testpmaspbundle_pmapart4sp_pmaPart4DetailSPs_0_answer_1" class="required">B</label>
+                                                                                            </td>
+                                                                                            <td width="30px">
+                                                                                            </td>
+                                                                                            <td width="20px">
+                                                                                                <input type="radio" id="jaxxes_testpmaspbundle_pmapart4sp_pmaPart4DetailSPs_{{ (pmaPart4Detail.number -1 ) }}_answer_2" name="jaxxes_testpmaspbundle_pmapart4sp[pmaPart4DetailSPs][{{ (pmaPart4Detail.number -1 ) }}][answer]" value="M" />
+                                                                                            </td>
+                                                                                            <td width="20px">
+                                                                                                <label for="jaxxes_testpmaspbundle_pmapart4sp_pmaPart4DetailSPs_0_answer_2" class="required">M</label>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td width="50px" ALIGN=RIGHT>
+                                                                            <strong>
+                                                                                {{ pmaPart4Detail.number }}
+                                                                            </strong>
+                                                                        </td>
+                                                                    </tr>
+                                                                {% endfor %}
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                    <td width="80px"></td>
+                                                </tr>
+                                                <TR>
+                                                    <TD HEIGHT="30px"></TD>
+                                                </TR>
+                                                <tr>
+                                                    <td COLSPAN=8>
+                                                        <legend></legend>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                        <TFOOT>
+                                            <tr>
+                                                
+                                                <th COLSPAN=3 ALIGN=LEFT>
+                                                    {{ form_widget(form.guardar ) }}
+                                                </th>
+                                                
+                                            </tr>
+                                        </TFOOT>
+                                    </table>
+                                </div>
+                                
+                            </center>
+                        </fieldset>
+                        <!--{{ form_widget(form.pmaPart4DetailSPs ) }}-->
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

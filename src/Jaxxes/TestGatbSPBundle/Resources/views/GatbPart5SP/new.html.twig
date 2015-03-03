@@ -1,0 +1,151 @@
+{% extends '::candidate.html.twig' %}
+{% block id 'gatbpart5sp' %}
+{% block title %}GATB - Parte 5{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h1>
+                    {{ block('title') }}
+                    {% trans with {'%tiempo%': entity.gatbSP.selectionProcessCandidate.candidate.birthDate | cuenta_atras_GatbPart5 } %}
+                        <font size="5" color="#6699CC">
+                            (Tiempo corriendo, faltan: %tiempo%)
+                        </font>
+                    {% endtrans %}
+                </h1>
+                <div class="row-fluid">
+                    {{ form_start(form, { 'action': path('test_gatb_part5_sp_create', { 'idgatbsp': entity.gatbSP.id }   ) } ) }}  
+                    
+                        <fieldset>
+                            <!--
+                            {{ form_widget(form.gatbPart5 ) }}
+                            {{ form_widget(form.gatbSP ) }}
+                            -->
+                            <div class="row-fluid">
+                                <table class="record_properties">
+                                    <tbody>
+                                        <tr> 
+                                            <th class="span3">Evaluado :</th>
+                                            <td class="span4">{{ entity.gatbSP }}.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </fieldset>
+                        <br>
+                        <fieldset>
+                            <!--
+                            <center>
+                                <h4>HAGA TODOS SUS CALCULOS EN EL PAPEL EN BLANCO PROPORCIONADO</h4>
+                                <h4>NO ESCRIBA EN ESTA HOJA</h4>
+                            </center>
+                            -->
+                            <br>
+                            <br>
+                            <center>
+                                <div class="row-fluid">
+                                    <table class="record_properties">
+                                        <tbody>
+                                            {% for gatbPart5DetailSP in entity.gatbPart5DetailSPs %}
+                                                <tr>
+                                                    <th class="span1">
+                                                        <strong>{{ gatbPart5DetailSP.gatbPart5Detail.number }}.</strong>
+                                                    </th>
+                                                    <td class="span5" COLSPAN=3>
+                                                        <strong>{{ gatbPart5DetailSP.gatbPart5Detail.question }}.</strong>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th></th>
+                                                    <td class="span5">
+                                                        <strong>A </strong> {{ gatbPart5DetailSP.gatbPart5Detail.fieldA }}
+                                                    </td>
+                                                    <th></th>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th></th>
+                                                    <td class="span5">
+                                                        <strong>B </strong> {{ gatbPart5DetailSP.gatbPart5Detail.fieldB }}
+                                                    </td>
+                                                    <th></th>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th></th>
+                                                    <td class="span5">
+                                                        <strong>C </strong> {{ gatbPart5DetailSP.gatbPart5Detail.fieldC }}
+                                                    </td>
+                                                    <th></th>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th></th>
+                                                    <td class="span5">
+                                                        <strong>D </strong> {{ gatbPart5DetailSP.gatbPart5Detail.fieldD }}
+                                                    </td>
+                                                    <th></th>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th></th>
+                                                    <td class="span5">
+                                                        <strong>E </strong> {{ gatbPart5DetailSP.gatbPart5Detail.fieldE }}
+                                                    </td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th></th>
+                                                    <td class="span5">
+                                                    </td>
+                                                    <td class="span2">
+                                                        Respuesta pregunta {{ gatbPart5DetailSP.gatbPart5Detail.number }}:
+                                                    </td>
+                                                    <td class="span2">
+                                                        {{ form_widget(form.gatbPart5DetailSPs[ (gatbPart5DetailSP.gatbPart5Detail.number -1 )].answer) }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        <legend></legend>
+                                                    </th>
+                                                    <td>
+                                                       <legend></legend>
+                                                    </td>
+                                                    <th>
+                                                        <legend></legend>
+                                                    </th>
+                                                    <th>
+                                                        <legend></legend>
+                                                    </th>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                        <TFOOT>
+                                            <tr>
+                                                <th></th>
+                                                <th COLSPAN=2 ALIGN=LEFT>
+                                                    {{ form_widget(form.guardar ) }}
+                                                </th>
+                                                
+                                            </tr>
+                                        </TFOOT>
+                                    </table>
+                                </div>
+                                
+                            </center>
+                        </fieldset>
+                        <!--{{ form_widget(form.gatbPart5DetailSPs ) }}-->
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

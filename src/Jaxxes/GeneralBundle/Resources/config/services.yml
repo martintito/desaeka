@@ -1,0 +1,7 @@
+parameters:
+#    general.example.class: Jaxxes\GeneralBundle\Example
+
+services:
+#    general.example:
+#        class: %general.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

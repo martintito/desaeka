@@ -1,0 +1,7 @@
+parameters:
+#    raven_sp.example.class: Jaxxes\RavenSPBundle\Example
+
+services:
+#    raven_sp.example:
+#        class: %raven_sp.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

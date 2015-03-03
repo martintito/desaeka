@@ -1,0 +1,98 @@
+test_pma_sp_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: TestPmaSPBundle:Default:index }
+
+
+# routing de prueba PMA elaborada por candidato en proceso de seleccion
+test_pma_sp_new:
+    pattern:  /{idspcandidate}/new
+    defaults: { _controller: TestPmaSPBundle:Default:new }
+    
+test_pma_sp_create:
+    pattern:  /create
+    defaults: { _controller: TestPmaSPBundle:Default:create }
+    requirements: { _method: post }
+
+test_pma_sp_show:
+    pattern:  /{id}/show
+    defaults: { _controller: TestPmaSPBundle:Default:show }
+
+# routing de prueba PMA parte 1 elaborada por candidato en proceso de seleccion
+test_pma_part1_sp_new:
+    pattern:  /test_pma_part1_sp/{idpmasp}/new
+    defaults: { _controller: TestPmaSPBundle:PmaPart1SP:new }
+
+test_pma_part1_sp_create:
+    pattern:  /test_pma_part1_sp/{idpmasp}/create
+    defaults: { _controller: TestPmaSPBundle:PmaPart1SP:create }
+    requirements: { _method: post }
+
+test_pma_part1_sp_show:
+    pattern:  /test_pma_part1_sp/{id}/show
+    defaults: { _controller: TestPmaSPBundle:PmaPart1SP:show }
+
+# routing de prueba PMA parte 2 elaborada por candidato en proceso de seleccion
+test_pma_part2_sp_new:
+    pattern:  /test_pma_part2_sp/{idpmasp}/new
+    defaults: { _controller: TestPmaSPBundle:PmaPart2SP:new }
+
+test_pma_part2_sp_create:
+    pattern:  /test_pma_part2_sp/{idpmasp}/{block}/{id}/create
+    defaults: { _controller: TestPmaSPBundle:PmaPart2SP:create }
+    requirements: { _method: post }
+    
+test_pma_part2_sp_next_new:
+    pattern:  /test_pma_part2_sp/{id}/{block}/new
+    defaults: { _controller: TestPmaSPBundle:PmaPart2SP:next_new }
+
+test_pma_part2_sp_show:
+    pattern:  /test_pma_part2_sp/{id}/show
+    defaults: { _controller: TestPmaSPBundle:PmaPart2SP:show }
+
+
+# routing de prueba PMA parte 3 elaborada por candidato en proceso de seleccion
+test_pma_part3_sp_new:
+    pattern:  /test_pma_part3_sp/{idpmasp}/new
+    defaults: { _controller: TestPmaSPBundle:PmaPart3SP:new }
+
+test_pma_part3_sp_create:
+    pattern:  /test_pma_part3_sp/{idpmasp}/create
+    defaults: { _controller: TestPmaSPBundle:PmaPart3SP:create }
+    requirements: { _method: post }
+
+test_pma_part3_sp_show:
+    pattern:  /test_pma_part3_sp/{id}/show
+    defaults: { _controller: TestPmaSPBundle:PmaPart3SP:show }
+
+
+# routing de prueba PMA parte 3 elaborada por candidato en proceso de seleccion
+test_pma_part4_sp_new:
+    pattern:  /test_pma_part4_sp/{idpmasp}/new
+    defaults: { _controller: TestPmaSPBundle:PmaPart4SP:new }
+
+test_pma_part4_sp_create:
+    pattern:  /test_pma_part4_sp/{idpmasp}/create
+    defaults: { _controller: TestPmaSPBundle:PmaPart4SP:create }
+    requirements: { _method: post }
+
+test_pma_part4_sp_show:
+    pattern:  /test_pma_part4_sp/{id}/show
+    defaults: { _controller: TestPmaSPBundle:PmaPart4SP:show }
+
+# routing de prueba PMA parte 5 elaborada por candidato en proceso de seleccion
+test_pma_part5_sp_new:
+    pattern:  /test_pma_part5_sp/{idpmasp}/new
+    defaults: { _controller: TestPmaSPBundle:PmaPart5SP:new }
+
+test_pma_part5_sp_create:
+    pattern:  /test_pma_part5_sp/{idpmasp}/create
+    defaults: { _controller: TestPmaSPBundle:PmaPart5SP:create }
+    requirements: { _method: post }
+
+test_pma_part5_sp_show:
+    pattern:  /test_pma_part5_sp/{id}/show
+    defaults: { _controller: TestPmaSPBundle:PmaPart5SP:show }
+
+test_pma_part5_sp_diccionario:
+    pattern:  /test_pma_part5_sp/{id}/diccionario
+    defaults: { _controller: TestPmaSPBundle:PmaPart5SP:search }

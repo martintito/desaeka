@@ -1,0 +1,54 @@
+{% extends '::candidate.html.twig' %}
+
+{% block id 'seleccionprocess' %}
+{% block title %}Proceso de evaluación{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <br>
+                <h2>{{ block('title') }}</h2>
+                
+                <div class="row-fluid">
+                    <table class="record_properties">
+                        <tbody>
+                            <tr> 
+                                <td width="40px" ></td>
+                                <th width="120px">Candidato :</th>
+                                <td width="520px">{{ entity.candidate.firstName }} {{ entity.candidate.lastName }}</td>
+                            </tr>
+                            <tr> 
+                                <td width="10px" ></td>
+                                <th  colspan=2 height="10px"></th>
+                            </tr>
+                            <tr> 
+                                <td width="40px" ></td>
+                                <th width="120px">Cargo :</th>
+                                <td width="520px">{{ entity.selectionProcess }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <br>
+                
+                 <br>
+                 <br>
+                 <center>
+                    <h3>Felicitaciones terminó todas las pruebas del proceso de selección</h3>
+                 </center>
+                 <br>
+                
+                    
+               
+                
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

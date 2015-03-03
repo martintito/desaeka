@@ -1,0 +1,33 @@
+{% extends '::candidate.html.twig' %}
+
+{% block title %} Ficha del candidato {% endblock %}
+
+{% block article %}
+
+<!--<h1>{{ block('title') }}</h1>-->
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h1>{{ block('title') }}</h1>
+                <br>
+                <div class="table table-striped">
+					<tr> </h3>Felicitaciones usted ha completado la Ficha de Candidato. </h3>
+					</tr>
+					<tr> Continue con las pruebas asignadas
+					</tr>					
+                <br> 
+                <br>
+                <ul class="record_actions">
+                    <li>
+                        <a href="{{ path('sp_candidato_test_index') }}">
+                            Continuar con evaluación
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

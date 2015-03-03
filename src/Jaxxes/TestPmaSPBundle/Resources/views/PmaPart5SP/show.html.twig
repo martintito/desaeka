@@ -1,0 +1,56 @@
+{% extends '::candidate.html.twig' %}
+
+{% block id 'pmapart5sp' %}
+{% block title %}Fin Prueba PMA {% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <!--<h2>{{ block('title') }}</h2>-->
+                <div class="row-fluid">
+                    <table class="record_properties">
+                        <tbody>
+                            <tr>
+                                <th class="span3">Evaluado : </th>
+                                <td class="span4">{{ entity.pmaSP }}.</td>
+                            </tr>
+                            <tr>
+                                <th class="span3">Test Finalizado : </th>
+                                <td class="span4">{{ entity.pmaPart5 }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <br>
+                <center>
+                    <h3>Felicitaciones terminó la prueba PMA</h3>
+                </center>
+                <br>
+                <div class="row-fluid">
+                    <ul class="record_actions">
+                        <li>
+                            <a href="{{ path('sp_candidato_test_next', { 'codetest': 'PMA' }) }}">
+                                Siguiente
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+      
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

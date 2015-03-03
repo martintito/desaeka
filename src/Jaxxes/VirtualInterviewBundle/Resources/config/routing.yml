@@ -1,0 +1,16 @@
+interview_new:
+    pattern:    /new
+    defaults: { _controller: VirtualInterviewBundle:EVCandidate:new }
+    
+interview_create:
+    pattern:    /{spc}/create
+    defaults: { _controller: VirtualInterviewBundle:EVCandidate:create }
+    requirements: { _method: post }
+
+interview_show:
+    pattern:    /show
+    defaults: { _controller: VirtualInterviewBundle:EVCandidate:show }    
+
+interview_edit:
+    pattern:    /edit
+    defaults: { _controller: VirtualInterviewBundle:EVCandidate:edit }           

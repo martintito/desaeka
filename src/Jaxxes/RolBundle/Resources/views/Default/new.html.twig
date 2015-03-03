@@ -1,0 +1,72 @@
+{% extends '::consultor.html.twig' %}
+{% block id 'rol' %}
+{% block title %}Definición de Rol{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h2>{{ block('title') }}</h2>
+                <br>
+                <br>
+                <div class="row-fluid">
+                    {{ form_start(form, { 'action': path('rol_create') }) }}  
+                        <fieldset>
+                            <div class="row-fluid">
+                                <table class="record_properties">
+                                    <tbody>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="120px">Nombre :</th>
+                                            <td width="720px">{{ form_widget(form.name ) }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th  colspan=2 height="10px"></th>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="120px">Descripción :</th>
+                                            <td width="720px">{{ form_widget(form.descripcion ) }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th  colspan=2 height="10px"></th>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="120px">Nivel :</th>
+                                            <td width="720px">{{ form_widget(form.nivel ) }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th colspan=2 height="10px"></th>
+                                        </tr>
+                                        
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <td colspan=2 >{{ form_widget(form.guardar ) }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </fieldset>
+                    {{ form_end(form) }}
+                </div>
+                <br>
+                <ul class="record_actions">
+                    <li>
+                        <a href="{{ path('rol_homepage') }}">
+                            Volver al listado
+                        </a>
+                    </li>
+                </ul>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

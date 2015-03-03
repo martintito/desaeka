@@ -1,0 +1,140 @@
+{% extends '::candidate.html.twig' %}
+
+{% block title %}Bienvenida al postulante{% endblock %}
+
+{% block article %}
+
+<head>
+<style type="text/css">
+.ui-datepicker {
+   background: #FFFFFF;
+   border: 1px solid #FFFFFF;
+   color: #000000;
+}
+</style>
+
+<script src="{{ asset('uploads/js/jquery.js') }}"></script>
+<script src="{{ asset('uploads/js/jquery-ui-1.10.3.custom.min.js') }}"></script>
+<script src="{{ asset('uploads/js/jquery-ui.js') }}"></script>
+
+<!--<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>-->
+<!--<script src="js/jquery.js"></script>-->
+<!--<script src="js/jquery-ui-1.10.3.custom.min.js"></script>-->
+
+<!--
+<script type="text/javascript">
+
+var $j = jQuery.noConflict();
+var $q = jQuery.noConflict();
+var $k = jQuery.noConflict();
+		$q(document).on("ready",function(){
+			$j(".frmhoraEvaluacion").find("input.fecha").datepicker();
+			$k(".frmhoraEvaluacion").find("input.jaxxes_seleccionprocesbundle_selectionprocesscandidateType[dateStart]").datepicker();
+			
+		});
+</script>
+-->
+</head>
+
+<body>
+    <div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h1><p><center><strong>Bienvenido {{candidate.gender}}</strong></center></p></h1>
+                <br>
+
+                <br>
+                Bienvenido al proceso de evaluación bajo la plataforma de pruebas de EKA Consultores.
+                <br>
+		  <br>
+		  <p><strong></strong></p>
+		  <h3><strong>Instrucciones</strong></h3>
+		  A continuación planifique la fecha y hora para realizar la evaluación. 
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <!--<h1>{{ block('title') }}</h1>
+                <br>
+                <br>-->
+                <h3>Especifique la hora de inicio de su evaluación</h3>
+                <div class="row-fluid">
+                    
+                    {{ form_start( form, { 'action': path('sp_candidato_createwelcome') } ) }}
+								<div class="row-fluid">
+									<div class="span12">
+										
+										<form class="frmhoraEvaluacion" method="post" action="">
+										</form>
+																														
+										<form class="frmhoraEvaluacion" method="post"  action="{{ path('sp_candidato_createwelcome' ) }}">
+											
+											
+											<div class="row-fluid">
+												<div class="span3">
+													<label><b>Duracion de la evaluacion</b></label>
+												</div>
+												
+												<div class="span3">
+													<label>{{duracion}} minutos</label>
+												</div>
+											</div>
+											<br>
+											
+											<div class="row-fluid">
+												<div class="span3">
+													<label><b>Fecha de inicio</b></label>
+												</div>
+												
+												<div class="span3">
+													<!--<input type="date" name="jaxxes_seleccionprocesbundle_selectionprocesscandidateType[dateStart]" class="input-block-level fecha " data-date-format="yyyy-mm-dd" ><!--value=""-->
+													{{ form_widget(form.dateStart )}}
+												</div>
+											</div>
+											
+											<div class="row-fluid">
+												<div class="span3">
+													<label><b>Hora de inicio</b></label>
+												</div>
+												<div class="span3">
+													{{ form_widget(form.hourStart )}}
+			
+												</div>
+											</div>
+											
+											<div class="row-fluid">
+												<div class="span3 offset3">
+													{{ form_widget(form.guardar )}}
+													
+													<!--<input type="submit" name="jaxxes_seleccionprocesbundle_selectionprocesscandidateType[guardar]"class="btn btn-primary save" value="Guardar cambios" 
+														style="float:right" />
+													-->
+													
+												</div>
+											</div>
+										</form>
+										
+									</div>	
+								</div>
+                   {{ form_end(form) }}
+                </div>
+                <!--<ul class="record_actions">
+                    <li>
+                        <a href="{{ path('enterprise_homepage') }}">
+                            Volver al listado
+                        </a>
+                    </li>
+                </ul>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

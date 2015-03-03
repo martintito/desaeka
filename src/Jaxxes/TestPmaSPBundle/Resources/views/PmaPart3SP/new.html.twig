@@ -1,0 +1,125 @@
+{% extends '::candidate.html.twig' %}
+{% block id 'pmapart3sp' %}
+{% block title %}PMA - PARTE 3{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h1>
+                    {{ block('title') }}
+                    {% trans with {'%tiempo%': entity.pmaSP.selectionProcessCandidate.candidate.birthDate | cuenta_atras_PmaPart3 } %}
+                        <font size="5" color="#6699CC">
+                            (Tiempo corriendo, faltan: %tiempo%)
+                        </font>
+                    {% endtrans %}
+                </h1>
+                <div class="row-fluid">
+                    {{ form_start(form, { 'action': path('test_pma_part3_sp_create', { 'idpmasp': entity.pmaSP.id }   ) } ) }}  
+                    
+                        <fieldset>
+                            <!--
+                            {{ form_widget(form.pmaPart3 ) }}
+                            {{ form_widget(form.pmaSP ) }}
+                            -->
+                            <div class="row-fluid">
+                                <table class="record_properties">
+                                    <tbody>
+                                        <tr> 
+                                            <th class="span3">Evaluado</th>
+                                            <td class="span4">{{ entity.pmaSP }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </fieldset>
+                        <br>
+                        <fieldset>
+                            <br>
+                            <br>
+                            <center>
+                                <div class="row-fluid">
+                                    <table class="record_properties">
+                                        <tbody>
+                                            {% for pmaPart3DetailSP in entity.pmaPart3DetailSPs %}
+                                                <tr>
+                                                    <td width="20px" >
+                                                        <strong>{{ pmaPart3DetailSP.pmaPart3Detail.number }}.</strong>
+                                                    </td>
+                                                    <td width="320px" ALIGN=RIGHT>
+                                                        {{ pmaPart3DetailSP.pmaPart3Detail.question }}
+                                                    </td>
+                                                    <td width="120px">
+                                                    </td>
+                                                    <td width="300px">
+                                                        <div id="jaxxes_testpmaspbundle_pmapart3sp_pmaPart3DetailSPs_{{ (pmaPart3DetailSP.pmaPart3Detail.number -1 ) }}_answer" class="span12">
+                                                            <table class="record_properties">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        {% set i = 0 %}
+                                                                        {% for pmaPart3DetailAlternative in pmaPart3DetailSP.pmaPart3Detail.pmaPart3DetailAlternatives %}
+                                                                            <td width="10px">
+                                                                                <input type="radio" id="jaxxes_testpmaspbundle_pmapart3sp_pmaPart3DetailSPs_{{ (pmaPart3DetailSP.pmaPart3Detail.number -1 ) }}_answer_{{ i }}" name="jaxxes_testpmaspbundle_pmapart3sp[pmaPart3DetailSPs][{{ (pmaPart3DetailSP.pmaPart3Detail.number -1 ) }}][answer]"  value="{{ pmaPart3DetailAlternative.alternative }}" />                
+                                                                            </td>
+                                                                            <td width="50px">
+                                                                                <label for="jaxxes_testpmaspbundle_pmapart3sp_pmaPart3DetailSPs_{{ (pmaPart3DetailSP.pmaPart3Detail.number -1 ) }}_answer_{{ i }}" >{{ pmaPart3DetailAlternative.alternative }}</label>
+                                                                            </td>
+                                                                            {% set i = i+1 %}
+                                                                        {% endfor %}
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                    <td width="100px">
+                                                    </td>
+                                                    <td width="20px" >
+                                                        <strong>{{ pmaPart3DetailSP.pmaPart3Detail.number }}</strong>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        <legend></legend>
+                                                    </th>
+                                                    <td>
+                                                       <legend></legend>
+                                                    </td>
+                                                    <th>
+                                                        <legend></legend>
+                                                    </th>
+                                                    <th>
+                                                        <legend></legend>
+                                                    </th>
+                                                    <th>
+                                                        <legend></legend>
+                                                    </th>
+                                                    <th>
+                                                        <legend></legend>
+                                                    </th>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                        <TFOOT>
+                                            <tr>
+                                                
+                                                <th COLSPAN=3 ALIGN=LEFT>
+                                                    {{ form_widget(form.guardar ) }}
+                                                </th>
+                                                
+                                            </tr>
+                                        </TFOOT>
+                                    </table>
+                                </div>
+                                
+                            </center>
+                        </fieldset>
+                        <!--{{ form_widget(form.pmaPart3DetailSPs ) }}-->
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

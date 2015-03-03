@@ -1,0 +1,3 @@
+escudo_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: EscudoBundle:Default:index }

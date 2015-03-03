@@ -1,0 +1,15 @@
+#rv_index:
+#    path:     /hello/{name}
+#    defaults: { _controller: RavenSPBundle:Default:index }
+
+rv_new:
+    path:  	/new
+    defaults: { _controller: RavenSPBundle:RavenTest:new }
+
+rv_next:
+    path:  	/{idQuestion}/{orden}
+    defaults: { _controller: RavenSPBundle:RavenTest:next }
+
+rv_inst:
+    path:  /inst
+    defaults: { _controller: RavenSPBundle:RavenTest:inst }

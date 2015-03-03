@@ -1,0 +1,119 @@
+{% extends '::candidate.html.twig' %}
+
+{% block id 'gatbpart2sp' %}
+{% block title %}Prueba 2 Gatb {% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <!--<h2>{{ block('title') }}</h2>-->
+                <br>
+                <br>
+                <div class="row-fluid">
+                    <table class="record_properties">
+                        <tbody>
+                            <tr>
+                                <th class="span3">Evaluado :</th>
+                                <td class="span4">{{ entity.gatbSP }}.</td>
+                            </tr>
+                            <tr>
+                                <th class="span3">Test Finalizado :</th>
+                                <td class="span4">{{ entity.gatbPart2 }}.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row-fluid">
+                    <center>
+                        <h2>PARTE 3</h2>
+                        <h3>INSTRUCCIONES</h3>
+                    </center>
+                    <br>
+                    <div class="row-fluid">
+                        <div class="span2">
+                        </div>
+                        <div class="span9" STYLE="font-family: Arial; font-size: 18px; color: black">
+                            En esta página hay algunos ejercicios que consisten en encontrar objetos hechos de planchas de metal.
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row-fluid">
+                        <div class="span2">
+                        </div>
+                        <div class="span9" STYLE="font-family: Arial; font-size: 18px; color: black">
+                            <strong>
+                                Observe el ejercicio 1, abajo:
+                            </strong>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span2">
+                        </div>
+                        <div class="span9" STYLE="font-family: Arial; font-size: 18px; color: black">
+                            <img alt="Imagen" src="{{ asset(directorio_imagenes_gatb ~ 'ImagenEjercicio1Pregunta.jpg') }}">
+                            <img alt="Imagen" src="{{ asset(directorio_imagenes_gatb ~ 'ImagenEjercicio1Alternativas.jpg') }}">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row-fluid">
+                        <div class="span2">
+                        </div>
+                        <div class="span9" STYLE="font-family: Arial; font-size: 18px; color: black">
+                            <!--A la izquierda hay un dibujo que representa una pieza plana de metal. Las líneas de guiones muestran donde se debe doblar el metal. A la derecha hay dibujos de cuatro objetos. Observe que solamente el objeto D se puede hacer doblando la pieza de metal de la figura 1. Ahora mire en la hoja de respuestas en la Parte 3 la casilla de práctica. Observe que en la fila para el ejercicio 1 el espacio bajo la letra D ha sido marcado.-->
+                            En la parte superior se tiene la figura 1 que representa una pieza plana de metal. Las líneas de guiones muestran donde se debe doblar el metal. En la parte inferior a la figura hay dibujos de cuatro objetos (A, B, C, D respectivamente). Observe que solamente el objeto D se puede hacer doblando la pieza de metal de la figura 1. Entonces la respuesta a la pregunta será la letra D. 
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row-fluid">
+                        <div class="span2">
+                        </div>
+                        <div class="span9" STYLE="font-family: Arial; font-size: 18px; color: black">
+                            <strong>
+                                Ahora observe el ejercicio 2
+                            </strong>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span2">
+                        </div>
+                        <div class="span9" STYLE="font-family: Arial; font-size: 18px; color: black">
+                            <img alt="Imagen" src="{{ asset(directorio_imagenes_gatb ~ 'ImagenEjercicio2Pregunta.jpg') }}">
+                            <img alt="Imagen" src="{{ asset(directorio_imagenes_gatb ~ 'ImagenEjercicio2Alternativas.jpg') }}">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row-fluid">
+                        <div class="span2">
+                        </div>
+                        <div class="span9" STYLE="font-family: Arial; font-size: 18px; color: black">
+                            <!--A la izquierda hay otro dibujo de una pieza plana de metal. Solamente el objeto C se puede hacer de la figura 2, esta vez enrollando y doblando el metal. Por esto, en la fila para el ejercicio de práctica 2 en la hoja de respuestas se ha marcado el espacio bajo la letra C.-->
+                            Para el ejercicio se tiene la figura 2 con otro dibujo de una pieza plana de metal. Solamente el dibujo con el objeto C se puede hacer de la figura 2, esta vez enrollando y doblando el metal. Por esto, la respuesta a la pregunta sería la letra C.
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row-fluid">
+                        <div class="span2">
+                        </div>
+                        <div class="span9" >
+                            <ul class="record_actions">
+                                <li>
+                                    <a href="{{ path('test_gatb_part3_sp_new', { 'idgatbsp': entity.gatbSP.id }) }}">
+                                        Empezar Prueba 3
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

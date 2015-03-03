@@ -1,0 +1,53 @@
+{% extends '::candidate.html.twig' %}
+
+{% block title %}Entrevista virtual {% endblock %}
+
+{% block article %}
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <div class="row-fluid">
+                    <fieldset>
+                    <legend><h2> Entrevista Virtual</h2></legend>
+						<table class="table table-striped">
+							<tr>
+								<th><h4 class="span6">Pregunta</h4></th>
+								<th><h4 class="span6" align="center">Respuesta</h4></th>
+							</tr>									
+							{% set i = 0 %}
+							{% for entidad_respuesta in virtualInterviewSelectionProcessCandidateList %}
+							<tr>
+								<td class="span6">{{entidad_respuesta.VirtualInterviewQuestion.orden}}. 
+								{{entidad_respuesta.VirtualInterviewQuestion.question}}
+								</td>
+								<td class="span6">	
+								{% set rpta = entidad_respuesta.Answer %}
+								{% if rpta is null%}
+									<p align="center">-</p>
+								{% else %}  
+									<p>{{rpta}}</p>
+								{% endif %}
+								
+								</td>
+								{% set i = i+1 %}
+							</tr>
+							{% endfor %}
+						</table>
+
+                    </fieldset>
+                </div>
+                <br>
+                <br>
+                <ul class="record_actions">
+                    <li>
+                        <a href="{{ path('resume_new') }}">
+                            Continuar con ficha de candidato
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

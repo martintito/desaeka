@@ -1,0 +1,18 @@
+{% extends '::admin.html.twig' %}
+
+{% block id 'consultor' %}
+{% block title %}Añadir un nuevo consultor{% endblock %}
+
+{% block article %}
+<h1>{{ block('title') }}</h1>
+
+{{ form(form, { 'action': path('backend_consultores_create') }) }}
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('backend_consultores') }}">
+            Volver al listado
+        </a>
+    </li>
+</ul>
+{% endblock %}

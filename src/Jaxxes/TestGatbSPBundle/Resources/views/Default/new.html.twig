@@ -1,0 +1,21 @@
+{% extends '::candidate.html.twig' %}
+{% block id 'gatbsp' %}
+{% block title %}Prueba Gatb{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h1>{{ block('title') }}</h1>
+                <br>
+                <br>
+                <div class="row-fluid">
+                    {{ form(form, { 'action': path('test_gatb_sp_create') }) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

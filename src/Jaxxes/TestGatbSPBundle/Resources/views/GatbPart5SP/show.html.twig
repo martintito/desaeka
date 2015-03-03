@@ -1,0 +1,56 @@
+{% extends '::candidate.html.twig' %}
+
+{% block id 'gatbpart5sp' %}
+{% block title %}Finalizó las 5 pruebas del GATB{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h2>{{ block('title') }}</h2>
+                <br>
+                <br>
+                <div class="row-fluid">
+                    <table class="record_properties">
+                        <tbody>
+                            <tr>
+                                <th class="span3">Test :</th>
+                                <td class="span4">{{ entity.gatbPart5 }}.</td>
+                            </tr>
+                            <tr>
+                                <th class="span3">Evaluado :</th>
+                                <td class="span4">{{ entity.gatbSP }}.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <br>
+                <center>
+                    <h3>Felicitaciones terminó la prueba GATB</h3>
+                </center>
+                <br>
+                <div class="row-fluid">
+                    <ul class="record_actions">
+                        <li>
+                            <a href="{{ path('sp_candidato_test_next', { 'codetest': 'GTB' }) }}">
+                                Siguiente
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

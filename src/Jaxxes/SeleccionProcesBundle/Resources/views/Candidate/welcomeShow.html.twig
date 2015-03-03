@@ -1,0 +1,103 @@
+{% extends '::candidate.html.twig' %}
+
+{% block title %}Bienvenida al postulante{% endblock %}
+
+{% block article %}
+
+
+
+<head>
+
+
+<script src="{{ asset('uploads/js/jquery.js') }}"></script>
+<script src="{{ asset('uploads/js/jquery-ui-1.10.3.custom.min.js') }}"></script>
+
+<script src="{{ asset('uploads/js/jquery-ui.js') }}"></script>
+
+
+
+
+<!--<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+-->
+
+<!--<script src="js/jquery.js"></script>-->
+<!--<script src="js/jquery-ui-1.10.3.custom.min.js"></script>-->
+
+<script type="text/javascript">
+
+var $j = jQuery.noConflict();
+var $q = jQuery.noConflict();
+var $k = jQuery.noConflict();
+		$q(document).on("ready",function(){
+			$j(".frmhoraEvaluacion").find("input.fecha").datepicker();
+			$k(".frmhoraEvaluacion").find("input.jaxxes_seleccionprocesbundle_selectionprocesscandidateType[dateStart]").datepicker();
+			
+		});
+
+	</script>
+	
+
+
+
+
+</head>
+
+
+<body>
+    <div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h1><p><center><strong>Bienvenido {{ candidate.lastname }}</strong><center></p></h1>
+
+                <br>
+                Bienvenido al proceso de evaluación bajo la plataforma de pruebas de EKA Consultores.
+                <br>
+		  <br>
+		  <!--p><strong></strong></p>
+		  <h3><strong>Instrucciones</strong></h3>
+		  A continuación planifique la fecha y hora para realizar la evaluación. -->
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+
+			
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h3>La hora de inicio de la evaluación es:</h3>
+                <table class="record_properties">
+                    <tbody>
+                        <tr>
+                            <td class="span3"><b>Duracion de la evaluacion</b></td>
+                            <td class="span4">{{ duracion }} minutos</td>
+                        </tr>
+                        <tr>
+                            <td class="span3"><b>Fecha de Inicio</b></td>
+                            <td class="span4">{{ fecha }}</td>
+                        </tr>
+                        <tr>
+                            <td class="span3"><b>Hora de Inicio</b></td>
+                            <td class="span4">{{ entity.hourStart }} horas</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </br>
+                </br>
+                <ul class="record_actions">
+                    <li>
+                        <a href="{{ path('register_definition_rol_perfilcargopostulante') }}">
+                            Continuar con perfil de cargo
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

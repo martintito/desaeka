@@ -1,0 +1,251 @@
+<?php
+
+namespace Jaxxes\TestPmaSPBundle\DataFixtures\ORM;
+
+use Doctrine\Common\DataFixtures\AbstractFixture; 
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+
+use Jaxxes\TestPmaSPBundle\Entity\Pma5Diccionario;
+
+/**
+ * Fixtures de la entidad Resume.
+ * Crea el registro de la cabecera para Resume = Ficha del candidato
+ */
+ 
+// class Resumes implements FixtureInterface
+ class PMA5DiccionarioY extends AbstractFixture implements OrderedFixtureInterface
+{
+	
+    public function getOrder()
+    {
+        return 126;
+    }
+    private $container;
+    
+    
+    
+    public function load(ObjectManager $manager)
+    {
+        $lstStructure = array(	
+			array('letra'=>'y', 'palabra'=>'y'),
+array('letra'=>'y', 'palabra'=>'ya'),
+array('letra'=>'y', 'palabra'=>'yaacabo'),
+array('letra'=>'y', 'palabra'=>'yaba'),
+array('letra'=>'y', 'palabra'=>'yabuna'),
+array('letra'=>'y', 'palabra'=>'yabunal'),
+array('letra'=>'y', 'palabra'=>'yaca'),
+array('letra'=>'y', 'palabra'=>'yacal'),
+array('letra'=>'y', 'palabra'=>'yacare'),
+array('letra'=>'y', 'palabra'=>'yacedor'),
+array('letra'=>'y', 'palabra'=>'yacente'),
+array('letra'=>'y', 'palabra'=>'yacer'),
+array('letra'=>'y', 'palabra'=>'yaciente'),
+array('letra'=>'y', 'palabra'=>'yacija'),
+array('letra'=>'y', 'palabra'=>'yacimiento'),
+array('letra'=>'y', 'palabra'=>'yacio'),
+array('letra'=>'y', 'palabra'=>'yactura'),
+array('letra'=>'y', 'palabra'=>'yacuibeño'),
+array('letra'=>'y', 'palabra'=>'yacumeño'),
+array('letra'=>'y', 'palabra'=>'yagruma'),
+array('letra'=>'y', 'palabra'=>'yagrumo'),
+array('letra'=>'y', 'palabra'=>'yagua'),
+array('letra'=>'y', 'palabra'=>'yagual'),
+array('letra'=>'y', 'palabra'=>'yaguane'),
+array('letra'=>'y', 'palabra'=>'yaguar'),
+array('letra'=>'y', 'palabra'=>'yaguarete'),
+array('letra'=>'y', 'palabra'=>'yaguarundi'),
+array('letra'=>'y', 'palabra'=>'yaguasa'),
+array('letra'=>'y', 'palabra'=>'yagure'),
+array('letra'=>'y', 'palabra'=>'yagurt'),
+array('letra'=>'y', 'palabra'=>'yaichihue'),
+array('letra'=>'y', 'palabra'=>'yaicuaje'),
+array('letra'=>'y', 'palabra'=>'yaiti'),
+array('letra'=>'y', 'palabra'=>'yak'),
+array('letra'=>'y', 'palabra'=>'yal'),
+array('letra'=>'y', 'palabra'=>'yamao'),
+array('letra'=>'y', 'palabra'=>'yambico'),
+array('letra'=>'y', 'palabra'=>'yambo'),
+array('letra'=>'y', 'palabra'=>'yana'),
+array('letra'=>'y', 'palabra'=>'yanacon'),
+array('letra'=>'y', 'palabra'=>'yanacona'),
+array('letra'=>'y', 'palabra'=>'yang'),
+array('letra'=>'y', 'palabra'=>'yangües'),
+array('letra'=>'y', 'palabra'=>'yanilla'),
+array('letra'=>'y', 'palabra'=>'yanqui'),
+array('letra'=>'y', 'palabra'=>'yanta'),
+array('letra'=>'y', 'palabra'=>'yantar'),
+array('letra'=>'y', 'palabra'=>'yapa'),
+array('letra'=>'y', 'palabra'=>'yapar'),
+array('letra'=>'y', 'palabra'=>'yapu'),
+array('letra'=>'y', 'palabra'=>'yaque'),
+array('letra'=>'y', 'palabra'=>'yaquil'),
+array('letra'=>'y', 'palabra'=>'yaracuyano'),
+array('letra'=>'y', 'palabra'=>'yarara'),
+array('letra'=>'y', 'palabra'=>'yaravi'),
+array('letra'=>'y', 'palabra'=>'yarda'),
+array('letra'=>'y', 'palabra'=>'yare'),
+array('letra'=>'y', 'palabra'=>'yarey'),
+array('letra'=>'y', 'palabra'=>'yaro'),
+array('letra'=>'y', 'palabra'=>'yatagan'),
+array('letra'=>'y', 'palabra'=>'yatai'),
+array('letra'=>'y', 'palabra'=>'yataro'),
+array('letra'=>'y', 'palabra'=>'yatay'),
+array('letra'=>'y', 'palabra'=>'yate'),
+array('letra'=>'y', 'palabra'=>'yautia'),
+array('letra'=>'y', 'palabra'=>'yaya'),
+array('letra'=>'y', 'palabra'=>'yayo'),
+array('letra'=>'y', 'palabra'=>'ye'),
+array('letra'=>'y', 'palabra'=>'yebo'),
+array('letra'=>'y', 'palabra'=>'yeco'),
+array('letra'=>'y', 'palabra'=>'yedgo'),
+array('letra'=>'y', 'palabra'=>'yedra'),
+array('letra'=>'y', 'palabra'=>'yegua'),
+array('letra'=>'y', 'palabra'=>'yeguada'),
+array('letra'=>'y', 'palabra'=>'yeguar'),
+array('letra'=>'y', 'palabra'=>'yeguarizo'),
+array('letra'=>'y', 'palabra'=>'yeguato'),
+array('letra'=>'y', 'palabra'=>'yegüeria'),
+array('letra'=>'y', 'palabra'=>'yegüerio'),
+array('letra'=>'y', 'palabra'=>'yegüerizo'),
+array('letra'=>'y', 'palabra'=>'yegüero'),
+array('letra'=>'y', 'palabra'=>'yeismo'),
+array('letra'=>'y', 'palabra'=>'yeista'),
+array('letra'=>'y', 'palabra'=>'yelgo'),
+array('letra'=>'y', 'palabra'=>'yelmo'),
+array('letra'=>'y', 'palabra'=>'yema'),
+array('letra'=>'y', 'palabra'=>'yemeni'),
+array('letra'=>'y', 'palabra'=>'yen'),
+array('letra'=>'y', 'palabra'=>'yente'),
+array('letra'=>'y', 'palabra'=>'yeral'),
+array('letra'=>'y', 'palabra'=>'yerba'),
+array('letra'=>'y', 'palabra'=>'yerbajo'),
+array('letra'=>'y', 'palabra'=>'yerbal'),
+array('letra'=>'y', 'palabra'=>'yerbatal'),
+array('letra'=>'y', 'palabra'=>'yerbatero'),
+array('letra'=>'y', 'palabra'=>'yerbazo'),
+array('letra'=>'y', 'palabra'=>'yerbeado'),
+array('letra'=>'y', 'palabra'=>'yerbear'),
+array('letra'=>'y', 'palabra'=>'yerbera'),
+array('letra'=>'y', 'palabra'=>'yerbero'),
+array('letra'=>'y', 'palabra'=>'yerboso'),
+array('letra'=>'y', 'palabra'=>'yermar'),
+array('letra'=>'y', 'palabra'=>'yermo'),
+array('letra'=>'y', 'palabra'=>'yerna'),
+array('letra'=>'y', 'palabra'=>'yerno'),
+array('letra'=>'y', 'palabra'=>'yero'),
+array('letra'=>'y', 'palabra'=>'yerra'),
+array('letra'=>'y', 'palabra'=>'yerro'),
+array('letra'=>'y', 'palabra'=>'yersey'),
+array('letra'=>'y', 'palabra'=>'yersey'),
+array('letra'=>'y', 'palabra'=>'yersi'),
+array('letra'=>'y', 'palabra'=>'yerto'),
+array('letra'=>'y', 'palabra'=>'yervo'),
+array('letra'=>'y', 'palabra'=>'yesal'),
+array('letra'=>'y', 'palabra'=>'yesar'),
+array('letra'=>'y', 'palabra'=>'yesca'),
+array('letra'=>'y', 'palabra'=>'yesera'),
+array('letra'=>'y', 'palabra'=>'yeseria'),
+array('letra'=>'y', 'palabra'=>'yesero'),
+array('letra'=>'y', 'palabra'=>'yesista'),
+array('letra'=>'y', 'palabra'=>'yeso'),
+array('letra'=>'y', 'palabra'=>'yeson'),
+array('letra'=>'y', 'palabra'=>'yesoso'),
+array('letra'=>'y', 'palabra'=>'yesquero'),
+array('letra'=>'y', 'palabra'=>'yeti'),
+array('letra'=>'y', 'palabra'=>'yeyuno'),
+array('letra'=>'y', 'palabra'=>'yezgo'),
+array('letra'=>'y', 'palabra'=>'yin'),
+array('letra'=>'y', 'palabra'=>'yo'),
+array('letra'=>'y', 'palabra'=>'yod'),
+array('letra'=>'y', 'palabra'=>'yodacion'),
+array('letra'=>'y', 'palabra'=>'yodado'),
+array('letra'=>'y', 'palabra'=>'yodo'),
+array('letra'=>'y', 'palabra'=>'yodoformo'),
+array('letra'=>'y', 'palabra'=>'yodurar'),
+array('letra'=>'y', 'palabra'=>'yoduro'),
+array('letra'=>'y', 'palabra'=>'yoga'),
+array('letra'=>'y', 'palabra'=>'yogar'),
+array('letra'=>'y', 'palabra'=>'yogui'),
+array('letra'=>'y', 'palabra'=>'yogur'),
+array('letra'=>'y', 'palabra'=>'yogurtera'),
+array('letra'=>'y', 'palabra'=>'yoidad'),
+array('letra'=>'y', 'palabra'=>'yola'),
+array('letra'=>'y', 'palabra'=>'yolillo'),
+array('letra'=>'y', 'palabra'=>'yoltamal'),
+array('letra'=>'y', 'palabra'=>'yonqui'),
+array('letra'=>'y', 'palabra'=>'yoquey'),
+array('letra'=>'y', 'palabra'=>'yoquey'),
+array('letra'=>'y', 'palabra'=>'yoqui'),
+array('letra'=>'y', 'palabra'=>'yoreño'),
+array('letra'=>'y', 'palabra'=>'yos'),
+array('letra'=>'y', 'palabra'=>'yotaleño'),
+array('letra'=>'y', 'palabra'=>'yoyo'),
+array('letra'=>'y', 'palabra'=>'yoyo'),
+array('letra'=>'y', 'palabra'=>'yuan'),
+array('letra'=>'y', 'palabra'=>'yubarta'),
+array('letra'=>'y', 'palabra'=>'yubo'),
+array('letra'=>'y', 'palabra'=>'yuca'),
+array('letra'=>'y', 'palabra'=>'yucal'),
+array('letra'=>'y', 'palabra'=>'yucateco'),
+array('letra'=>'y', 'palabra'=>'yuchan'),
+array('letra'=>'y', 'palabra'=>'yudo'),
+array('letra'=>'y', 'palabra'=>'yudoca'),
+array('letra'=>'y', 'palabra'=>'yugada'),
+array('letra'=>'y', 'palabra'=>'yuglandaceo'),
+array('letra'=>'y', 'palabra'=>'yugo'),
+array('letra'=>'y', 'palabra'=>'yugoeslavo'),
+array('letra'=>'y', 'palabra'=>'yugoslavo'),
+array('letra'=>'y', 'palabra'=>'yuguero'),
+array('letra'=>'y', 'palabra'=>'yugueta'),
+array('letra'=>'y', 'palabra'=>'yugular'),
+array('letra'=>'y', 'palabra'=>'yumbo'),
+array('letra'=>'y', 'palabra'=>'yunga'),
+array('letra'=>'y', 'palabra'=>'yungueño'),
+array('letra'=>'y', 'palabra'=>'yunque'),
+array('letra'=>'y', 'palabra'=>'yunta'),
+array('letra'=>'y', 'palabra'=>'yuntar'),
+array('letra'=>'y', 'palabra'=>'yunteria'),
+array('letra'=>'y', 'palabra'=>'yuntero'),
+array('letra'=>'y', 'palabra'=>'yunto'),
+array('letra'=>'y', 'palabra'=>'yuqueri'),
+array('letra'=>'y', 'palabra'=>'yuquero'),
+array('letra'=>'y', 'palabra'=>'yuquilla'),
+array('letra'=>'y', 'palabra'=>'yuraguano'),
+array('letra'=>'y', 'palabra'=>'yuras'),
+array('letra'=>'y', 'palabra'=>'yure'),
+array('letra'=>'y', 'palabra'=>'yuruma'),
+array('letra'=>'y', 'palabra'=>'yurumo'),
+array('letra'=>'y', 'palabra'=>'yusano'),
+array('letra'=>'y', 'palabra'=>'yusero'),
+array('letra'=>'y', 'palabra'=>'yusivo'),
+array('letra'=>'y', 'palabra'=>'yuso'),
+array('letra'=>'y', 'palabra'=>'yuta'),
+array('letra'=>'y', 'palabra'=>'yute'),
+array('letra'=>'y', 'palabra'=>'yuxtalineal'),
+array('letra'=>'y', 'palabra'=>'yuxtaponer'),
+array('letra'=>'y', 'palabra'=>'yuxtaposicion'),
+array('letra'=>'y', 'palabra'=>'yuxtapuesto'),
+array('letra'=>'y', 'palabra'=>'yuyal'),
+array('letra'=>'y', 'palabra'=>'yuyero'),
+array('letra'=>'y', 'palabra'=>'yuyo'),
+array('letra'=>'y', 'palabra'=>'yuyuba'),
+
+
+		);
+         
+        foreach ($lstStructure as $lst) {
+
+            $objeto = new Pma5Diccionario();
+            $objeto->setLetra($lst['letra']);
+            $objeto->setPalabra($lst['palabra']);
+            
+            $manager->persist($objeto);                              
+        }
+
+        $manager->flush();    
+	}
+}

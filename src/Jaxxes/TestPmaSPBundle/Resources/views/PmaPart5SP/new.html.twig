@@ -1,0 +1,108 @@
+{% extends '::candidate.html.twig' %}
+{% block id 'pmapart5sp' %}
+{% block title %}PMA - PARTE 5{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h1>
+                    {{ block('title') }}
+                    {% trans with {'%tiempo%': entity.pmaSP.selectionProcessCandidate.candidate.birthDate | cuenta_atras_PmaPart5 } %}
+                        <font size="5" color="#6699CC">
+                            (Tiempo corriendo, faltan: %tiempo%)
+                        </font>
+                    {% endtrans %}
+                </h1>
+                <div class="row-fluid">
+                    {{ form_start(form, { 'action': path('test_pma_part5_sp_create', { 'idpmasp': entity.pmaSP.id }   ) } ) }}  
+                    
+                        <fieldset>
+                            <!--
+                            {{ form_widget(form.pmaPart5 ) }}
+                            {{ form_widget(form.pmaSP ) }}
+                            -->
+                            <div class="row-fluid">
+                                <table class="record_properties">
+                                    <tbody>
+                                        <tr> 
+                                            <th class="span3">Evaluado</th>
+                                            <td class="span4">{{ entity.pmaSP }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </fieldset>
+                        <br>
+                        
+                        <HR size="4">
+                        <fieldset>
+                            <div class="row-fluid">
+								<h3>Letra: {{letra}}</h3>
+                            </div>
+                        </fieldset>
+                        <HR size="4">
+                        
+                        <br>
+                            <br>
+                      <!--  <fieldset>
+                            <center>
+								<div class="row-fluid">
+                                    <table class="record_properties">
+                                        <tbody>-->
+                                        
+								<!--<table class="record_properties">-->
+								<div class="row-fluid">
+													{% set i = 0 %}									
+													{% for j in range (0, aux-1) %}
+													<div class="row-fluid">
+														<div class="span3">			
+															<tr>{{ i +1 }}.</tr>
+															<tr>{{form_widget(form.pmaPart5DetailSPs[i])}}</tr>
+														</div>
+														
+														<div class="span3">		
+															{% if (i+aux <tamano) %}	
+																<td>{{ i + 1+ aux }}.</td>
+																<td>{{form_widget(form.pmaPart5DetailSPs[i+aux])}}</td>
+															{% endif %}
+														</div>
+														
+														<div class="span3">	
+															{% if (i+aux*2 <tamano) %}	
+																<td>{{ i + 1+ aux*2 }}.</td>
+																<td>{{form_widget(form.pmaPart5DetailSPs[i+aux*2])}}</td>
+															{% endif %}
+														</div>
+														
+														{% set i = i+1 %}
+													</div>
+													
+													{% endfor %}
+													<br> 
+								</div>					
+								<!--</table>
+												</tbody>-->
+													
+													<TFOOT>
+														<tr>
+															<th COLSPAN=3 ALIGN=LEFT>
+																{{ form_widget(form.guardar ) }}
+															</th>
+														</tr>
+													</TFOOT>
+                                    <!--</table>
+                                </div>
+                            </center>
+                        </fieldset>-->
+                        <!--{{ form_widget(form.pmaPart5DetailSPs ) }}-->
+                        
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

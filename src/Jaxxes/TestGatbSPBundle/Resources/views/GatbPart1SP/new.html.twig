@@ -1,0 +1,126 @@
+{% extends '::candidate.html.twig' %}
+{% block id 'gatbpart1sp' %}
+{% block title %}GATB - Parte 1{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h1>
+                    {{ block('title') }}
+                    {% trans with {'%tiempo%': entity.gatbSP.selectionProcessCandidate.candidate.birthDate | cuenta_atras_GatbPart1 } %}
+                        <font size="5" color="#6699CC">
+                            (Tiempo corriendo, faltan: %tiempo%)
+                        </font>
+                    {% endtrans %}
+                </h1>
+                <br>
+                <br>
+                <div class="row-fluid">
+                    {{ form_start(form, { 'action': path('test_gatb_part1_sp_create', { 'idgatbsp': entity.gatbSP.id }   ) } ) }}  
+                    
+                        <fieldset>
+                            <!--
+                            {{ form_widget(form.gatbPart1 ) }}
+                            {{ form_widget(form.gatbSP ) }}
+                            -->
+                            <div class="row-fluid">
+                                <table class="record_properties">
+                                    <tbody>
+                                        <tr> 
+                                            <th class="span3">Evaluado :</th>
+                                            <td class="span4">{{ entity.gatbSP }}.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </fieldset>
+                        <br>
+                        <fieldset>
+                            <br>
+                            <br>
+                            <center>
+                                <div class="row-fluid">
+                                    <table class="record_properties">
+                                        <THEAD>
+                                            <tr>
+                                                <th class="span1">
+                                                    
+                                                </th>
+                                                <td class="span4">
+                                                    
+                                                </td>
+                                                <th class="span1">
+                                                    
+                                                </th>
+                                                <td class="span4">
+                                                    
+                                                </td>
+                                                <td class="span5">
+                                                    
+                                                </td>
+                                            </tr>
+                                        </THEAD>
+                                        <tbody>
+                                            {% for gatbPart1DetailSP in entity.gatbPart1DetailSPs %}
+                                                <tr>
+                                                    <th class="span1">
+                                                        <strong>{{ gatbPart1DetailSP.gatbPart1Detail.number }}.</strong>
+                                                    </th>
+                                                    <td class="span4" STYLE="font-family: Arial; font-size: 15px; color: black">
+                                                        {{ gatbPart1DetailSP.gatbPart1Detail.questionI }}
+                                                    </td>
+                                                    <th class="span1">
+                                                        <strong>-</strong>
+                                                    </th>
+                                                    <td class="span4" STYLE="font-family: Arial; font-size: 15px; color: black">
+                                                        {{ gatbPart1DetailSP.gatbPart1Detail.questionD }}
+                                                    </td>
+                                                    <td class="span5" height="20">
+                                                        <!--{{ form_widget(form.gatbPart1DetailSPs[ (gatbPart1DetailSP.gatbPart1Detail.number -1 )].equal) }}-->
+                                                        {{ form_widget(form.gatbPart1DetailSPs[ (gatbPart1DetailSP.gatbPart1Detail.number -1 )].answer) }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        <legend></legend>
+                                                    </th>
+                                                    <td>
+                                                       <legend></legend>
+                                                    </td>
+                                                    <th>
+                                                        <legend></legend>
+                                                    </th>
+                                                    <th>
+                                                        <legend></legend>
+                                                    </th>
+                                                    <th>
+                                                        <legend></legend>
+                                                    </th>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                        <TFOOT>
+                                            <tr>
+                                                <th></th>
+                                                <th COLSPAN=3 ALIGN=LEFT>
+                                                    {{ form_widget(form.guardar ) }}
+                                                </th>
+                                                
+                                            </tr>
+                                        </TFOOT>
+                                    </table>
+                                </div>
+                                
+                            </center>
+                        </fieldset>
+                        <!--{{ form_widget(form.gatbPart1DetailSPs ) }}-->
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

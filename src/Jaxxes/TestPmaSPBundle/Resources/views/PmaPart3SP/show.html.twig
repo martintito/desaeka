@@ -1,0 +1,139 @@
+{% extends '::candidate.html.twig' %}
+
+{% block id 'pmapart3sp' %}
+{% block title %}Prueba 3 {% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <!--<h2>{{ block('title') }}</h2>-->
+                <div class="row-fluid">
+                    <table class="record_properties">
+                        <tbody>
+                            <tr>
+                                <th class="span3">Evaluado</th>
+                                <td class="span4">{{ entity.pmaSP }}</td>
+                            </tr>
+                            <tr>
+                                <th class="span3">Test Finalizado</th>
+                                <td class="span4">{{ entity.pmaPart3 }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row-fluid">
+                    <center>
+                        <h1>FACTOR N</h1>
+                    </center>
+                    <br>
+                    <div class="row-fluid">
+                        <div class="span2">
+                        </div>
+                        <div class="span9" STYLE="font-family: Arial; font-size: 18px; color: black">
+                            A la derecha hay dos sumas. Repáselas para comprobar si están bien
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row-fluid">
+                        <table class="record_properties" STYLE="font-family: Arial; font-size: 18px; color: black">
+                            <tbody>
+                                <tr>
+                                    <td width="700px"></td>
+                                    <td width="10px"><legend>(a)</legend></td>
+                                    <td width="40px"></td>
+                                    <td width="10px"><legend>(b)</legend></td>
+                                    <td width="80px"></td>
+                                    <td width="30px"></td>
+                                    <td width="30px"></td>
+                                    <td width="30px"></td>
+                                </tr>
+                                <tr>
+                                    <td width="500px"></td>
+                                    <td width="10px">16</td>
+                                    <td width="40px"></td>
+                                    <td width="10px">42</td>
+                                    <td width="80px"></td>
+                                    <td width="30px"></td>
+                                    <td width="30px"></td>
+                                    <td width="30px"></td>
+                                </tr>
+                                <tr>
+                                    <td width="500px"></td>
+                                    <td width="10px">38</td>
+                                    <td width="40px"></td>
+                                    <td width="10px">61</td>
+                                    <td width="80px"></td>
+                                    <td width="30px">(a)</td>
+                                    <td width="30px">B</td>
+                                    <td width="30px">M</td>
+                                </tr>
+                                <tr>
+                                    <td width="500px"></td>
+                                    <td width="10px"><legend>45</legend></td>
+                                    <td width="40px"></td>
+                                    <td width="10px"><legend>83</legend></td>
+                                    <td width="80px"></td>
+                                    <td width="30px">(b)</td>
+                                    <td width="30px">B</td>
+                                    <td width="30px">M</td>
+                                </tr>
+                                <tr>
+                                    <td width="500px"></td>
+                                    <td width="10px">99</td>
+                                    <td width="40px"></td>
+                                    <td width="10px">176</td>
+                                    <td width="80px"></td>
+                                    <td width="30px"></td>
+                                    <td width="30px"></td>
+                                    <td width="30px"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row-fluid">
+                        <div class="span2">
+                        </div>
+                        <div class="span9" STYLE="font-family: Arial; font-size: 18px; color: black">
+                            La suma (a) está BIEN. Por eso se subraya la B en el margen.
+                            <br>
+                            <br>
+                            La suma (b) está MAL. Por eso se subraya la M en el margen.
+                            <br>
+                            <br>
+                            <br>
+                            Ahora revise las sumas que siguen debajo. Si la respuesta está BIEN, seleccione la letra B, si está MAL seleccione  la M.
+                            <br>
+                            <br>
+                            Tendrá usted que resolver otros semejantes. Trabaje de prisa, pero cuidando  no equivocarse. Tendrá SEIS MINUTOS para toda la prueba, si no termina, no se preocupe; es lo corriente..
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                    
+                    <div class="row-fluid">
+                        <div class="span2">
+                        </div>
+                        <div class="span9">
+                            <ul class="record_actions">
+                                <li>
+                                    <a href="{{ path('test_pma_part4_sp_new', { 'idpmasp': entity.pmaSP.id }) }}">
+                                        Empezar Prueba 4
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends '::candidate.html.twig' %}
+
+{% block title %}Prueba del Escudo {% endblock %}
+
+{% block article %}
+
+<!--<h1>{{ block('title') }}</h1>-->
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h1>{{ block('title') }}</h1>
+                <br>
+                <br>
+                <div class="row-fluid">
+                    {{ form_start(form,{ 'action': path('test_escudo_create' ) } ) }}
+                    <fieldset>
+					
+						<left>
+							<div class="row-fluid">
+								<table class="record_properties">
+									<tr>
+										<th>Pregunta</th>
+									</tr>
+								</table>
+								<table class="record_properties">
+									{% set i = 0 %}
+									{% for entidad_respuesta in entity.escudospdetails %}
+										<tr>
+											<tr>{{ i + 1 }}. </tr>
+											{{entidad_respuesta.escudodetail.question}}
+											{% set i = i+1 %}
+										</tr>
+										 <tr>{{ form_widget(form.escudospdetails[i-1])}}</tr>										 
+										<br> 		
+									{% endfor %}
+								</table>
+							</div>
+						</left>
+                    </fieldset>
+						{{ form_widget(form.Guardar ) }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,29 @@
+{% extends '::consultor.html.twig' %}
+{% block id 'rollanguage' %}
+{% block title %}Registro de Idioma a Perfil de Cargo{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h2>{{ block('title') }}</h2>
+                <br>
+                <div class="row-fluid">
+                    {{ form(form, { 'action': path('rol_language_create') }) }}
+                </div>
+                <!--
+                <ul class="record_actions">
+                    <li>
+                        <a href="{{ path('rol_homepage') }}">
+                            Volver al listado
+                        </a>
+                    </li>
+                </ul>
+                -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

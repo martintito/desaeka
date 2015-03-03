@@ -1,0 +1,240 @@
+{% extends '::candidate.html.twig' %}
+
+{% block id 'registerdefinitionrol' %}
+{% block title %}Descripción del puesto vacante: {{ entity.selectionProcess }} {% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h2>{{ block('title') }}</h2>
+                <br>
+                
+                <h2 style = "text-align: center" ></h2>
+                
+                <!--
+                <div class="row-fluid">
+                    <table class="record_properties">
+						<tbody>
+							<tr>
+								<th class="span2">Cargo: </th>
+								<td class="span7">{{ entity.rol }}</td>
+							</tr>
+							<tr>
+								<th class="span2"> </th>
+								<td class="span7">{{ entity.descRol }}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				-->
+				
+				<HR size="4">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td style="border:none;" ><b>Cargo:</b></td>
+                            <td width="80%" style="border:none;" ><b>{{ entity.rol }}</b></td>
+                        </tr>
+                        <tr>
+                            <td style="border:none;" ></td>
+                            <td width="80%" style="border:none;" >{{ entity.descRol }}</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+                <HR size="4">
+                <h3>1. Perfil de competencias requeridas</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Experiencia profesional anterior</th>
+                            <th width="10%">N° Años</th>
+                        </tr>
+                        
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ entity.expAnt }}</td>
+                            <td>{{ entity.expYears }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Formación y Conocimientos Técnicos (R: Requeridos, V: Valorados)</th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="row-fluid">
+                    <div class="span4">
+                        <div>
+                            Nivel de Estudios
+                        </div>
+                    </div>
+                    <div class="span8">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Descripción</th>
+                                    <th width="20%">Requerido</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for study_level in study_levels %}
+                                <tr>
+                                    <td>{{ study_level.descripcion }}</td>
+                                    <td>{{ study_level.req }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                 </div>
+                <br>
+                <div class="row-fluid">
+                    <div class="span4">
+                        Maestría                       
+                    </div>
+                    <div class="span8">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Descripción</th>
+                                    <th width="20%">Requerido</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for master in masters %}
+                                <tr>
+                                    <td>{{ master.descripcion }}</td>
+                                    <td>{{ master.req }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <br>
+                <div class="row-fluid">
+                    <div class="span4">
+                        <div>
+                            Otros Conocimientos
+                        </div>
+                    </div>
+                    <div class="span8">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th width="20%">Requerido</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for detail in details %}
+                                <tr>
+                                    <td>{{ detail.name }}</td>
+                                    <td>{{ detail.req }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="row-fluid">
+                    <div class="span4">
+                        <div>
+                            Lista de Idiomas
+                        </div>
+                    </div>
+                    <div class="span8">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Idioma</th>
+                                    <th>Nivel</th>
+                                    <th width="20%">Requerido</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for language in languages %}
+                                <tr>
+                                    <td>{{ language.language }}</td>
+                                    <td>{{ language.nivel }}</td>
+                                    <td>{{ language.req }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row-fluid">
+                    <!--
+                    <div class="span5">
+                    -->
+                        <h3>2. Rasgos de Personalidad</h3>
+                    <!--
+                    </div>
+                    -->
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th width="10%">Nivel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for personality in personalitys %}
+                        <tr>
+                            <td>{{ personality.name }}</td>
+                            <td>{{ personality.nivel }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                
+                
+                <div class="row-fluid">
+                    <div class="span5">
+                        <h3>3. Funciones a Realizar</h3>
+                    </div>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for function in functions %}
+                        <tr>
+                            <td>{{ function.descripcion }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <br>
+                <br>
+                <ul class="record_actions">
+                    <li>
+                        <a href="{{ path('interview_new') }}">
+                            Continuar con entrevista
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+

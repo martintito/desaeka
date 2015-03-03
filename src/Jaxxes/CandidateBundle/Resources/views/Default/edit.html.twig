@@ -1,0 +1,101 @@
+{% extends '::consultor.html.twig' %}
+
+{% block id 'candidate' %}
+{% block title %}Modificar el candidato{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h2>{{ block('title') }}</h2>
+                <br>
+                <br>
+                <div class="row-fluid">
+                    {{ form_start(edit_form, { 'action': path('candidate_update', { 'id': entity.id }) }) }}  
+                        <fieldset>
+                            <div class="row-fluid">
+                                <table class="record_properties">
+                                    <tbody>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="150px">Nombre :</th>
+                                            <td width="720px">{{ form_widget(edit_form.firstName ) }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th  colspan=2 height="10px"></th>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="150px">Apellido :</th>
+                                            <td width="720px">{{ form_widget(edit_form.lastName ) }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th  colspan=2 height="10px"></th>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="150px">Género :</th>
+                                            <td width="720px">{{ form_widget(edit_form.gender ) }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th colspan=2 height="10px"></th>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="150px">Fecha Nacimiento :</th>
+                                            <td width="720px">{{ form_widget(edit_form.birthDate ) }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th colspan=2 height="10px"></th>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="150px">Correo Electrónico :</th>
+                                            <td width="720px">{{ form_widget(edit_form.email ) }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th colspan=2 height="10px"></th>
+                                        </tr>
+                                        
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <td colspan=2 >{{ form_widget(edit_form.guardar ) }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </fieldset>
+                    {{ form_end(edit_form) }}
+                </div>
+                <br>
+                <ul class="record_actions">
+                    <li>
+                        <a href="{{ path('candidate_homepage') }}">
+                            Volver al listado de candidatos
+                        </a>
+                        
+                    </li>
+                </ul>
+                <ul class="record_actions">
+                    <li>
+                        <form action="{{ path('candidate_delete', { 'id': entity.id }) }}" method="post">
+                            {{ form_widget(delete_form) }}
+                            <button type="submit">Borrar candidato</button>
+                        </form>
+                    </li>
+                </ul>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

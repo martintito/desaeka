@@ -1,0 +1,47 @@
+{% extends '::candidate.html.twig' %}
+
+{% block title %}Entrevista virtual {% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h2>{{ block('title') }}</h2>
+                <br>
+                <br>
+                <div class="row-fluid">
+                    {{ form_start(form ) }}
+                    <fieldset>
+					
+						<left>
+							<div class="row-fluid">
+								<table class="record_properties">
+									<tr>
+										<th>Pregunta</th>
+									</tr>
+								</table>
+								<table class="table table-striped">
+									{% set i = 0 %}
+									{% for entidad_respuesta in entity.answers %}
+										<tr>
+											<tr>{{ i + 1 }}. </tr>
+											{{entidad_respuesta.VirtualInterviewQuestion.question}}
+											{% set i = i+1 %}
+										</tr>
+										 <tr>{{ form_widget(form.answers[i-1])}}</tr>										 
+										<br> 		
+									{% endfor %}
+								</table>
+							</div>
+						</left>
+                    </fieldset>
+						{{ form_widget(form.Guardar ) }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

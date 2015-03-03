@@ -1,0 +1,84 @@
+
+{% extends '::consultor.html.twig' %}
+{% block id 'consultor' %}
+{% block title %}Consultor{% endblock %}
+
+{% block article %}
+
+		{% if error %}
+			<div>{{ error.message }}</div>
+		{% endif %}
+
+
+	<body>
+	<div id="wrap">
+		<div class="container-fluid">	
+			<div class="row-fluid">
+				<div class="span12">
+					<!--<div class="container">	-->
+						<div class="row-fluid">
+							<div class="span12">
+
+								<div class="row-fluid">
+									<div class="span12 slider principal" >
+										<!--border:5px solid #FFFFFF;box-shadow:0 0 5px #CCCCCC;padding-top:0px -->
+										<div id="myCarousel" class="carousel slide" >
+										    <ol class="carousel-indicators">
+											    <li class="active" data-target="#myCarousel" data-slide-to="1"></li>
+											    <li data-target="#myCarousel" data-slide-to="2"></li>	
+											    <li data-target="#myCarousel" data-slide-to="3"></li>											   		   
+										    </ol>
+										    <!-- Carousel items -->
+										    <div class="carousel-inner" >
+												<div class="active item">
+											    	<img src="{{asset(directorio_imagenes_carousel~'slide1.png')}}">	
+											    </div>
+												<div class="item">
+											    	<img src="{{asset(directorio_imagenes_carousel~'slide2.png')}}">
+											    </div>
+												<div class="item">
+											    	<img src="{{asset(directorio_imagenes_carousel~'slide3.png')}}">
+											    </div>		    
+											     
+										    </div>
+										    <!-- Carousel nav -->
+										    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+										    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+										</div>
+												{% if error %}
+													<div>{{ error.message }}</div>
+												{% endif %}
+
+												<form  class="frmlogin"   action="{{ path('consultor_login_check') }}" method="post" >
+												<h3>INICIAR SESIÓN</h3>
+													<div>														
+														<input type="text" id="username" name="_username"  class="userName input-block-level frmfield"   value="{{ last_username | default('') }}" placeholder="Usuario" />
+													</div>
+
+													<div>
+														<input type="password" id="password" name="_password" class="userKey input-block-level frmfield"   placeholder="clave" />
+													</div>
+
+													<input type="submit" name="login" class="btnlogin btn-success"  value="Entrar" />
+																
+														<input type="hidden" name="_target_path" value="consultor_portada" />
+													
+												</form>
+									</div>
+								</div>
+							</div>	
+						</div>
+					<!--</div>-->
+				</div>		
+			</div>			
+		</div>
+		<div id="push"></div>
+	</div>
+
+	<div id="footer">
+		<?php include_once("footer.php") ?>			
+	</div>
+</body>
+			
+{% endblock %}
+

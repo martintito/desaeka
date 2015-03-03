@@ -1,0 +1,116 @@
+{% extends '::consultor.html.twig' %}
+
+{% block id 'seleccionprocess' %}
+{% block title %}Modificar el proceso de selección{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <h2>{{ block('title') }}</h2>
+                <br>
+                <div class="row-fluid">
+                    {{ form_start( edit_form, { 'action': path('consultor_update', { 'id': entity.id }) } ) }}  
+                        <fieldset>
+                            <div class="row-fluid">
+                                <table class="record_properties">
+                                    <tbody>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="120px">Nombre :</th>
+                                            <td width="520px">{{ form_widget(edit_form.name ) }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th  colspan=2 height="10px"></th>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="120px">Cliente :</th>
+                                            <td width="520px">{{ form_widget(edit_form.customer ) }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th colspan=2 height="10px"></th>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <th width="120px">Pruebas :</th>
+                                            <td width="520px">
+                                                
+                                                <div class="span11">
+                                                    <center>
+                                                        <table class="table table-striped" width="400px">
+                                                            <thead>
+                                                                <th>Nombre Prueba</th>
+                                                                <th>Tiempo duración</th>
+                                                                <th></th>
+                                                            </thead>
+                                                            <tbody>
+                                                                {% set i = 0 %}
+                                                                {% for selectionProcessTest in entity.selectionProcessTests %}
+                                                                    <tr>
+                                                                        <td width="120px">
+                                                                            <!--{{ selectionProcessTest.definitionTest.name }}-->
+                                                                            {{ form_widget(edit_form.selectionProcessTests[ i ].definitionTest) }}
+                                                                        </td>
+                                                                        <td width="120px">
+                                                                            {{ selectionProcessTest.definitionTest.time }} Minutos
+                                                                        </td>
+                                                                        <th width="20px">
+                                                                            
+                                                                            {{ form_widget(edit_form.selectionProcessTests[ i ].selected) }}
+                                                                        </th>
+                                                                    </tr>
+                                                                    {% set i = i+1 %}
+                                                                {% endfor %}
+                                                            </tbody>
+                                                        </table>
+                                                    </center>
+                                                </div>
+                                                
+                                            </td>
+                                        </tr>
+                                        <tr> 
+                                            <td width="30px" ></td>
+                                            <th colspan=2 height="5px"></th>
+                                        </tr>
+                                        <tr> 
+                                            <td width="40px" ></td>
+                                            <td colspan=2 >{{ form_widget(edit_form.guardar ) }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </fieldset>
+                        <!--{{ form_widget(edit_form.selectionProcessTests ) }}-->
+                    {{ form_end(edit_form) }}
+                </div>
+                <ul class="record_actions">
+                    <li>
+                        <a href="{{ path('consultor_show', { 'id': entity.id }) }}">
+                            Lista de candidatos del proceso
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('register_definition_rol_since_select_edit', { 'idseleccionprocess': entity.id }) }}">
+                            Editar perfil de cargo
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('consultor_portada') }}">
+                            Volver al listado de proceso de selección
+                        </a>
+                    </li>
+                </ul>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

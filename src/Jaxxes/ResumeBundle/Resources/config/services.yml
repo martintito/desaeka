@@ -1,0 +1,7 @@
+parameters:
+#    resume.example.class: Jaxxes\ResumeBundle\Example
+
+services:
+#    resume.example:
+#        class: %resume.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

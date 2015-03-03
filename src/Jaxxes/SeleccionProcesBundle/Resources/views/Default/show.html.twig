@@ -1,0 +1,120 @@
+{% extends '::consultor.html.twig' %}
+
+{% block id 'seleccionprocess' %}
+{% block title %}Definición de proceso de selección{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <br>
+                <h2>{{ block('title') }}</h2>
+                
+                <div class="row-fluid">
+                    <table class="record_properties">
+                        <tbody>
+                            <tr> 
+                                <td width="40px" ></td>
+                                <th width="120px">Nombre :</th>
+                                <td width="520px">{{ entity.name }}</td>
+                            </tr>
+                            <tr> 
+                                <td width="10px" ></td>
+                                <th  colspan=2 height="10px"></th>
+                            </tr>
+                            <tr> 
+                                <td width="40px" ></td>
+                                <th width="120px">Cliente :</th>
+                                <td width="520px">{{ entity.customer }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <br>
+                <div class="row-fluid">
+                    <div class="span1"></div>
+                    <div class="span8">
+                        <div class="span9">
+                            <h4>Listado de Candidatos</h4>
+                        </div>
+                        <div class="span2">
+                            <a href="{{ path('sp_candidato_new', { 'idselectionprocess': entity.id }) }}" class="btn btn-primary add"  title="Agregar" >
+                                <i class="icon-plus icon-large"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span1"></div>
+                    <div class="span8">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="span7">Candidato</th>
+                                    <th class="span5">Usuario</th>
+                                    <th class="span2">Activo</th>
+                                    <th class="span3">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for sp_candidato in sp_candidatos %}
+                                <tr>
+                                    <td class="span7">{{ sp_candidato.candidate }}  
+                                        {% if sp_candidato.finishtest %}
+                                            - <strong>(Test finalizado)</strong>
+                                        {% endif %}
+                                    </td>
+                                    <td class="span5">{{ sp_candidato.userCandidate }}</td>
+                                    <td class="span2">
+                                        {% if sp_candidato.active %}
+                                            <img alt="Fotografía"  width="20px" height="10px"  src="{{ asset(directorio_imagenes_jaxxes ~ 'check.jpg') }}">
+                                        {% endif %}
+                                    </td>
+                                    <td class="span3">
+                                        <div class="btn-group">
+                                            <a href="{{ path('sp_candidato_edit', { 'id': sp_candidato.id }) }}" class="edit btn btn-warning" title="Editar"><i class="icon-large icon-edit"></i></a>
+                                        </div>
+                                        {% if sp_candidato.finishtest %}
+                                            <div class="btn-group">
+                                                <a href="{{ path('sp_candidato_result_index', { 'id_spc': sp_candidato.id }) }}" title="Impresión">
+                                                    <img alt="Fotografía"  width="35px" height="35px"  src="{{ asset(directorio_imagenes_jaxxes ~ 'impresora.jpg') }}">
+                                                </a>
+                                            </div>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+                <br>
+                <br>
+                <ul class="record_actions">
+                    <li>
+                        <a href="{{ path('register_definition_rol_since_select_edit', { 'idseleccionprocess': entity.id }) }}">
+                            Agregar perfil de cargo
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('consultor_portada') }}">
+                            Volver al listado de proceso de selección
+                        </a>
+                    </li>
+                    <!--<li>
+                        <a  href="{{ path('consultor_edit', { 'id': entity.id }) }}">
+                            Modificar proceso seleccion
+                        </a>
+                    </li>-->
+                </ul>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

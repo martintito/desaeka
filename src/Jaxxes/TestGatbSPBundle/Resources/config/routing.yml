@@ -1,0 +1,95 @@
+test_gatb_sp_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: TestGatbSPBundle:Default:index }
+
+# routing de prueba Gatp elaborada por candidato en proceso de seleccion
+test_gatb_sp_new:
+    pattern:  /new
+    defaults: { _controller: TestGatbSPBundle:Default:new }
+    
+test_gatb_sp_create:
+    pattern:  /create
+    defaults: { _controller: TestGatbSPBundle:Default:create }
+    requirements: { _method: post }
+
+test_gatb_sp_show:
+    pattern:  /{id}/show
+    defaults: { _controller: TestGatbSPBundle:Default:show }
+ 
+
+test_gatb_sp_next:
+    pattern:  /{id}/next
+    defaults: { _controller: TestGatbSPBundle:Default:next }
+ 
+# routing de prueba Gatp parte 1 elaborada por candidato en proceso de seleccion
+test_gatb_part1_sp_new:
+    pattern:  /test_gatb_part1_sp/{idgatbsp}/new
+    defaults: { _controller: TestGatbSPBundle:GatbPart1SP:new }
+
+
+test_gatb_part1_sp_create:
+    pattern:  /test_gatb_part1_sp/{idgatbsp}create
+    defaults: { _controller: TestGatbSPBundle:GatbPart1SP:create }
+    requirements: { _method: post }
+
+test_gatb_part1_sp_show:
+    pattern:  /test_gatb_part1_sp/{id}/show
+    defaults: { _controller: TestGatbSPBundle:GatbPart1SP:show }
+
+
+# routing de prueba Gatp parte 2 elaborada por candidato en proceso de seleccion
+test_gatb_part2_sp_new:
+    pattern:  /test_gatb_part2_sp/{idgatbsp}/new
+    defaults: { _controller: TestGatbSPBundle:GatbPart2SP:new }
+
+test_gatb_part2_sp_create:
+    pattern:  /test_gatb_part2_sp/{idgatbsp}create
+    defaults: { _controller: TestGatbSPBundle:GatbPart2SP:create }
+    requirements: { _method: post }
+
+test_gatb_part2_sp_show:
+    pattern:  /test_gatb_part2_sp/{id}/show
+    defaults: { _controller: TestGatbSPBundle:GatbPart2SP:show }
+
+# routing de prueba Gatp parte 3 elaborada por candidato en proceso de seleccion
+test_gatb_part3_sp_new:
+    pattern:  /test_gatb_part3_sp/{idgatbsp}/new
+    defaults: { _controller: TestGatbSPBundle:GatbPart3SP:new }
+
+test_gatb_part3_sp_create:
+    pattern:  /test_gatb_part3_sp/{idgatbsp}/create
+    defaults: { _controller: TestGatbSPBundle:GatbPart3SP:create }
+    requirements: { _method: post }
+
+test_gatb_part3_sp_show:
+    pattern:  /test_gatb_part3_sp/{id}/show
+    defaults: { _controller: TestGatbSPBundle:GatbPart3SP:show }
+
+
+# routing de prueba Gatp parte 4 elaborada por candidato en proceso de seleccion
+test_gatb_part4_sp_new:
+    pattern:  /test_gatb_part4_sp/{idgatbsp}/new
+    defaults: { _controller: TestGatbSPBundle:GatbPart4SP:new }
+
+test_gatb_part4_sp_create:
+    pattern:  /test_gatb_part4_sp/{idgatbsp}/create
+    defaults: { _controller: TestGatbSPBundle:GatbPart4SP:create }
+    requirements: { _method: post }
+
+test_gatb_part4_sp_show:
+    pattern:  /test_gatb_part4_sp/{id}/show
+    defaults: { _controller: TestGatbSPBundle:GatbPart4SP:show }
+
+# routing de prueba Gatp parte 5 elaborada por candidato en proceso de seleccion
+test_gatb_part5_sp_new:
+    pattern:  /test_gatb_part5_sp/{idgatbsp}/new
+    defaults: { _controller: TestGatbSPBundle:GatbPart5SP:new }
+
+test_gatb_part5_sp_create:
+    pattern:  /test_gatb_part5_sp/{idgatbsp}/create
+    defaults: { _controller: TestGatbSPBundle:GatbPart5SP:create }
+    requirements: { _method: post }
+
+test_gatb_part5_sp_show:
+    pattern:  /test_gatb_part5_sp/{id}/show
+    defaults: { _controller: TestGatbSPBundle:GatbPart5SP:show }

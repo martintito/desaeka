@@ -1,0 +1,150 @@
+{% extends '::consultor.html.twig' %}
+{% block id 'seleccionprocess' %}
+{% block title %}Definición de Proceso de Selección{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="row-fluid">
+                    <div class="span12 content">
+                        <br>
+                        <h1>{{ block('title') }}</h1>
+                        <br>
+                        <div class="row-fluid">
+                            
+                            {{ form_start( form, { 'action': path('consultor_create') } ) }}  
+                                <fieldset>
+                                    <div class="row-fluid">
+                                        <table class="record_properties">
+                                            <tbody>
+                                                <tr> 
+                                                    <td width="40px" ></td>
+                                                    <th width="120px">Nombre :</th>
+                                                    <td width="520px">{{ form_widget(form.name ) }}</td>
+                                                </tr>
+                                                <tr> 
+                                                    <td width="40px" ></td>
+                                                    <th  colspan=2 height="10px"></th>
+                                                </tr>
+                                                <tr> 
+                                                    <td width="40px" ></td>
+                                                    <th width="120px">Cliente :</th>
+                                                    <td width="520px">{{ form_widget(form.customer ) }}</td>
+                                                </tr>
+                                                <tr> 
+                                                    <td width="40px" ></td>
+                                                    <th colspan=2 height="10px"></th>
+                                                </tr>
+                                                <tr> 
+                                                    <td width="40px" ></td>
+                                                    <th width="120px">Pruebas :</th>
+                                                    <td width="520px">
+                                                        
+                                                        <div class="span11">
+                                                            <center>
+                                                                <table class="table table-striped" width="400px">
+                                                                    <thead>
+                                                                        <th>Nombre Prueba2</th>
+                                                                        <th>Tiempo duración</th>
+                                                                        <th></th>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        {% set i = 0 %}
+                                                                        {% for selectionProcessTest in entity.selectionProcessTests %}
+                                                                            <tr>
+                                                                                <td width="120px">
+                                                                                    {{ selectionProcessTest.definitionTest.name }}
+                                                                                </td>
+                                                                                <td width="120px">
+                                                                                    {{ selectionProcessTest.definitionTest.time }} Minutos
+                                                                                </td>
+                                                                                <th width="20px">
+                                                                                    {{ form_widget(form.selectionProcessTests[ i ].selected) }}
+                                                                                </th>
+                                                                            </tr>
+                                                                            {% set i = i+1 %}
+                                                                        {% endfor %}
+                                                                    </tbody>
+                                                                </table>
+                                                            </center>
+                                                        </div>
+                                                        
+                                                    </td>
+                                                </tr>
+                                                
+                                                {{ form_start( formAtributo, { 'action': path('consultor_create') } ) }}
+												<tr> 
+													<td width="40px" ></td>
+													<th width="120px">Letra :</th>
+													<td width="520px">
+                                                        
+                                                        <div class="span11">
+                                                            <center>
+                                                                <table class="table table-striped" width="400px">
+                                                                    <thead>
+                                                                        <th>Letra seleccionada</th>
+                                                                        <th>Condicion</th>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                            <tr>
+                                                                                <td width="80px">
+                                                                                    {{ form_widget(formAtributo.letra) }}
+                                                                                </td>
+                                                                                <td width="60px">
+                                                                                    Seleccion valida en caso de elegir la prueba PMA
+                                                                                </td>
+                                                                            </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </center>
+                                                        </div>
+                                                    </td>
+                                                </tr>								
+							{{ form_end(formAtributo) }}
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                <tr> 
+                                                    <td width="30px" ></td>
+                                                    <th colspan=2 height="20px"></th>
+                                                </tr>
+                                                <tr> 
+                                                    <td width="40px" ></td>
+                                                    <td colspan=2 >{{ form_widget(form.guardar ) }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="row-fluid">
+							
+                        </div>
+                                    
+                                    
+                                    
+                                    
+                                </fieldset>
+                                <!--{{ form_widget(form.selectionProcessTests ) }}-->
+                            {{ form_end(form) }}
+                        </div>
+                        
+                        
+                        
+                        <ul class="record_actions">
+                            <li>
+                                <a href="{{ path('consultor_portada') }}">
+                                    Volver al Listado de Proceso de Selección
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

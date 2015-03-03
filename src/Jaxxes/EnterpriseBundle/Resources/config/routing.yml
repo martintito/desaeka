@@ -1,0 +1,32 @@
+enterprise_homepage:
+    path:     /
+    defaults: { _controller: EnterpriseBundle:Default:index }
+
+# Portada de la parte de administración
+enterprise_new:
+    pattern:  /new
+    defaults: { _controller: EnterpriseBundle:Default:new }
+
+enterprise_create:
+    pattern:  /create
+    defaults: { _controller: EnterpriseBundle:Default:create }
+    requirements: { _method: post }
+
+enterprise_show:
+    pattern:  /{id}/show
+    defaults: { _controller: EnterpriseBundle:Default:show }
+
+enterprise_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: EnterpriseBundle:Default:edit }
+
+enterprise_update:
+    pattern:  /{id}/update
+    defaults: { _controller: EnterpriseBundle:Default:update }
+    requirements: { _method: post }
+
+enterprise_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: EnterpriseBundle:Default:delete" }
+    requirements: { _method: post }
+

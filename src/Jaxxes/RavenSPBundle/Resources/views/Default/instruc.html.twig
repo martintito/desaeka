@@ -1,0 +1,72 @@
+{% extends '::candidate.html.twig' %}
+
+{% block id 'pmapart4sp' %}
+{% block title %}Prueba RAVEN{% endblock %}
+
+{% block article %}
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12 content">
+                <!--<h2>{{ block('title') }}</h2>-->
+                                
+                <div class="row-fluid">
+                    <center>
+                    
+                        <h1>BIENVENIDO AL TEST RAVEN</h1>
+                    </center>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>                   
+                    <div class="row-fluid">
+                        <div class="span2">
+                        </div>
+                        <div class="span9" STYLE="font-family: Arial; font-size: 18px; color: black">
+							El Test consiste en decidir cual a tu criterio es la figura que resta en las placas que se te mostrarán.
+							<br>
+							Disponés de 45 minutos para resolver las 60 placas del test.
+                            <br>
+							Este Test es en su 100% el famoso Test de Raven para medir la inteligencia.
+                            <br>
+                            <br>
+							Al finalizar las placas obtendrás tu coeficiente intelectual en base a los valores estadisticos para su edad                            
+							<br>                            
+                            <br>                            
+                        </div>
+                    </div>
+                    <br>
+                    <br>                   
+                    <div class="row-fluid">
+                        <div class="span2">
+                        </div>
+                        <div class="span9">
+                            <ul class="record_actions">
+                                <li>
+                                    <a href="{{ path('rv_new') }}">
+                                        Empezar la prueba
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

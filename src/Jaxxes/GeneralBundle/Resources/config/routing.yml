@@ -1,0 +1,35 @@
+#general_homepage:
+#    path:     /hello/{name}
+#    defaults: { _controller: GeneralBundle:Default:index }
+
+
+portada_admin:
+    path:     /
+    defaults: { _controller: GeneralBundle:Default:homeAdmin }
+
+admin_consultores:
+    path:     /home
+    defaults: { _controller: GeneralBundle:Default:indexConsultores }
+
+agregar_consulting:
+    path:     /new
+    defaults: { _controller: GeneralBundle:Default:newConsulting }
+
+consultant_edit:
+    path:     /edit
+    defaults: { _controller: GeneralBundle:Default:editConsulting }
+
+backend_consultores:
+    pattern:  /
+    defaults: { _controller: GeneralBundle:Default:indexConsultores }
+
+backend_consultores_new:
+    pattern:  /new
+    defaults: { _controller: GeneralBundle:Default:newConsulting }
+    requirements: { _method: post } 
+
+
+backend_consultores_create:
+    pattern:  /create
+    defaults: { _controller: GeneralBundle:Default:createConsulting }
+    requirements: { _method: post } 

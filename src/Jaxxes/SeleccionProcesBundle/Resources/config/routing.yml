@@ -1,0 +1,121 @@
+#seleccion_proces_homepage:
+#    path:     /hello/{name}
+#    defaults: { _controller: SeleccionProcesBundle:Default:index }
+
+# Portada de la parte de administración
+consultor_new:
+    pattern:  /sp_consultor/new
+    defaults: { _controller: SeleccionProcesBundle:Default:new }
+    
+    
+# Portada de la parte de administración
+consultor_portada:
+    pattern:  /sp_consultor
+    defaults: { _controller: SeleccionProcesBundle:Default:index }
+
+consultor_create:
+    pattern:  /sp_consultor/create
+    defaults: { _controller: SeleccionProcesBundle:Default:create }
+    requirements: { _method: post }
+
+consultor_show:
+    pattern:  /sp_consultor/{id}/show
+    defaults: { _controller: SeleccionProcesBundle:Default:show }
+
+consultor_edit:
+    pattern:  /sp_consultor/{id}/edit
+    defaults: { _controller: SeleccionProcesBundle:Default:edit }
+
+consultor_update:
+    pattern:  /sp_consultor/{id}/update
+    defaults: { _controller: SeleccionProcesBundle:Default:update }
+    requirements: { _method: post }
+
+consultor_delete:
+    pattern:  /sp_consultor/{id}/delete
+    defaults: { _controller: SeleccionProcesBundle:Default:delete }
+    requirements: { _method: post }
+
+#Routing de candidatos a proceso de seleccion
+sp_candidato_new:
+    pattern:  /sp_candidato/{idselectionprocess}/new
+    defaults: { _controller: SeleccionProcesBundle:SelectionProcessCandidate:new }
+
+sp_candidato_create:
+    pattern:  /sp_candidato/{idselectionprocess}/create
+    defaults: { _controller: SeleccionProcesBundle:SelectionProcessCandidate:create }
+    requirements: { _method: post }
+
+sp_candidato_show:
+    pattern:  /sp_candidato/{id}/show
+    defaults: { _controller: SeleccionProcesBundle:SelectionProcessCandidate:show }
+
+sp_candidato_edit:
+    pattern:  /sp_candidato/{id}/edit
+    defaults: { _controller: SeleccionProcesBundle:SelectionProcessCandidate:edit }
+    
+sp_candidato_update:
+    pattern:  /sp_candidato/{id}/update
+    defaults: { _controller: SeleccionProcesBundle:SelectionProcessCandidate:update }
+    requirements: { _method: post }
+    
+#Routing para consultores
+consultor_login:
+    pattern:  consultor/login
+    defaults:  { _controller: SeleccionProcesBundle:AccessConsultant:login }
+
+consultor_login_check:
+    pattern:   consultor/login_check    
+
+consultor_logout:
+    pattern:   consultor/logout
+
+index:
+    pattern:   /
+    defaults: { _controller: SeleccionProcesBundle:Default:index }
+
+
+#Routing para postulantes
+candidate_login:
+    pattern:   /candidate/login
+    defaults:  { _controller: SeleccionProcesBundle:AccessCandidate:login }
+
+candidate_login_check:
+    pattern:   /candidate/login_check
+    defaults: { _controller: SeleccionProcesBundle:AccessCandidate:welcome }
+
+candidate_logout:
+    pattern:   candidate/logout
+
+#home_candidate:
+#    pattern:   /candidate/
+#    defaults: { _controller: CandidateBundle:Default:welcome }
+
+sp_candidato_createwelcome:
+    pattern:  /sp_candidato/welcome
+    defaults: { _controller: SeleccionProcesBundle:AccessCandidate:configSave }
+    #requirements: { _method: post }
+
+
+#Routing para la Ficha del candidato
+resume_new:
+    pattern:   /ResumePrivateCandidate/New
+    defaults: { _controller: SeleccionProcesBundle:FichaCandidato:ResumePrivateNew }
+
+resume_create:
+    pattern:   /ResumePrivateCandidate/Create
+    defaults: { _controller: SeleccionProcesBundle:FichaCandidato:ResumePrivateCreate }
+
+resume_show:
+    pattern:   /ResumePrivateCandidate/Show
+    defaults: { _controller: SeleccionProcesBundle:FichaCandidato:ResumePrivateShow }
+
+#Routing para seleccion process candidate test
+sp_candidato_test:
+    resource: "@SeleccionProcesBundle/Resources/config/test_routing.yml"
+    prefix:   /sp_candidato/test
+
+#Routing para seleccion process candidate result
+sp_candidato_result:
+    resource: "@SeleccionProcesBundle/Resources/config/result_routing.yml"
+    prefix:   /sp_consultor/result

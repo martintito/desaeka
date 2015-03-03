@@ -1,0 +1,7 @@
+parameters:
+#    rol.example.class: Jaxxes\RolBundle\Example
+
+services:
+#    rol.example:
+#        class: %rol.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,16 @@
+#test_icesp_homepage:
+#    path:     /hello/{name}
+#    defaults: { _controller: TestICESPBundle:Default:index }
+test_ice_new:
+    pattern:  /{idspc}/new
+    defaults: { _controller: TestICESPBundle:TestICESP:new }
+
+test_ice_create:
+    pattern:  /{idspc}/create
+    defaults: { _controller: TestICESPBundle:TestICESP:create }
+    requirements: { _method: post }
+
+#test_ice_show:
+#    pattern:  /show
+#    defaults: { _controller: TestICESPBundle:TestICESP:show }
+    

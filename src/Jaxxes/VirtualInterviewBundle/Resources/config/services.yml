@@ -1,0 +1,7 @@
+parameters:
+#    virtual_interview.example.class: Jaxxes\VirtualInterviewBundle\Example
+
+services:
+#    virtual_interview.example:
+#        class: %virtual_interview.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
